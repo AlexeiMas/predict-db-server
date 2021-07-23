@@ -1,0 +1,6 @@
+.cache
+build
+**/node_modules/**
+**/migrations/**
+**/public/**
+charts-miniapp

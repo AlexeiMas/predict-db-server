@@ -1,0 +1,1899 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "<a rel=\"noopener noreferrer\" target=\"_self\" href=\"/\">Go Back to Welcome</a>",
+    "version": "0.1.0",
+    "title": "Imagen Therapeutics API"
+  },
+  "basePath": "/v1",
+  "tags": [
+    {
+      "name": "search"
+    },
+    {
+      "name": "details"
+    }
+  ],
+  "schemes": ["http", "https"],
+  "paths": {
+    "/auth/sign-in": {
+      "post": {
+        "tags": ["auth"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Request body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/SignInRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "schema": {
+              "$ref": "#/definitions/AuthResponse"
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/auth/sign-up": {
+      "post": {
+        "tags": ["auth"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Request body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SignUpRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "schema": {
+              "$ref": "#/definitions/AuthResponse"
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/auth/refresh": {
+      "post": {
+        "tags": ["auth"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Request body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RefreshTokenRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "schema": {
+              "$ref": "#/definitions/AuthResponse"
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/auth/reset-password": {
+      "post": {
+        "tags": ["auth"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Request body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ResetPasswordStep1Request"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/auth/reset-password/{token}": {
+      "get": {
+        "tags": ["auth"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "path",
+            "description": "Recovery token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "schema": {
+              "$ref": "#/definitions/UserIdResponse"
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/auth/reset-password/{userId}/{token}": {
+      "post": {
+        "tags": ["auth"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "usedId",
+            "in": "path",
+            "description": "User ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "token",
+            "in": "path",
+            "description": "Recovery token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Request body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ResetPasswordStep2Request"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/search": {
+      "get": {
+        "tags": ["search"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "gene",
+            "in": "query",
+            "description": "Name of gene. Optional query param",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "alias",
+            "in": "query",
+            "description": "Gene alias. Optional query param",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "protein",
+            "in": "query",
+            "description": "Name of protein. Optional query param",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "modelId",
+            "in": "query",
+            "description": "PDC Model ID. Optional query param",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "diagnosis",
+            "in": "query",
+            "description": "Patient diagnosis. Optional query param",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "tumourType",
+            "in": "query",
+            "description": "Tumour primary type. Optional query param",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "tumourSubType",
+            "in": "query",
+            "description": "Tumour sub type. Optional query param",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "historyCollection",
+            "in": "query",
+            "description": "Patient treatment history collection (pre/post). Optional query param",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "historyTreatment",
+            "in": "query",
+            "description": "Patient treatment. Optional query param",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "historyResponseType",
+            "in": "query",
+            "description": "Response type. Optional query param",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "responsesTreatment",
+            "in": "query",
+            "description": "Treatment type. Optional query param",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "responsesResponseType",
+            "in": "query",
+            "description": "Phenotypic response type. Optional query param",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "includeExpressions",
+            "in": "query",
+            "description": "Optional query param. Default false",
+            "required": false,
+            "default": false,
+            "type": "boolean"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Optional query param",
+            "required": false,
+            "default": 20,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Optional query param",
+            "required": false,
+            "default": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Optional query param",
+            "required": false,
+            "default": "PDC Model",
+            "type": "string"
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "description": "Optional query param. Correct values - 'asc', 'desc'",
+            "required": false,
+            "default": "asc",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ClinicalData"
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/details/general/{modelId}": {
+      "get": {
+        "tags": ["details"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "modelId",
+            "in": "path",
+            "required": true,
+            "default": "PTX-0001",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "schema": {
+              "$ref": "#/definitions/PDCModel"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/details/clinical/{modelId}": {
+      "get": {
+        "tags": ["details"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "modelId",
+            "in": "path",
+            "required": true,
+            "default": "PTX-0001",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "schema": {
+              "$ref": "#/definitions/ClinicalData"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/details/history/{modelId}": {
+      "get": {
+        "tags": ["details"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "modelId",
+            "in": "path",
+            "required": true,
+            "default": "PTX-0001",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "schema": {
+              "$ref": "#/definitions/TreatmentHistory"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/details/responses/{modelId}": {
+      "get": {
+        "tags": ["details"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "modelId",
+            "in": "path",
+            "required": true,
+            "default": "PTX-0001",
+            "type": "string"
+          },
+          {
+            "name": "tumourType",
+            "in": "query",
+            "description": "Tumour primary type. Optional query param",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "tumourSubType",
+            "in": "query",
+            "description": "Tumour sub type. Optional query param",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "schema": {
+              "$ref": "#/definitions/TreatmentResponse"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/filters/tumours/diagnosis": {
+      "get": {
+        "tags": ["filters"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Optional query param",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/filters/tumours/primary": {
+      "get": {
+        "tags": ["filters"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Optional query param",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "schema": {
+              "$ref": "#/definitions/TumourFilterPrimary"
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/filters/tumours/sub": {
+      "get": {
+        "tags": ["filters"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "primary",
+            "in": "query",
+            "description": "Tumour primary type",
+            "default": "Brain Tumors",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Optional query param",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/filters/history/collection": {
+      "get": {
+        "tags": ["filters"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Optional query param",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/filters/history/treatment": {
+      "get": {
+        "tags": ["filters"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Optional query param",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/filters/history/response": {
+      "get": {
+        "tags": ["filters"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Optional query param",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/filters/responses/treatment": {
+      "get": {
+        "tags": ["filters"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Optional query param",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/filters/responses/response": {
+      "get": {
+        "tags": ["filters"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Optional query param",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/filters/models": {
+      "get": {
+        "tags": ["filters"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Optional query param",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/filters/genes": {
+      "get": {
+        "tags": ["filters"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Optional query param",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/export": {
+      "get": {
+        "tags": ["export"],
+        "produces": [
+          "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        ],
+        "parameters": [
+          {
+            "name": "gene",
+            "in": "query",
+            "description": "Name of gene. Optional query param",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "alias",
+            "in": "query",
+            "description": "Gene alias. Optional query param",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "protein",
+            "in": "query",
+            "description": "Name of protein. Optional query param",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "modelId",
+            "in": "query",
+            "description": "PDC Model ID. Optional query param",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "diagnosis",
+            "in": "query",
+            "description": "Patient diagnosis. Optional query param",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "tumourType",
+            "in": "query",
+            "description": "Tumour primary type. Optional query param",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "tumourSubType",
+            "in": "query",
+            "description": "Tumour sub type. Optional query param",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "historyCollection",
+            "in": "query",
+            "description": "Patient treatment history collection (pre/post). Optional query param",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "historyTreatment",
+            "in": "query",
+            "description": "Patient treatment. Optional query param",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "historyResponseType",
+            "in": "query",
+            "description": "Response type. Optional query param",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "responsesTreatment",
+            "in": "query",
+            "description": "Treatment type. Optional query param",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "responsesResponseType",
+            "in": "query",
+            "description": "Phenotypic response type. Optional query param",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "includeExpressions",
+            "in": "query",
+            "description": "Optional query param. Default false",
+            "required": false,
+            "default": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/auth/login": {
+      "post": {
+        "tags": ["admin / auth"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Request body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/SignInRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "schema": {
+              "$ref": "#/definitions/AuthResponse"
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/admin/users": {
+      "get": {
+        "tags": ["admin / users"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Limit",
+            "default": 20,
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "Offset",
+            "default": 0,
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort options",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "schema": {
+              "$ref": "#/definitions/UsersResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      },
+      "post": {
+        "tags": ["admin / users"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Request body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/UserRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "schema": {
+              "$ref": "#/definitions/UserResponse"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": ["admin / users"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Request body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/UserIdsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "schema": {
+              "$ref": "#/definitions/UsersResponse"
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/users/{id}": {
+      "get": {
+        "tags": ["admin / users"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "User id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "schema": {
+              "$ref": "#/definitions/UserResponse"
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      },
+      "put": {
+        "tags": ["admin / users"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "User id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Request body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/UserRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "schema": {
+              "$ref": "#/definitions/UserResponse"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/users/{userId}/{token}": {
+      "get": {
+        "tags": ["admin / users"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "token",
+            "in": "path",
+            "description": "Approval token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    }
+  },
+  "securityDefinitions": {
+    "Bearer": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "definitions": {
+    "ClinicalData": {
+      "type": "object",
+      "properties": {
+        "Origin": {
+          "type": "string"
+        },
+        "Date Created": {
+          "type": "string",
+          "format": "date"
+        },
+        "Growth Kinetics": {
+          "type": "string"
+        },
+        "Sex": {
+          "type": "string"
+        },
+        "Age": {
+          "type": "string"
+        },
+        "Ethnicity": {
+          "type": "string"
+        },
+        "Primary Tumour Type": {
+          "type": "string"
+        },
+        "Tumour Sub-type": {
+          "type": "string"
+        },
+        "SNOMED ID": {
+          "type": "string"
+        },
+        "Diagnosis": {
+          "type": "string"
+        },
+        "Stage": {
+          "type": "string"
+        },
+        "Histology": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Breast Cancer Receptor Status": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Differentiation": {
+          "type": "string"
+        },
+        "Treatment Status": {
+          "type": "string"
+        },
+        "Sample Collection Site": {
+          "type": "string"
+        },
+        "Sample Type": {
+          "type": "string"
+        },
+        "Procedure Type": {
+          "type": "string"
+        },
+        "Smoking History": {
+          "type": "string"
+        },
+        "Clinical Biomarkers of Interest (non-immune)": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Clinical Biomarkers of Interest (Immune)": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "PDC Model": {
+          "type": "string"
+        },
+        "Case ID": {
+          "type": "string"
+        }
+      }
+    },
+    "ClinicalDataWithModel": {
+      "type": "object",
+      "properties": {
+        "Origin": {
+          "type": "string"
+        },
+        "Date Created": {
+          "type": "string",
+          "format": "date"
+        },
+        "Growth Kinetics": {
+          "type": "string"
+        },
+        "Sex": {
+          "type": "string"
+        },
+        "Age": {
+          "type": "string"
+        },
+        "Ethnicity": {
+          "type": "string"
+        },
+        "Primary Tumour Type": {
+          "type": "string"
+        },
+        "Tumour Sub-type": {
+          "type": "string"
+        },
+        "SNOMED ID": {
+          "type": "string"
+        },
+        "Diagnosis": {
+          "type": "string"
+        },
+        "Stage": {
+          "type": "string"
+        },
+        "Histology": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Differentiation": {
+          "type": "string"
+        },
+        "Treatment Status": {
+          "type": "string"
+        },
+        "Sample Collection Site": {
+          "type": "string"
+        },
+        "Sample Type": {
+          "type": "string"
+        },
+        "Procedure Type": {
+          "type": "string"
+        },
+        "Smoking History": {
+          "type": "string"
+        },
+        "Clinical Biomarkers of Interest (non-immune)": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Clinical Biomarkers of Interest (Immune)": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "PDC Model": {
+          "type": "string"
+        },
+        "Case ID": {
+          "type": "string"
+        },
+        "Model": {
+          "$ref": "#/definitions/PDCModelWithTreatmentResponsesCount"
+        }
+      }
+    },
+    "PDCModel": {
+      "type": "object",
+      "properties": {
+        "Growth Characteristics": {
+          "type": "string"
+        },
+        "3D Model Status": {
+          "type": "string"
+        },
+        "Patient Sequential Models": {
+          "type": "string"
+        },
+        "Confirmed Protein Expression": {
+          "type": "string"
+        },
+        "NGS": {
+          "type": "string"
+        },
+        "Tumour Mutation Burden Status": {
+          "type": "string"
+        },
+        "Microsatelite Status": {
+          "type": "string"
+        },
+        "Has Patient Treatment History": {
+          "type": "boolean"
+        },
+        "Has NGS Data": {
+          "type": "boolean"
+        },
+        "Has Growth Characteristics": {
+          "type": "boolean"
+        },
+        "Has Plasma": {
+          "type": "boolean"
+        },
+        "Has PBMC": {
+          "type": "boolean"
+        },
+        "PredictRx Case ID": {
+          "type": "string"
+        },
+        "Model ID": {
+          "type": "string"
+        }
+      }
+    },
+    "PDCModelWithTreatmentResponsesCount": {
+      "type": "object",
+      "properties": {
+        "Growth Characteristics": {
+          "type": "string"
+        },
+        "3D Model Status": {
+          "type": "string"
+        },
+        "Patient Sequential Models": {
+          "type": "string"
+        },
+        "Confirmed Protein Expression": {
+          "type": "string"
+        },
+        "NGS": {
+          "type": "string"
+        },
+        "Tumour Mutation Burden Status": {
+          "type": "string"
+        },
+        "Microsatelite Status": {
+          "type": "string"
+        },
+        "Has Patient Treatment History": {
+          "type": "boolean"
+        },
+        "Has NGS Data": {
+          "type": "boolean"
+        },
+        "Has Growth Characteristics": {
+          "type": "boolean"
+        },
+        "Has Plasma": {
+          "type": "boolean"
+        },
+        "Has PBMC": {
+          "type": "boolean"
+        },
+        "PredictRx Case ID": {
+          "type": "string"
+        },
+        "Model ID": {
+          "type": "string"
+        },
+        "TreatmentResponsesCount": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "TreatmentHistory": {
+      "type": "object",
+      "properties": {
+        "Pre/Post Collection": {
+          "type": "string"
+        },
+        "Regime": {
+          "type": "string"
+        },
+        "Date Started": {
+          "type": "string",
+          "format": "date"
+        },
+        "Dose  (mg/day or mg/kg)": {
+          "type": "string"
+        },
+        "Treatment Duration (Months)": {
+          "type": "string"
+        },
+        "Best Response (RECIST)": {
+          "type": "string"
+        },
+        "Treatment": {
+          "type": "string"
+        },
+        "Date of Last Treatment": {
+          "type": "string",
+          "format": "date"
+        },
+        "PredictRx Case ID": {
+          "type": "string"
+        }
+      }
+    },
+    "TreatmentResponse": {
+      "type": "object",
+      "properties": {
+        "Treatment": {
+          "type": "string"
+        },
+        "Response Percentile": {
+          "type": "string"
+        },
+        "Phenotypic Response Type": {
+          "type": "string"
+        },
+        "Treatment Type": {
+          "type": "string"
+        },
+        "Model ID": {
+          "type": "string"
+        }
+      }
+    },
+    "TumourFilterPrimary": {
+      "type": "object",
+      "properties": {
+        "primary": {
+          "type": "string"
+        },
+        "hasSubs": {
+          "type": "boolean"
+        }
+      }
+    },
+    "SignInRequest": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "SignUpRequest": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "password_confirmation": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "companyName": {
+          "type": "string"
+        },
+        "jobTitle": {
+          "type": "string"
+        }
+      }
+    },
+    "RefreshTokenRequest": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "type": "string"
+        }
+      }
+    },
+    "UserInfo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        }
+      }
+    },
+    "UserCredentials": {
+      "type": "object",
+      "properties": {
+        "accessToken": {
+          "type": "string"
+        },
+        "refreshToken": {
+          "type": "string"
+        },
+        "accessExp": {
+          "type": "string"
+        },
+        "refreshExp": {
+          "type": "string"
+        },
+        "accessExpMS": {
+          "type": "string"
+        },
+        "refreshExpMS": {
+          "type": "string"
+        }
+      }
+    },
+    "AuthResponse": {
+      "type": "object",
+      "properties": {
+        "user": {
+          "$ref": "#/definitions/UserInfo"
+        },
+        "credentials": {
+          "$ref": "#/definitions/UserCredentials"
+        }
+      }
+    },
+    "ResetPasswordStep1Request": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        }
+      }
+    },
+    "ResetPasswordStep2Request": {
+      "type": "object",
+      "properties": {
+        "password": {
+          "type": "string"
+        },
+        "password_confirmation": {
+          "type": "string"
+        }
+      }
+    },
+    "UserIdResponse": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string"
+        }
+      }
+    },
+    "UserResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "companyName": {
+          "type": "string"
+        },
+        "jobTitle": {
+          "type": "string"
+        },
+        "confirmed": {
+          "type": "boolean"
+        },
+        "enabled": {
+          "type": "boolean"
+        }
+      }
+    },
+    "UsersResponse": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/UserResponse"
+      }
+    },
+    "UserRequest": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "companyName": {
+          "type": "string"
+        },
+        "jobTitle": {
+          "type": "string"
+        },
+        "confirmed": {
+          "type": "boolean"
+        },
+        "enabled": {
+          "type": "boolean"
+        }
+      }
+    },
+    "UserIdsRequest": {
+      "type": "object",
+      "properties": {
+        "ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "ApiResponse": {
+      "type": "string"
+    }
+  }
+}

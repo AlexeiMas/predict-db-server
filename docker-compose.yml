@@ -1,0 +1,44 @@
+version: "3.3"
+
+services:
+  mongo:
+    image: mongo:latest
+    container_name: imagen-mongo
+    tty: true
+    restart: unless-stopped
+    ports:
+      - 27017:27017
+    volumes:
+      - ./.init-mongorc:/docker-entrypoint-initdb.d/init-mongorc.js:ro
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: 1234
+      MONGO_INITDB_DATABASE: imagen
+
+  mongo_express:
+    image: mongo-express
+    container_name: imagen-mongo-express
+    restart: unless-stopped
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: 1234
+      ME_CONFIG_MONGODB_AUTH_DATABASE: imagen
+      ME_CONFIG_MONGODB_AUTH_USERNAME: imagen
+      ME_CONFIG_MONGODB_AUTH_PASSWORD: imagen
+      ME_CONFIG_OPTIONS_EDITORTHEME: ambiance
+      ME_CONFIG_MONGODB_SERVER: imagen-mongo
+
+  redis:
+    image: redis
+    container_name: daheim-redis
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - redis-data:/data
+    ports:
+      - 6379:6379
+    restart: unless-stopped
+
+volumes:
+  redis-data:

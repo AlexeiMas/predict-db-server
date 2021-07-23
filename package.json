@@ -1,0 +1,55 @@
+{
+  "name": "imagen-backend",
+  "version": "0.1.0",
+  "description": "Imagen Therapeutics Backend",
+  "main": "index.js",
+  "scripts": {
+    "start": "NODE_ENV=production node -r dotenv/config ./index.js dotenv_config_path='.env'",
+    "dev": "NODE_ENV=development node -r dotenv/config ./index.js dotenv_config_path='.env'",
+    "dev:local": "NODE_ENV=development nodemon -r dotenv/config ./index.js dotenv_config_path='.env.local'",
+    "lint": "node_modules/.bin/eslint --max-warnings=0 --ext .js --fix --ignore-path .gitignore .",
+    "test": "NODE_ENV=test node_modules/.bin/mocha ./tests/**"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@sendgrid/mail": "^7.4.5",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^9.0.2",
+    "excel4node": "^1.7.2",
+    "express": "^4.17.1",
+    "express-joi-validation": "^5.0.0",
+    "joi": "^17.4.0",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.1",
+    "mongoose": "^5.12.9",
+    "morgan": "^1.10.0",
+    "redis": "^3.1.2",
+    "swagger-ui-express": "^4.1.6",
+    "uuid": "^3.4.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.26.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "husky": "^4.3.8",
+    "lint-staged": "^11.0.0",
+    "mocha": "^8.4.0",
+    "nodemon": "^2.0.7"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "node_modules/.bin/lint-staged && npm run test"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "node_modules/.bin/eslint --fix"
+    ]
+  },
+  "engines": {
+    "node": ">= 12.15.0",
+    "npm": ">= 6.13.4"
+  }
+}
