@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const app = require('./app');
 
-const PORT = process.env.APP_PORT || 3001;
+const PORT = process.env.PORT || 3001;
 
 process.on('unhandledRejection', (err) => {
   console.log('unhandledRejection', err); // eslint-disable-line

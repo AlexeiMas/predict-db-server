@@ -1,22 +1,5 @@
 module.exports = {
   title: 'environment',
   params: [
-    'APP_URL',
-    'APP_PORT',
-    'USE_SWAGGER',
-    'MONGODB_URL',
-    'DEFAULT_LIMIT',
-    'MAX_GENES_SEARCH_COUNT',
-    'REDIS_HOST',
-    'REDIS_PORT',
-    'JWT_SECRET',
-    'JWT_ACCESS_EXPIRES_SEC',
-    'JWT_REFRESH_EXPIRES_SEC',
-    'SENDGRID_API_KEY',
-    'SENDGRID_FROM_EMAIL',
-    'SENDGRID_FROM_NAME',
-    'SENDGRID_ADMIN_EMAIL',
-    'RESET_PASSWORD_EXPIRY_TIME',
-    'RESET_PASSWORD_URL',
   ],
 };
