@@ -16,8 +16,8 @@ const FIELDS = [
   'gnomAD_genome_ALL',
   'Protein_position',
   'Amino_acids',
-  'Func.refGene',
-  'ExonicFunc.refGene',
+  'Func_refGene',
+  'ExonicFunc_refGene',
   'Chr',
   'Start',
   'End',
@@ -69,8 +69,8 @@ const getNgsValues = (data) => data.reduce((acc, row) => {
       variation: item.Existing_variation || '',
       proteinPosition: item.Protein_position || '',
       aminoAcids: item.Amino_acids || '',
-      funcRefGene: item['Func.refGene'] || '',
-      exonicFuncRefGene: item['ExonicFunc.refGene'] || '',
+      funcRefGene: item.Func_refGene || '',
+      exonicFuncRefGene: item.ExonicFunc_refGene || '',
       chr: item.Chr || '',
       start: Number.isFinite(item.Start) ? item.Start : '',
       end: Number.isFinite(item.End) ? item.End : '',
@@ -100,7 +100,7 @@ const getNgsValues = (data) => data.reduce((acc, row) => {
   const expressionsRows = expressions && expressions.length > 0
     ? expressions.map((item) => ({
       symbol: item.Symbol || '',
-      logTpm: Number.isFinite(item['Log.TPM']) ? item['Log.TPM'] : '',
+      logTpm: Number.isFinite(item['Log TPM']) ? item['Log TPM'] : '',
       percentile: Number.isFinite(item.Percentile) ? item.Percentile : '',
       modelId: item['Model ID'],
     }))

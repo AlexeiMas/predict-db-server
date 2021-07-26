@@ -70,8 +70,8 @@ const mutationsFields = {
   Existing_variation: 1,
   Protein_position: 1,
   Amino_acids: 1,
-  'Func.refGene': 1,
-  'ExonicFunc.refGene': 1,
+  Func_refGene: 1,
+  ExonicFunc_refGene: 1,
   Chr: 1,
   Start: 1,
   End: 1,
@@ -90,7 +90,7 @@ const mutationsFields = {
 
 const expressionsFields = {
   gene_id: 1,
-  'Log.TPM': 1,
+  'Log TPM': 1,
   Percentile: 1,
   Symbol: 1,
   'Model ID': 1,

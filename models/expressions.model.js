@@ -3,7 +3,7 @@ const { modelFields } = require('./fields');
 
 const schema = new Schema({
   gene_id: String,
-  'Log.TPM': Number,
+  'Log TPM': Number,
   Percentile: Number,
   Symbol: String,
   'Model ID': { type: String, index: true },
