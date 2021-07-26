@@ -1,4 +1,6 @@
 const express = require('express');
+const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
 const path = require('path');
 const logger = require('morgan');
 const cors = require('cors');
@@ -8,13 +10,19 @@ const { fillAdmin } = require('./models/seeds/admins.seed');
 
 const app = express();
 const useSwagger = /true/gi.test(process.env.USE_SWAGGER);
+const limiter = rateLimit({
+  windowMs: 60 * 1000, // 1 minute
+  max: 100, // limit each IP to 100 requests per windowMs
+});
 
+app.use(helmet());
 app.use(cors({
   origin: '*',
   exposedHeaders: ['Content-Range'],
   credentials: true,
 }));
 app.use(express.json({ extended: true }));
+app.use(limiter);
 
 if (process.env.NODE_ENV === 'development') {
   app.use(logger('dev'));
