@@ -1,5 +1,5 @@
 const {
-  ClinicalData, Mutation, TreatmentHistory, TreatmentResponse, CopyNumber, Expression, Fusion,
+  ClinicalData, Mutation, TreatmentHistory, TreatmentResponse, CopyNumber, Expression, Fusion, PDCModel,
 } = require('../models');
 const { clinicalDataFields } = require('../models/fields');
 const geneNames = require('../data/genesNames.json');
@@ -38,6 +38,7 @@ module.exports = async (req, res) => {
     if (genesSum > MAX_GENES_SEARCH_COUNT) return res.status(400).send(LIMIT_EXCEEDED);
 
     const modelIds = [];
+    const filteredModelIds = [];
     const caseIds = [];
 
     const genesByAliasInfo = alias ? geneNames.filter((i) => {
@@ -154,11 +155,21 @@ module.exports = async (req, res) => {
       const history = await TreatmentHistory.find(historyFilter).select({ 'PredictRx Case ID': 1 });
       caseIds.push(...new Set(history.map((item) => item['PredictRx Case ID'])));
     }
+    if (modelIds.length) {
+      const models = await PDCModel.find({ 'Model ID': { $in: [...new Set(modelIds)] }, 'Visible Externally': true });
+      const ids = models.map((i) => i['Model ID']);
+      filteredModelIds.push(...ids);
+    } else {
+      const models = await PDCModel.find({ 'Visible Externally': true });
+      const ids = models.map((i) => i['Model ID']);
+      filteredModelIds.push(...ids);
+    }
 
     const filter = {
       ...(isTumourFilter ? tumourFilter : {}),
-      ...(modelId || isGeneFilter || isResponsesFilter ? { 'PDC Model': { $in: [...new Set(modelIds)] } } : {}),
+      ...(modelId || isGeneFilter || isResponsesFilter ? { 'PDC Model': { $in: filteredModelIds } } : {}),
       ...(isHistoryFilter ? { 'Case ID': { $in: [...new Set(caseIds)] } } : {}),
+      'PDC Model': { $in: filteredModelIds },
     };
 
     const sorting = { [sort]: order };

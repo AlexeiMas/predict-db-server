@@ -1,5 +1,5 @@
 const {
-  ClinicalData, Mutation, CopyNumber, Expression, Fusion, TreatmentHistory, TreatmentResponse,
+  ClinicalData, Mutation, CopyNumber, Expression, Fusion, TreatmentHistory, TreatmentResponse, PDCModel,
 } = require('../models');
 const { clinicalDataFields } = require('../models/fields');
 const exportService = require('../services/export');
@@ -26,6 +26,7 @@ module.exports = async (req, res) => {
 
     const modelIds = [];
     const caseIds = [];
+    const filteredModelIds = [];
 
     const genesByAliasInfo = alias ? geneNames.filter((i) => {
       const intersection = i.aliases.filter((a) => alias.includes(a));
@@ -136,16 +137,19 @@ module.exports = async (req, res) => {
       const responses = await TreatmentResponse.find(responsesFilter).select({ 'Model ID': 1 });
       modelIds.push(...new Set(responses.map((item) => item['Model ID'])));
     }
-
     if (Object.keys(historyFilter).length) {
       const history = await TreatmentHistory.find(historyFilter).select({ 'PredictRx Case ID': 1 });
       caseIds.push(...new Set(history.map((item) => item['PredictRx Case ID'])));
     }
+    const models = await PDCModel.find({ 'Visible Externally': true });
+    const ids = models.map((i) => i['Model ID']);
+    filteredModelIds.push(...ids);
 
     const filter = {
       ...(isTumourFilter ? tumourFilter : {}),
-      ...(modelId || isGeneFilter || isResponsesFilter ? { 'PDC Model': { $in: [...new Set(modelIds)] } } : {}),
+      ...(modelId || isGeneFilter || isResponsesFilter ? { 'PDC Model': { $in: filteredModelIds } } : {}),
       ...(isHistoryFilter ? { 'Case ID': { $in: [...new Set(caseIds)] } } : {}),
+      'PDC Model': { $in: filteredModelIds },
     };
 
     let ngsPopulations = [];

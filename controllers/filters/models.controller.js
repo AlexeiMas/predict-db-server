@@ -4,6 +4,7 @@ module.exports = async (req, res) => {
   try {
     const { search } = req.query;
     const filter = {
+      'Visible Externally': true,
       ...(search ? { 'Model ID': new RegExp(search, 'i') } : {}),
     };
     const models = await PDCModel
