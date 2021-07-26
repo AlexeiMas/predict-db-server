@@ -19,7 +19,7 @@ app.use(helmet());
 app.use(cors({
   origin: '*',
   exposedHeaders: ['Content-Range'],
-  credentials: true,
+  preflightContinue: true,
 }));
 app.use(express.json({ extended: true }));
 app.use(limiter);
