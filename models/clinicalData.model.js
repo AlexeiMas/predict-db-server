@@ -2,33 +2,34 @@ const { Schema, model } = require('mongoose');
 const { modelFields, treatmentHistoryFields } = require('./fields');
 
 const schema = new Schema({
-  Origin: String,
-  'Date Created': { type: Date, default: Date.now },
+  date_created: { type: Date, default: Date.now },
   'Growth Kinetics': String,
   Sex: String,
   Age: String,
   Ethnicity: String,
   'Primary Tumour Type': String,
   'Tumour Sub-type': String,
-  'SNOMED ID': String,
+  'NIH MeSH Tree Number': String,
   Diagnosis: String,
   Stage: String,
-  Histology: [String],
-  'Breast Cancer Receptor Status': [String],
+  Histology: String,
+  'Receptor Status': String,
   Differentiation: String,
   'Treatment Status': String,
   'Sample Collection Site': String,
   'Sample Type': String,
   'Procedure Type': String,
   'Smoking History': String,
-  'Clinical Biomarkers of Interest (non-immune)': [String],
-  'Clinical Biomarkers of Interest (Immune)': [String],
+  'Clinical Biomarkers of Interest (non-immune)': String,
+  'Clinical Biomarkers of Interest (Immune)': String,
   'PDC Model': String,
   'Case ID': String,
+  PBMC: Boolean,
+  Plasma: Boolean,
 });
 
 schema.virtual('Model', {
-  ref: 'ptx-model',
+  ref: 'pdc_model',
   localField: 'PDC Model',
   foreignField: 'Model ID',
   justOne: true,
@@ -38,7 +39,7 @@ schema.virtual('Model', {
 });
 
 schema.virtual('TreatmentHistory', {
-  ref: 'prx-treatment-history',
+  ref: 'prx_history',
   localField: 'Case ID',
   foreignField: 'PredictRx Case ID',
   options: {
@@ -46,4 +47,4 @@ schema.virtual('TreatmentHistory', {
   },
 });
 
-module.exports = model('prx-case', schema, 'prx-case');
+module.exports = model('prx_case', schema, 'prx_case');

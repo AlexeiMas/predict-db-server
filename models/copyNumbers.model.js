@@ -17,14 +17,14 @@ const schema = new Schema({
   IsCNV: Boolean,
   Length: Number,
   IsLOH_Only: Boolean,
-  'AnnotSV type': String,
+  'Annotation mode': String,
   Gene_name: String,
-  NM: String,
+  Tx: String,
   'Model ID': { type: String, index: true },
 });
 
 schema.virtual('Model', {
-  ref: 'ptx-model',
+  ref: 'pdc_model',
   localField: 'Model ID',
   foreignField: 'Model ID',
   options: {

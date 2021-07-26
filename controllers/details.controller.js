@@ -91,7 +91,7 @@ const responses = async (req, res) => {
     const data = tumourType || tumourSubType
       ? await ClinicalData
         .findOne(filter)
-        .select({ 'PDC Model': 1, 'SNOMED ID': 1 })
+        .select({ 'PDC Model': 1, 'NIH MeSH Tree Number': 1 })
         .populate({
           path: 'Model',
           select: { 'Model ID': 1 },
@@ -103,10 +103,10 @@ const responses = async (req, res) => {
         .lean()
       : null;
 
-    const snomedId = data ? data['SNOMED ID'] : null;
+    const meshId = data ? data['NIH MeSH Tree Number'] : null;
     const filtered = data && data.Model.TreatmentResponses
       ? data.Model.TreatmentResponses.reduce((acc, item) => {
-        const exists = treatmentInfo.find((i) => i.Treatment === item.Treatment && i.Indications.includes(snomedId));
+        const exists = treatmentInfo.find((i) => i.Treatment === item.Treatment && i.Indications.includes(meshId));
 
         return exists ? [...acc, item] : acc;
       }, [])
@@ -150,8 +150,7 @@ const ngs = async (req, res) => {
 
     if (gene) {
       geneMutationsItems.push({
-        Gene_refGene: { $in: [...new Set(gene)] },
-        cosmic68: { $nin: ['', '.', null, NaN] },
+        'Gene.refGene': { $in: [...new Set(gene)] },
       });
       geneCopyNumbersItems.push({ Gene_name: { $in: [...new Set(gene)] } });
       if (includeExpressions) geneExpressionsItems.push({ Symbol: { $in: [...new Set(gene)] } });
@@ -164,8 +163,7 @@ const ngs = async (req, res) => {
     }
     if (genesByAlias.length) {
       geneMutationsItems.push({
-        Gene_refGene: { $in: [...new Set(genesByAlias)] },
-        cosmic68: { $nin: ['', '.', null, NaN] },
+        'Gene.refGene': { $in: [...new Set(genesByAlias)] },
       });
       geneCopyNumbersItems.push({ Gene_name: { $in: [...new Set(genesByAlias)] } });
       if (includeExpressions) geneExpressionsItems.push({ Symbol: { $in: [...new Set(genesByAlias)] } });
@@ -178,8 +176,7 @@ const ngs = async (req, res) => {
     }
     if (genesByProtein.length) {
       geneMutationsItems.push({
-        Gene_refGene: { $in: [...new Set(genesByProtein)] },
-        cosmic68: { $nin: ['', '.', null, NaN] },
+        'Gene.refGene': { $in: [...new Set(genesByProtein)] },
       });
       geneCopyNumbersItems.push({ Gene_name: { $in: [...new Set(genesByProtein)] } });
       if (includeExpressions) geneExpressionsItems.push({ Symbol: { $in: [...new Set(genesByProtein)] } });
@@ -211,7 +208,7 @@ const ngs = async (req, res) => {
       .populate(populations)
       .lean();
 
-    const mutationsGenes = data.MutationsGenes ? data.MutationsGenes.map((i) => i.Gene_refGene) : [];
+    const mutationsGenes = data.MutationsGenes ? data.MutationsGenes.map((i) => i['Gene.refGene']) : [];
     const copyNumbersGenes = data.CopyNumbersGenes ? data.CopyNumbersGenes.map((i) => i.Gene_name) : [];
     const expressionsGenes = data.ExpressionsGenes ? data.ExpressionsGenes.map((i) => i.Symbol) : [];
     const fusionsGenesFirstSymbols = data.FusionsGenes ? data.FusionsGenes

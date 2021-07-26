@@ -15,7 +15,7 @@ const schema = new Schema({
 });
 
 schema.virtual('ClinicalData', {
-  ref: 'prx-case',
+  ref: 'prx_case',
   localField: 'PredictRx Case ID',
   foreignField: 'Case ID',
   options: {
@@ -23,4 +23,4 @@ schema.virtual('ClinicalData', {
   },
 });
 
-module.exports = model('prx-treatment-history', schema, 'prx-treatment-history');
+module.exports = model('prx_history', schema, 'prx_history');

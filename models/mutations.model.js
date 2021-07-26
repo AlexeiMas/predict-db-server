@@ -2,7 +2,7 @@ const { Schema, model } = require('mongoose');
 const { modelFields } = require('./fields');
 
 const schema = new Schema({
-  Gene_refGene: { type: String, index: true },
+  'Gene.refGene': { type: String, index: true },
   Existing_variation: String,
   Protein_position: String,
   Amino_acids: String,
@@ -14,6 +14,7 @@ const schema = new Schema({
   Ref: String,
   Alt: String,
   Zygosity: String,
+  AF: String,
   Quality: Number,
   CurrentExon: Number,
   EnsGenID: String,
@@ -24,7 +25,7 @@ const schema = new Schema({
 });
 
 schema.virtual('Model', {
-  ref: 'ptx-model',
+  ref: 'pdc_model',
   localField: 'Model ID',
   foreignField: 'Model ID',
   options: {

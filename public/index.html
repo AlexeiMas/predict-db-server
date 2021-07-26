@@ -1,75 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Imagen Therapeutics API</title>
-  </head>
-  <style>
-    :root {
-      --default-padding: 10px;
-      --header-color: hsla(200, 100%, 20%, 0.4);
-    }
 
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-      padding: 10px 0;
-      box-sizing: border-box;
-      height: 100vh;
-      width: 100vw;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-    }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Imagen Therapeutics API</title>
+</head>
+<style>
+  :root {
+    --default-padding: 10px;
+    --header-color: hsla(200, 100%, 20%, 0.4);
+  }
 
-    .body-wrapper {
-      width: 90%;
-      height: 100%;
-      display: flex;
-      padding-left: var(--default-padding);
-      padding-bottom: var(--default-padding);
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: stretch;
-    }
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    padding: 10px 0;
+    box-sizing: border-box;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-    .link-to-docs {
-      padding-left: var(--default-padding);
-      padding-bottom: var(--default-padding);
-      font-size: 1.2rem;
-    }
+  .body-wrapper {
+    width: 90%;
+    height: 100%;
+    display: flex;
+    padding-left: var(--default-padding);
+    padding-bottom: var(--default-padding);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+  }
 
-    .main-header {
-      padding-bottom: calc(5 * var(--default-padding));
-      font-size: 2rem;
-      color: var(--header-color);
-    }
-  </style>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      document
-        .querySelector(".swagger-docs")
-        .addEventListener("click", function () {
-          window.location.href = [
-            window.location.origin,
-            "v1/documentation",
-          ].join("/");
-        });
-    });
-  </script>
-  <body>
-    <div class="body-wrapper">
-      <div class="main-header">
-        Welcome to
-        <span style="font-weight: bold">Imagen Therapeutics API</span>
-      </div>
-      <div class="link-to-docs">
-        <a href="#" class="swagger-docs">Go to API Documentation</a>
-      </div>
+  .link-to-docs {
+    padding-left: var(--default-padding);
+    padding-bottom: var(--default-padding);
+    font-size: 1.2rem;
+  }
+
+  .main-header {
+    padding-bottom: calc(5 * var(--default-padding));
+    font-size: 2rem;
+    color: var(--header-color);
+  }
+</style>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document
+      .querySelector(".swagger-docs")
+      .addEventListener("click", function () {
+        window.location.href = [
+          window.location.origin,
+          "v1/documentation",
+        ].join("/");
+      });
+  });
+</script>
+
+<body>
+  <div class="body-wrapper">
+    <div class="main-header">
+      Welcome to
+      <span style="font-weight: bold">PredictDb API. © Imagen Therapeutics.</span>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>

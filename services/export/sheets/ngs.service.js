@@ -1,5 +1,5 @@
 const {
-  sheetOptions, alignmentStyle, greyHeaderStyle, greenHeaderStyle, redBoldFontStyle,
+  sheetOptions, alignmentStyle, greyHeaderStyle, blueHeaderStyle, redBoldFontStyle,
   mutationsFillStyle, copyNumbersFillStyle, expressionsFillStyle, fusionsFillStyle,
   setSheetBasicLayout, fillHeaderFields, fillValues, setColumnGrouping,
 } = require('../helpers');
@@ -24,6 +24,7 @@ const FIELDS = [
   'Ref',
   'Alt',
   'Zygosity',
+  'AF',
   'Quality',
   'CurrentExon',
   'EnsGenID',
@@ -33,9 +34,8 @@ const FIELDS = [
 
   // Copy Numbers
 
-  'SV type',
   'log2FC',
-  'Zscore',
+  'SV type',
 
   // Expressions
 
@@ -44,11 +44,11 @@ const FIELDS = [
 
   // Fusions
 
-  'Gene_5end',
-  'Gene_3end',
   'Fusion_description',
   'Predicted_effect',
   'Fusion_sequence',
+  'Gene_3end',
+  'Gene_5end',
 ];
 
 const getNgsValues = (data) => data.reduce((acc, row) => {
@@ -65,7 +65,7 @@ const getNgsValues = (data) => data.reduce((acc, row) => {
 
   const mutationsRows = mutations && mutations.length > 0
     ? mutations.map((item) => ({
-      gene: item.Gene_refGene || '',
+      gene: item['Gene.refGene'] || '',
       variation: item.Existing_variation || '',
       proteinPosition: item.Protein_position || '',
       aminoAcids: item.Amino_acids || '',
@@ -77,6 +77,7 @@ const getNgsValues = (data) => data.reduce((acc, row) => {
       ref: item.Ref || '',
       alt: item.Alt || '',
       zygosity: item.Zygosity || '',
+      af: item.AF || '',
       quality: Number.isFinite(item.Quality) ? item.Quality : '',
       currentExon: Number.isFinite(item.CurrentExon) ? item.CurrentExon : '',
       ensGenId: item.EnsGenID || '',
@@ -90,9 +91,8 @@ const getNgsValues = (data) => data.reduce((acc, row) => {
   const copyNumbersRows = copyNumbers && copyNumbers.length > 0
     ? copyNumbers.map((item) => ({
       geneName: item.Gene_name || '',
-      svType: item['SV type'] || '',
       log2FC: item.log2FC || '',
-      zscore: item.Zscore || '',
+      svType: item['SV type'] || '',
       modelId: item['Model ID'],
     }))
     : [];
@@ -100,7 +100,7 @@ const getNgsValues = (data) => data.reduce((acc, row) => {
   const expressionsRows = expressions && expressions.length > 0
     ? expressions.map((item) => ({
       symbol: item.Symbol || '',
-      logTpm: Number.isFinite(item['Log TPM']) ? item['Log TPM'] : '',
+      logTpm: Number.isFinite(item['Log.TPM']) ? item['Log.TPM'] : '',
       percentile: Number.isFinite(item.Percentile) ? item.Percentile : '',
       modelId: item['Model ID'],
     }))
@@ -108,11 +108,11 @@ const getNgsValues = (data) => data.reduce((acc, row) => {
 
   const fusionsRows = fusions && fusions.length > 0
     ? fusions.map((item) => ({
-      gene1: item['Gene_1_symbol(5end_fusion_partner)'] || '',
-      gene2: item['Gene_2_symbol(3end_fusion_partner)'] || '',
       description: item.Fusion_description || '',
       predictedEffect: item.Predicted_effect || '',
       fusionSequence: item.Fusion_sequence || '',
+      gene2: item['Gene_2_symbol(3end_fusion_partner)'] || '',
+      gene1: item['Gene_1_symbol(5end_fusion_partner)'] || '',
       modelId: item['Model ID'],
     }))
     : [];
@@ -171,6 +171,7 @@ const aggregateValues = (genes, values) => genes.reduce((collector, gene) => {
       alt: '',
       callerConfidence: '',
       zygosity: '',
+      af: '',
       quality: '',
       currentExon: '',
       ensGenId: '',
@@ -179,20 +180,19 @@ const aggregateValues = (genes, values) => genes.reduce((collector, gene) => {
       gnomAd: '',
     };
     const copyNumbersValues = copyNumbersRows.find((i) => i.modelId === item.modelId) || {
-      svType: '',
       log2FC: '',
-      zscore: '',
+      svType: '',
     };
     const expressionsValues = expressionsRows.find((i) => i.modelId === item.modelId) || {
       logTpm: '',
       percentile: '',
     };
     const fusionsValues = fusionsRows.find((i) => i.modelId === item.modelId) || {
-      gene1: '',
-      gene2: '',
       description: '',
       predictedEffect: '',
       fusionSequence: '',
+      gene2: '',
+      gene1: '',
     };
 
     return {
@@ -233,14 +233,15 @@ const transformToArray = (values) => values.map((item) => [
   item.ref,
   item.alt,
   item.zygosity,
+  item.af,
   item.quality,
   item.currentExon,
   item.ensGenId,
   item.ensTransId,
   item.cosmic68,
   item.variation,
-  item.svType,
   item.log2FC,
+  item.svType,
   item.zscore,
   item.logTpm,
   item.percentile,
@@ -293,22 +294,38 @@ module.exports.createWorksheet = (workbook, data) => {
 
   sheet.cell(3, 6, 3, 34).style({
     ...alignmentStyle,
-    ...greenHeaderStyle,
+    ...blueHeaderStyle,
   });
 
-  sheet.cell(2, 8, 2, 24, true).string('Mutations').style({
+  sheet.cell(2, 8, 2, 24, false).style({
     ...alignmentStyle,
     ...mutationsFillStyle,
   });
-  sheet.cell(2, 25, 2, 27, true).string('Copy Numbers').style({
+  sheet.cell(2, 25, 2, 25, false).string('Mutations').style({
+    ...alignmentStyle,
+    ...mutationsFillStyle,
+  });
+  sheet.cell(2, 26, 2, 26, false).style({
     ...alignmentStyle,
     ...copyNumbersFillStyle,
   });
-  sheet.cell(2, 28, 2, 29, true).string('Expressions').style({
+  sheet.cell(2, 27, 2, 27, false).string('Copy Numbers').style({
+    ...alignmentStyle,
+    ...copyNumbersFillStyle,
+  });
+  sheet.cell(2, 28, 2, 28, false).style({
     ...alignmentStyle,
     ...expressionsFillStyle,
   });
-  sheet.cell(2, 30, 2, 34, true).string('Fusions').style({
+  sheet.cell(2, 29, 2, 29, false).string('Expressions').style({
+    ...alignmentStyle,
+    ...expressionsFillStyle,
+  });
+  sheet.cell(2, 30, 2, 33, false).style({
+    ...alignmentStyle,
+    ...fusionsFillStyle,
+  });
+  sheet.cell(2, 34, 2, 34, false).string('Fusions').style({
     ...alignmentStyle,
     ...fusionsFillStyle,
   });
@@ -321,8 +338,8 @@ module.exports.createWorksheet = (workbook, data) => {
     .style(redBoldFontStyle);
   sheet.cell(1, 29).string('***Rank of Model within gene distribution').style(redBoldFontStyle);
 
-  setColumnGrouping(sheet, 1, 8, 24);
-  setColumnGrouping(sheet, 2, 25, 27);
+  setColumnGrouping(sheet, 1, 8, 25);
+  setColumnGrouping(sheet, 2, 26, 27);
   setColumnGrouping(sheet, 3, 28, 29);
   setColumnGrouping(sheet, 4, 30, 34);
 

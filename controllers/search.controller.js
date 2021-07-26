@@ -55,8 +55,7 @@ module.exports = async (req, res) => {
 
     if (gene) {
       geneMutationsItems.push({
-        Gene_refGene: { $in: [...new Set(gene)] },
-        cosmic68: { $nin: ['', '.', null, NaN] },
+        'Gene.refGene': { $in: [...new Set(gene)] },
       });
       geneCopyNumbersItems.push({ Gene_name: { $in: [...new Set(gene)] } });
       if (includeExpressions) geneExpressionsItems.push({ Symbol: { $in: [...new Set(gene)] } });
@@ -69,8 +68,7 @@ module.exports = async (req, res) => {
     }
     if (genesByAlias.length) {
       geneMutationsItems.push({
-        Gene_refGene: { $in: [...new Set(genesByAlias)] },
-        cosmic68: { $nin: ['', '.', null, NaN] },
+        'Gene.refGene': { $in: [...new Set(genesByAlias)] },
       });
       geneCopyNumbersItems.push({ Gene_name: { $in: [...new Set(genesByAlias)] } });
       if (includeExpressions) geneExpressionsItems.push({ Symbol: { $in: [...new Set(genesByAlias)] } });
@@ -83,8 +81,7 @@ module.exports = async (req, res) => {
     }
     if (genesByProtein.length) {
       geneMutationsItems.push({
-        Gene_refGene: { $in: [...new Set(genesByProtein)] },
-        cosmic68: { $nin: ['', '.', null, NaN] },
+        'Gene.refGene': { $in: [...new Set(genesByProtein)] },
       });
       geneCopyNumbersItems.push({ Gene_name: { $in: [...new Set(genesByProtein)] } });
       if (includeExpressions) geneExpressionsItems.push({ Symbol: { $in: [...new Set(genesByProtein)] } });

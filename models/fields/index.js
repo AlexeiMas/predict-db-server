@@ -1,4 +1,5 @@
 const modelFields = {
+  'Visible Externally': 1,
   'Model Status': 1,
   'Growth Characteristics': 1,
   '3D Model Status': 1,
@@ -10,8 +11,6 @@ const modelFields = {
   'Has Patient Treatment History': 1,
   'Has NGS Data': 1,
   'Has Growth Characteristics': 1,
-  'Has Plasma': 1,
-  'Has PBMC': 1,
   'PredictRx Case ID': 1,
   'Model ID': 1,
   hla: 1,
@@ -33,26 +32,25 @@ const copyNumbersFields = {
   IsCNV: 1,
   Length: 1,
   IsLOH_Only: 1,
-  'AnnotSV type': 1,
+  'Annotation mode': 1,
   Gene_name: 1,
-  NM: 1,
+  Tx: 1,
   'Model ID': 1,
 };
 
 const clinicalDataFields = {
-  Origin: 1,
-  'Date Created': 1,
+  date_created: 1,
   'Growth Kinetics': 1,
   Sex: 1,
   Age: 1,
   Ethnicity: 1,
   'Primary Tumour Type': 1,
   'Tumour Sub-type': 1,
-  'SNOMED ID': 1,
+  'NIH MeSH Tree Number': 1,
   Diagnosis: 1,
   Stage: 1,
   Histology: 1,
-  'Breast Cancer Receptor Status': 1,
+  'Receptor Status': 1,
   Differentiation: 1,
   'Treatment Status': 1,
   'Sample Collection Site': 1,
@@ -63,10 +61,12 @@ const clinicalDataFields = {
   'Clinical Biomarkers of Interest (Immune)': 1,
   'PDC Model': 1,
   'Case ID': 1,
+  PBMC: 1,
+  Plasma: 1,
 };
 
 const mutationsFields = {
-  Gene_refGene: 1,
+  'Gene.refGene': 1,
   Existing_variation: 1,
   Protein_position: 1,
   Amino_acids: 1,
@@ -78,6 +78,7 @@ const mutationsFields = {
   Ref: 1,
   Alt: 1,
   Zygosity: 1,
+  AF: 1,
   Quality: 1,
   CurrentExon: 1,
   EnsGenID: 1,
@@ -89,7 +90,7 @@ const mutationsFields = {
 
 const expressionsFields = {
   gene_id: 1,
-  'Log TPM': 1,
+  'Log.TPM': 1,
   Percentile: 1,
   Symbol: 1,
   'Model ID': 1,

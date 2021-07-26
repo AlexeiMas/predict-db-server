@@ -1369,7 +1369,7 @@
         "Origin": {
           "type": "string"
         },
-        "Date Created": {
+        "date_created": {
           "type": "string",
           "format": "date"
         },
@@ -1391,7 +1391,7 @@
         "Tumour Sub-type": {
           "type": "string"
         },
-        "SNOMED ID": {
+        "NIH MeSH Tree Number": {
           "type": "string"
         },
         "Diagnosis": {
@@ -1406,7 +1406,7 @@
             "type": "string"
           }
         },
-        "Breast Cancer Receptor Status": {
+        "Receptor Status": {
           "type": "array",
           "items": {
             "type": "string"
@@ -1456,7 +1456,7 @@
         "Origin": {
           "type": "string"
         },
-        "Date Created": {
+        "date_created": {
           "type": "string",
           "format": "date"
         },
@@ -1478,7 +1478,7 @@
         "Tumour Sub-type": {
           "type": "string"
         },
-        "SNOMED ID": {
+        "NIH MeSH Tree Number": {
           "type": "string"
         },
         "Diagnosis": {

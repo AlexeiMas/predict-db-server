@@ -10,7 +10,7 @@ const schema = new Schema({
 });
 
 schema.virtual('Model', {
-  ref: 'ptx-model',
+  ref: 'pdc_model',
   localField: 'Model ID',
   foreignField: 'Model ID',
   options: {
@@ -18,4 +18,4 @@ schema.virtual('Model', {
   },
 });
 
-module.exports = model('ptx-treatment-response', schema, 'ptx-treatment-response');
+module.exports = model('pdc_response', schema, 'pdc_response');

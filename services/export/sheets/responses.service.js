@@ -1,5 +1,5 @@
 const {
-  sheetOptions, alignmentStyle, greyHeaderStyle, greenHeaderStyle,
+  sheetOptions, alignmentStyle, greyHeaderStyle, blueHeaderStyle,
   redBoldFontStyle, setSheetBasicLayout, fillHeaderFields, fillValues,
 } = require('../helpers');
 
@@ -87,7 +87,7 @@ module.exports.createWorksheet = (workbook, data) => {
 
   sheet.cell(3, 6, 3, 8).style({
     ...alignmentStyle,
-    ...greenHeaderStyle,
+    ...blueHeaderStyle,
   });
 
   sheet.cell(2, 6, 2, 10, true).string(

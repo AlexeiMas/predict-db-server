@@ -9,6 +9,7 @@ const {
 } = require('./fields');
 
 const schema = new Schema({
+  'Visible Externally': Boolean,
   'Model Status': String,
   'Growth Characteristics': String,
   '3D Model Status': String,
@@ -20,8 +21,6 @@ const schema = new Schema({
   'Has Patient Treatment History': Boolean,
   'Has NGS Data': Boolean,
   'Has Growth Characteristics': Boolean,
-  'Has Plasma': Boolean,
-  'Has PBMC': Boolean,
   'PredictRx Case ID': String,
   'Model ID': { type: String, index: true },
   hla: {
@@ -30,7 +29,7 @@ const schema = new Schema({
 });
 
 schema.virtual('ClinicalData', {
-  ref: 'prx-case',
+  ref: 'prx_case',
   localField: 'Model ID',
   foreignField: 'PDC Model',
   justOne: true,
@@ -58,7 +57,7 @@ schema.virtual('Expressions', {
 });
 
 schema.virtual('TreatmentResponses', {
-  ref: 'ptx-treatment-response',
+  ref: 'pdc_response',
   localField: 'Model ID',
   foreignField: 'Model ID',
   options: {
@@ -85,7 +84,7 @@ schema.virtual('CopyNumbers', {
 });
 
 schema.virtual('TreatmentResponsesCount', {
-  ref: 'ptx-treatment-response',
+  ref: 'pdc_response',
   localField: 'Model ID',
   foreignField: 'Model ID',
   count: true,
@@ -99,7 +98,7 @@ schema.virtual('MutationsGenes', {
   localField: 'Model ID',
   foreignField: 'Model ID',
   options: {
-    select: { 'Model ID': 1, Gene_refGene: 1 },
+    select: { 'Model ID': 1, 'Gene.refGene': 1 },
   },
 });
 
@@ -130,4 +129,4 @@ schema.virtual('FusionsGenes', {
   },
 });
 
-module.exports = model('ptx-model', schema, 'ptx-model');
+module.exports = model('pdc_model', schema, 'pdc_model');

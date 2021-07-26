@@ -1,5 +1,5 @@
 const {
-  sheetOptions, alignmentStyle, greyHeaderStyle, greenHeaderStyle, setSheetBasicLayout, fillHeaderFields, fillValues,
+  sheetOptions, alignmentStyle, greyHeaderStyle, blueHeaderStyle, setSheetBasicLayout, fillHeaderFields, fillValues,
 } = require('../helpers');
 
 const FIELDS = [
@@ -60,7 +60,7 @@ module.exports.createWorksheet = (workbook, data) => {
 
   sheet.cell(3, 6, 3, 14).style({
     ...alignmentStyle,
-    ...greenHeaderStyle,
+    ...blueHeaderStyle,
   });
 
   const values = prepareValues(data);

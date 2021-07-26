@@ -29,14 +29,14 @@ const greyHeaderStyle = {
   },
 };
 
-const greenHeaderStyle = {
+const blueHeaderStyle = {
   font: {
     bold: true,
   },
   fill: {
     type: 'pattern',
     patternType: 'solid',
-    fgColor: '#DBF5F1',
+    fgColor: '#D1DAE7',
   },
 };
 
@@ -51,7 +51,7 @@ const mutationsFillStyle = {
   fill: {
     type: 'pattern',
     patternType: 'solid',
-    fgColor: '#BCD7ED',
+    fgColor: '#21C5FF',
   },
 };
 
@@ -59,7 +59,7 @@ const copyNumbersFillStyle = {
   fill: {
     type: 'pattern',
     patternType: 'solid',
-    fgColor: '#D5DBE4',
+    fgColor: '#BDD7EE',
   },
 };
 
@@ -138,7 +138,7 @@ module.exports = {
   sheetOptions,
   alignmentStyle,
   greyHeaderStyle,
-  greenHeaderStyle,
+  blueHeaderStyle,
   redBoldFontStyle,
   mutationsFillStyle,
   copyNumbersFillStyle,

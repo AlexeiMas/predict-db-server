@@ -1,422 +1,503 @@
 [
-  {
-    "Treatment": "5FU",
-    "Type": "Cytotoxic",
-    "Indications": [
-      "254701007",
-      "254838004",
-      "363406005",
-      "363349007",
-      "363418001",
-      "363351006"
-    ],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB00544"
-  },
-  {
-    "Treatment": "Afatinib",
-    "Type": "Targeted",
-    "Indications": ["254637007"],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB08916"
-  },
-  {
-    "Treatment": "Axitinib",
-    "Type": "Targeted",
-    "Indications": ["702391001"],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB06626"
-  },
-  {
-    "Treatment": "Bleomycin",
-    "Type": "Cytotoxic",
-    "Indications": [
-      "363354003",
-      "255056009",
-      "118599009",
-      "118601006",
-      "363516004",
-      "713646001",
-      "363367000"
-    ],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB00290"
-  },
-  {
-    "Treatment": "Bortezomib",
-    "Type": "Targeted",
-    "Indications": ["109989006", "118601006"],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB00188"
-  },
-  {
-    "Treatment": "Bosutinib",
-    "Type": "Targeted",
-    "Indications": ["92818009"],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB06616"
-  },
-  {
-    "Treatment": "Brigatinib",
-    "Type": "Targeted",
-    "Indications": ["254637007"],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB12267"
-  },
-  {
-    "Treatment": "Carboplatin",
-    "Type": "Cytotoxic",
-    "Indications": ["363443007"],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB00958"
-  },
-  {
-    "Treatment": "Carfilzomib",
-    "Type": "Targeted",
-    "Indications": ["109989006"],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB08889"
-  },
-  {
-    "Treatment": "Carmustine",
-    "Type": "Cytotoxic",
-    "Indications": [
-      "38713004",
-      "57706008",
-      "443811009",
-      "416500007",
-      "118599009",
-      "443333004",
-      "109989006",
-      "118601006"
-    ],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB00262"
-  },
-  {
-    "Treatment": "Cediranib",
-    "Type": "Targeted",
-    "Indications": [],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB04849"
-  },
-  {
-    "Treatment": "Cisplatin",
-    "Type": "Cytotoxic",
-    "Indications": ["399326009", "363443007", "713646001"],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB00515"
-  },
-  {
-    "Treatment": "Cladribine",
-    "Type": "Cytotoxic",
-    "Indications": ["118613001"],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB00242"
-  },
-  {
-    "Treatment": "Clofarabine",
-    "Type": "Cytotoxic",
-    "Indications": ["91857003"],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB00631"
-  },
-  {
-    "Treatment": "Crizotinib",
-    "Type": "Targeted",
-    "Indications": ["254637007"],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB08865"
-  },
-  {
-    "Treatment": "Dasatinib",
-    "Type": "Targeted",
-    "Indications": ["91857003", "92818009"],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB01254"
-  },
-  {
-    "Treatment": "Daunorubicin",
-    "Type": "Cytotoxic",
-    "Indications": ["91857003", "91861009"],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB00694"
-  },
-  {
-    "Treatment": "Docetaxel",
-    "Type": "Cytotoxic",
-    "Indications": [
-      "254838004",
-      "363349007",
-      "255056009",
-      "254637007",
-      "399068003"
-    ],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB01248"
-  },
-  {
-    "Treatment": "Doxorubicin",
-    "Type": "Cytotoxic",
-    "Indications": [
-      "91857003",
-      "91861009",
-      "399326009",
-      "428281000",
-      "254838004",
-      "363349007",
-      "118599009",
-      "109385007",
-      "109989006",
-      "432328008",
-      "118601006",
-      "363443007",
-      "424952003",
-      "448216007",
-      "363493006",
-      "302849000"
-    ],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB00997"
-  },
-  {
-    "Treatment": "Epothilone B",
-    "Type": "Cytotoxic",
-    "Indications": [],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB03010"
-  },
-  {
-    "Treatment": "Eribulin",
-    "Type": "Cytotoxic",
-    "Indications": ["254838004"],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB08871"
-  },
-  {
-    "Treatment": "Erlotinib",
-    "Type": "Targeted",
-    "Indications": ["254637007", "363418001"],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB00530"
-  },
-  {
-    "Treatment": "Etoposide",
-    "Type": "Cytotoxic",
-    "Indications": ["254632001", "713646001"],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB00773"
-  },
-  {
-    "Treatment": "Everolimus",
-    "Type": "Targeted",
-    "Indications": ["254838004", "717919005", "702391001"],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB01590"
-  },
-  {
-    "Treatment": "Ganetespib",
-    "Type": "Targeted",
-    "Indications": [],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB12047"
-  },
-  {
-    "Treatment": "Gefitinib",
-    "Type": "Targeted",
-    "Indications": ["254637007"],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB00317"
-  },
-  {
-    "Treatment": "Gemcitabine",
-    "Type": "Cytotoxic",
-    "Indications": ["254838004", "254637007", "363443007", "363418001"],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB00441"
-  },
-  {
-    "Treatment": "Irinotecan",
-    "Type": "Cytotoxic",
-    "Indications": ["363406005"],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB00762"
-  },
-  {
-    "Treatment": "Lapatinib",
-    "Type": "Targeted",
-    "Indications": ["254838004"],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB01259"
-  },
-  {
-    "Treatment": "Lomustine",
-    "Type": "Cytotoxic",
-    "Indications": ["428061005", "118599009"],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB01206"
-  },
-  {
-    "Treatment": "Melphalan",
-    "Type": "Cytotoxic",
-    "Indications": ["109989006", "363443007"],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB01042"
-  },
-  {
-    "Treatment": "Mitomycin C",
-    "Type": "Cytotoxic",
-    "Indications": ["363349007", "363418001"],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB00305"
-  },
-  {
-    "Treatment": "Mitoxantrone",
-    "Type": "Cytotoxic",
-    "Indications": ["91861009", "399068003"],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB01204"
-  },
-  {
-    "Treatment": "Neratinib",
-    "Type": "Targeted",
-    "Indications": ["254838004"],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB11828"
-  },
-  {
-    "Treatment": "Nilotinib",
-    "Type": "Targeted",
-    "Indications": ["92818009"],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB04868"
-  },
-  {
-    "Treatment": "Nintedanib",
-    "Type": "Targeted",
-    "Indications": ["254637007"],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB09079"
-  },
-  {
-    "Treatment": "Olaparib",
-    "Type": "Targeted",
-    "Indications": ["254838004", "363443007", "363418001", "399068003"],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB09074"
-  },
-  {
-    "Treatment": "Osimertinib",
-    "Type": "Targeted",
-    "Indications": ["254637007"],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB09330"
-  },
-  {
-    "Treatment": "Oxaliplatin",
-    "Type": "Cytotoxic",
-    "Indications": ["363406005"],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB00526"
-  },
-  {
-    "Treatment": "Paclitaxel",
-    "Type": "Cytotoxic",
-    "Indications": [
-      "254838004",
-      "109385007",
-      "254637007",
-      "363443007",
-      "363418001"
-    ],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB01229"
-  },
-  {
-    "Treatment": "Palbociclib",
-    "Type": "Targeted",
-    "Indications": ["254838004"],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB09073"
-  },
-  {
-    "Treatment": "Pazopanib",
-    "Type": "Targeted",
-    "Indications": ["702391001", "424952003"],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB06589"
-  },
-  {
-    "Treatment": "Pemetrexed",
-    "Type": "Cytotoxic",
-    "Indications": ["254645002", "254637007"],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB00642"
-  },
-  {
-    "Treatment": "Ponatinib",
-    "Type": "Targeted",
-    "Indications": ["91857003", "92818009"],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB08901"
-  },
-  {
-    "Treatment": "Rapamycin",
-    "Type": "Targeted",
-    "Indications": [],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB00877"
-  },
-  {
-    "Treatment": "Regorafenib",
-    "Type": "Targeted",
-    "Indications": ["363406005", "420120006", "109841003"],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB08896"
-  },
-  {
-    "Treatment": "Ribociclib",
-    "Type": "Targeted",
-    "Indications": ["254838004"],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB11730"
-  },
-  {
-    "Treatment": "Ruxolitinib",
-    "Type": "Targeted",
-    "Indications": [],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB08877"
-  },
-  {
-    "Treatment": "Sorafenib",
-    "Type": "Targeted",
-    "Indications": ["109841003", "702391001", "448216007"],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB00398"
-  },
-  {
-    "Treatment": "Sunitinib",
-    "Type": "Targeted",
-    "Indications": ["420120006", "717919005", "702391001"],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB01268"
-  },
-  {
-    "Treatment": "Temozolomide",
-    "Type": "Cytotoxic",
-    "Indications": ["38713004", "443811009"],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB00853"
-  },
-  {
-    "Treatment": "Teniposide",
-    "Type": "Cytotoxic",
-    "Indications": ["91857003"],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB00444"
-  },
-  {
-    "Treatment": "Topotecan",
-    "Type": "Cytotoxic",
-    "Indications": ["363354003", "363443007", "254632001"],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB01030"
-  },
-  {
-    "Treatment": "Trametinib",
-    "Type": "Targeted",
-    "Indications": ["372244006", "254637007", "448216007"],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB08911"
-  },
-  {
-    "Treatment": "Vandetanib",
-    "Type": "Targeted",
-    "Indications": ["448216007"],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB05294"
-  },
-  {
-    "Treatment": "Vemurafenib",
-    "Type": "Targeted",
-    "Indications": ["372244006"],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB08881"
-  },
-  {
-    "Treatment": "Vincristine",
-    "Type": "Cytotoxic",
-    "Indications": [
-      "91857003",
-      "118599009",
-      "432328008",
-      "118601006",
-      "302847003",
-      "302849000"
-    ],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB00541"
-  },
-  {
-    "Treatment": "Vinorelbine",
-    "Type": "Cytotoxic",
-    "Indications": ["254637007"],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB00361"
-  },
-  {
-    "Treatment": "Vismodegib",
-    "Type": "Targeted",
-    "Indications": ["254701007"],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB08828"
-  },
-  {
-    "Treatment": "Vorinostat",
-    "Type": "Targeted",
-    "Indications": ["277613000"],
-    "drugbank url": "https://www.drugbank.ca/drugs/DB02546"
-  }
+    {
+        "Treatment": "5FU",
+        "Type": "Cytotoxic",
+        "Indications": [
+            "C04.557.470.565",
+            "C04.588.180",
+            "C04.588.274.476.411.307",
+            "C04.588.274.476.767",
+            "C04.588.274.761",
+            "C04.588.274.476.411.307.790"
+        ]
+    },
+    {
+        "Treatment": "Afatinib",
+        "Type": "Targeted",
+        "Indications": [
+            "C04.588.894.797.520.109.220.249"
+        ]
+    },
+    {
+        "Treatment": "Axitinib",
+        "Type": "Targeted",
+        "Indications": [
+            "C04.588.945.947.535.160"
+        ]
+    },
+    {
+        "Treatment": "Bleomycin",
+        "Type": "Cytotoxic",
+        "Indications": [
+            "C04.557.470.200.240.250",
+            "C04.588.945.418.948.850",
+            "C04.588.443.177",
+            "C04.557.386.355",
+            "C04.557.386.480",
+            "C04.588.945.440.715",
+            "C04.588.945.440.915",
+            "C04.588.945.418.968"
+        ]
+    },
+    {
+        "Treatment": "Bortezomib",
+        "Type": "Targeted",
+        "Indications": [
+            "C04.557.595.500",
+            "C04.557.386.480"
+        ]
+    },
+    {
+        "Treatment": "Bosutinib",
+        "Type": "Targeted",
+        "Indications": [
+            "C04.557.337.539.250.400"
+        ]
+    },
+    {
+        "Treatment": "Brigatinib",
+        "Type": "Targeted",
+        "Indications": [
+            "C04.588.894.797.520.109.220.249"
+        ]
+    },
+    {
+        "Treatment": "Carboplatin",
+        "Type": "Cytotoxic",
+        "Indications": [
+            "C04.588.322.455"
+        ]
+    },
+    {
+        "Treatment": "Carfilzomib",
+        "Type": "Targeted",
+        "Indications": [
+            "C04.557.595.500"
+        ]
+    },
+    {
+        "Treatment": "Carmustine",
+        "Type": "Cytotoxic",
+        "Indications": [
+            "C04.557.580.625.600.380.080",
+            "C04.557.580.625.600.380.290",
+            "C04.557.580.625.600.380.080.335",
+            "C04.557.580.625.600.380",
+            "C04.557.386.355",
+            "C04.557.580.625.600.380.515",
+            "C04.557.595.500",
+            "C04.557.386.480"
+        ]
+    },
+    {
+        "Treatment": "Cediranib",
+        "Type": "Targeted",
+        "Indications": []
+    },
+    {
+        "Treatment": "Cisplatin",
+        "Type": "Cytotoxic",
+        "Indications": [
+            "C04.588.945.947.960",
+            "C04.588.322.455",
+            "C04.588.945.440.915"
+        ]
+    },
+    {
+        "Treatment": "Cladribine",
+        "Type": "Cytotoxic",
+        "Indications": [
+            "C04.557.337.415"
+        ]
+    },
+    {
+        "Treatment": "Clofarabine",
+        "Type": "Cytotoxic",
+        "Indications": []
+    },
+    {
+        "Treatment": "Crizotinib",
+        "Type": "Targeted",
+        "Indications": [
+            "C04.588.894.797.520.109.220.249"
+        ]
+    },
+    {
+        "Treatment": "Dasatinib",
+        "Type": "Targeted",
+        "Indications": [
+            "C04.557.337.428.600",
+            "C04.557.337.428.600.600",
+            "C04.557.337.428.600.620",
+            "C04.557.337.539.250.400"
+        ]
+    },
+    {
+        "Treatment": "Daunorubicin",
+        "Type": "Cytotoxic",
+        "Indications": [
+            "C04.557.337.428.600",
+            "C04.557.337.428.600.600",
+            "C04.557.337.428.600.620",
+            "C04.557.337.539.275"
+        ]
+    },
+    {
+        "Treatment": "Docetaxel",
+        "Type": "Cytotoxic",
+        "Indications": [
+            "C04.588.180",
+            "C04.588.274.476.767",
+            "C04.588.443",
+            "C04.588.894.797.520.109.220.249",
+            "C04.588.945.440.770"
+        ]
+    },
+    {
+        "Treatment": "Doxorubicin",
+        "Type": "Cytotoxic",
+        "Indications": [
+            "C04.557.337.428.600",
+            "C04.557.337.428.600.600",
+            "C04.557.337.428.600.620",
+            "C04.557.337.539.275",
+            "C04.588.945.947.960",
+            "C04.588.149",
+            "C04.588.180",
+            "C04.588.274.476.767",
+            "C04.557.386.355",
+            "C04.557.645.750",
+            "C04.557.595.500",
+            "C04.557.580.625.600.590.650.550",
+            "C04.557.386.480",
+            "C04.588.322.455",
+            "C04.557.450.795",
+            "C04.588.443.915",
+            "C04.588.443.925",
+            "C04.588.945.947.535.585"
+        ]
+    },
+    {
+        "Treatment": "Epothilone B",
+        "Type": "Cytotoxic",
+        "Indications": []
+    },
+    {
+        "Treatment": "Eribulin",
+        "Type": "Cytotoxic",
+        "Indications": [
+            "C04.588.180"
+        ]
+    },
+    {
+        "Treatment": "Erlotinib",
+        "Type": "Targeted",
+        "Indications": [
+            "C04.588.894.797.520.109.220.249",
+            "C04.588.274.761"
+        ]
+    },
+    {
+        "Treatment": "Etoposide",
+        "Type": "Cytotoxic",
+        "Indications": [
+            "C04.588.894.797.520.109.220.624",
+            "C04.588.945.440.915"
+        ]
+    },
+    {
+        "Treatment": "Everolimus",
+        "Type": "Targeted",
+        "Indications": [
+            "C04.588.180",
+            "C04.588.274.761",
+            "C04.588.945.947.535.160"
+        ]
+    },
+    {
+        "Treatment": "Ganetespib",
+        "Type": "Targeted",
+        "Indications": []
+    },
+    {
+        "Treatment": "Gefitinib",
+        "Type": "Targeted",
+        "Indications": [
+            "C04.588.894.797.520.109.220.249"
+        ]
+    },
+    {
+        "Treatment": "Gemcitabine",
+        "Type": "Cytotoxic",
+        "Indications": [
+            "C04.588.180",
+            "C04.588.894.797.520.109.220.249",
+            "C04.588.322.455",
+            "C04.588.274.761"
+        ]
+    },
+    {
+        "Treatment": "Irinotecan",
+        "Type": "Cytotoxic",
+        "Indications": [
+            "C04.588.274.476.411.307"
+        ]
+    },
+    {
+        "Treatment": "Lapatinib",
+        "Type": "Targeted",
+        "Indications": [
+            "C04.588.180"
+        ]
+    },
+    {
+        "Treatment": "Lomustine",
+        "Type": "Cytotoxic",
+        "Indications": [
+            "C04.588.614.250.195",
+            "C04.557.386.355"
+        ]
+    },
+    {
+        "Treatment": "Melphalan",
+        "Type": "Cytotoxic",
+        "Indications": [
+            "C04.557.595.500",
+            "C04.588.322.455"
+        ]
+    },
+    {
+        "Treatment": "Mitomycin C",
+        "Type": "Cytotoxic",
+        "Indications": [
+            "C04.588.274.476.767",
+            "C04.588.274.761"
+        ]
+    },
+    {
+        "Treatment": "Mitoxantrone",
+        "Type": "Cytotoxic",
+        "Indications": [
+            "C04.557.337.539.275",
+            "C04.588.945.440.770"
+        ]
+    },
+    {
+        "Treatment": "Neratinib",
+        "Type": "Targeted",
+        "Indications": [
+            "C04.588.180"
+        ]
+    },
+    {
+        "Treatment": "Nilotinib",
+        "Type": "Targeted",
+        "Indications": [
+            "C04.557.337.539.250.400"
+        ]
+    },
+    {
+        "Treatment": "Nintedanib",
+        "Type": "Targeted",
+        "Indications": [
+            "C04.588.894.797.520.109.220.249"
+        ]
+    },
+    {
+        "Treatment": "Olaparib",
+        "Type": "Targeted",
+        "Indications": [
+            "C04.588.180",
+            "C04.588.322.455",
+            "C04.588.274.761",
+            "C04.588.945.440.770"
+        ]
+    },
+    {
+        "Treatment": "Osimertinib",
+        "Type": "Targeted",
+        "Indications": [
+            "C04.588.894.797.520.109.220.249"
+        ]
+    },
+    {
+        "Treatment": "Oxaliplatin",
+        "Type": "Cytotoxic",
+        "Indications": [
+            "C04.588.274.476.411.307"
+        ]
+    },
+    {
+        "Treatment": "Paclitaxel",
+        "Type": "Cytotoxic",
+        "Indications": [
+            "C04.588.180",
+            "C04.557.645.750",
+            "C04.588.894.797.520.109.220.249",
+            "C04.588.322.455",
+            "C04.588.274.761"
+        ]
+    },
+    {
+        "Treatment": "Palbociclib",
+        "Type": "Targeted",
+        "Indications": [
+            "C04.588.180"
+        ]
+    },
+    {
+        "Treatment": "Pazopanib",
+        "Type": "Targeted",
+        "Indications": [
+            "C04.588.945.947.535.160",
+            "C04.557.450.795"
+        ]
+    },
+    {
+        "Treatment": "Pemetrexed",
+        "Type": "Cytotoxic",
+        "Indications": [
+            "C04.557.470.660",
+            "C04.588.894.797.520.109.220.249"
+        ]
+    },
+    {
+        "Treatment": "Ponatinib",
+        "Type": "Targeted",
+        "Indications": [
+            "C04.557.337.428.600.620",
+            "C04.557.337.428.600.620",
+            "C04.557.337.428.600.620",
+            "C04.557.337.539.250.400"
+        ]
+    },
+    {
+        "Treatment": "Rapamycin",
+        "Type": "Targeted",
+        "Indications": []
+    },
+    {
+        "Treatment": "Regorafenib",
+        "Type": "Targeted",
+        "Indications": [
+            "C04.588.274.476.411.307",
+            "C04.557.450.565.370",
+            "C04.588.274.623.160"
+        ]
+    },
+    {
+        "Treatment": "Ribociclib",
+        "Type": "Targeted",
+        "Indications": [
+            "C04.588.180"
+        ]
+    },
+    {
+        "Treatment": "Ruxolitinib",
+        "Type": "Targeted",
+        "Indications": []
+    },
+    {
+        "Treatment": "Sorafenib",
+        "Type": "Targeted",
+        "Indications": [
+            "C04.588.274.623.160",
+            "C04.588.945.947.535.160",
+            "C04.588.443.915"
+        ]
+    },
+    {
+        "Treatment": "Sunitinib",
+        "Type": "Targeted",
+        "Indications": [
+            "C04.557.450.565.370",
+            "C04.588.274.761",
+            "C04.588.945.947.535.160"
+        ]
+    },
+    {
+        "Treatment": "Temozolomide",
+        "Type": "Cytotoxic",
+        "Indications": [
+            "C04.557.580.625.600.380.080",
+            "C04.557.580.625.600.380.080.335"
+        ]
+    },
+    {
+        "Treatment": "Teniposide",
+        "Type": "Cytotoxic",
+        "Indications": [
+            "C04.557.337.428.600.620",
+            "C04.557.337.428.600.620",
+            "C04.557.337.428.600.620"
+        ]
+    },
+    {
+        "Treatment": "Topotecan",
+        "Type": "Cytotoxic",
+        "Indications": [
+            "C04.557.470.200.240.250",
+            "C04.588.945.418.948.850",
+            "C04.588.322.455",
+            "C04.588.894.797.520.109.220.624"
+        ]
+    },
+    {
+        "Treatment": "Trametinib",
+        "Type": "Targeted",
+        "Indications": [
+            "C04.557.665.510",
+            "C04.588.894.797.520.109.220.249",
+            "C04.588.443.915"
+        ]
+    },
+    {
+        "Treatment": "Vandetanib",
+        "Type": "Targeted",
+        "Indications": [
+            "C04.588.443.915"
+        ]
+    },
+    {
+        "Treatment": "Vemurafenib",
+        "Type": "Targeted",
+        "Indications": [
+            "C04.557.665.510"
+        ]
+    },
+    {
+        "Treatment": "Vincristine",
+        "Type": "Cytotoxic",
+        "Indications": [
+            "C04.557.337.428.600.620",
+            "C04.557.337.428.600.620",
+            "C04.557.337.428.600.620",
+            "C04.557.386.355",
+            "C04.557.580.625.600.590.650.550",
+            "C04.557.386.480",
+            "C04.557.450.590.550.660",
+            "C04.588.945.947.535.585"
+        ]
+    },
+    {
+        "Treatment": "Vinorelbine",
+        "Type": "Cytotoxic",
+        "Indications": [
+            "C04.588.894.797.520.109.220.249"
+        ]
+    },
+    {
+        "Treatment": "Vismodegib",
+        "Type": "Targeted",
+        "Indications": [
+            "C04.557.470.565"
+        ]
+    },
+    {
+        "Treatment": "Vorinostat",
+        "Type": "Targeted",
+        "Indications": [
+            "C04.557.386.480.750.800"
+        ]
+    }
 ]

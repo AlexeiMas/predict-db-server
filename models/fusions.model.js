@@ -11,7 +11,7 @@ const schema = new Schema({
 });
 
 schema.virtual('Model', {
-  ref: 'ptx-model',
+  ref: 'pdc_model',
   localField: 'Model ID',
   foreignField: 'Model ID',
   options: {

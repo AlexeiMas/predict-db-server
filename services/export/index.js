@@ -3,7 +3,7 @@ const {
   model, phenotypes, clinical, history, responses, ngs,
 } = require('./sheets');
 
-const SHEETS = [model, phenotypes, clinical, history, responses, ngs];
+const SHEETS = [model, ngs, phenotypes, clinical, history, responses];
 
 const createWorkbook = (data) => {
   const workbook = new excel.Workbook({
