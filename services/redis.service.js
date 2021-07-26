@@ -2,9 +2,8 @@ const { promisify } = require('util');
 const Redis = require('redis');
 
 const host = process.env.REDIS_HOST;
-const port = process.env.REDIS_PORT;
 
-const connection = `redis://${host}:${port}/1`;
+const connection = `redis://${host}`;
 const redisClient = Redis.createClient(connection);
 
 redisClient.getAsync = promisify(redisClient.get).bind(redisClient);
