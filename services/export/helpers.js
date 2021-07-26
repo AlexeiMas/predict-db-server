@@ -83,13 +83,14 @@ const setSheetBasicLayout = (sheet, isNgs = false) => {
   sheet.column(1).setWidth(15);
   sheet.column(2).setWidth(15);
   sheet.column(3).setWidth(15);
-  sheet.column(4).setWidth(25);
-  sheet.column(5).setWidth(20);
+  sheet.column(4).setWidth(30);
+  sheet.column(5).setWidth(30);
 
   sheet.column(isNgs ? 7 : 5).freeze();
   sheet.row(3).freeze();
+  sheet.row(3).filter();
 
-  sheet.cell(4, 1, 4, 2, true).string('© Imagen Therapeutics').style(alignmentStyle);
+  sheet.cell(4, 1, 4, 2, false).string('© Imagen Therapeutics').style(alignmentStyle);
 
   sheet.addImage({
     image: fs.readFileSync(path.resolve(__dirname, 'logo.png')),

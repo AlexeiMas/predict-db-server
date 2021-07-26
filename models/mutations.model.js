@@ -2,7 +2,7 @@ const { Schema, model } = require('mongoose');
 const { modelFields } = require('./fields');
 
 const schema = new Schema({
-  'Gene.refGene': { type: String, index: true },
+  Gene_refGene: { type: String, index: true },
   Existing_variation: String,
   Protein_position: String,
   Amino_acids: String,

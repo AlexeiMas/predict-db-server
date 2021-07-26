@@ -66,7 +66,7 @@ const clinicalDataFields = {
 };
 
 const mutationsFields = {
-  'Gene.refGene': 1,
+  Gene_refGene: 1,
   Existing_variation: 1,
   Protein_position: 1,
   Amino_acids: 1,

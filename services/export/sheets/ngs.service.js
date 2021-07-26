@@ -4,7 +4,51 @@ const {
   setSheetBasicLayout, fillHeaderFields, fillValues, setColumnGrouping,
 } = require('../helpers');
 
+let hasExpressions = true;
+
 const FIELDS = [
+  'Model ID',
+  'Primary Tumour Type',
+  'Tumour Sub-type',
+  'Gene',
+  '',
+
+  // Mutations
+
+  'gnomAD_genome_ALL',
+  'Protein_position',
+  'Amino_acids',
+  'Func_refGene',
+  'ExonicFunc_refGene',
+  'Chr',
+  'Start',
+  'End',
+  'Ref',
+  'Alt',
+  'Zygosity',
+  'AF',
+  'Quality',
+  'CurrentExon',
+  'EnsGenID',
+  'EnsTransID',
+  'cosmic68',
+  'Existing_variation',
+
+  // Copy Numbers
+
+  'log2FC',
+  'SV type',
+
+  // Fusions
+
+  'Fusion_description',
+  'Predicted_effect',
+  'Fusion_sequence',
+  'Gene_3end',
+  'Gene_5end',
+];
+
+const RNAFIELDS = [
   'Model ID',
   'Primary Tumour Type',
   'Tumour Sub-type',
@@ -65,7 +109,7 @@ const getNgsValues = (data) => data.reduce((acc, row) => {
 
   const mutationsRows = mutations && mutations.length > 0
     ? mutations.map((item) => ({
-      gene: item['Gene.refGene'] || '',
+      gene: item.Gene_refGene || '',
       variation: item.Existing_variation || '',
       proteinPosition: item.Protein_position || '',
       aminoAcids: item.Amino_acids || '',
@@ -216,6 +260,15 @@ const sortValues = (values) => values.sort((a, b) => {
   return 0;
 });
 
+const sortValuesRNA = (values) => values.sort((a, b) => {
+  const percA = a.percentile;
+  const percB = b.percentile;
+
+  if (percA < percB) return 1;
+  if (percA > percB) return -1;
+  return 0;
+});
+
 const transformToArray = (values) => values.map((item) => [
   item.modelId,
   item.tumourType,
@@ -242,14 +295,13 @@ const transformToArray = (values) => values.map((item) => [
   item.variation,
   item.log2FC,
   item.svType,
-  item.zscore,
-  item.logTpm,
-  item.percentile,
-  item.gene1,
-  item.gene2,
+  ...(hasExpressions ? [item.logTpm] : []),
+  ...(hasExpressions ? [item.percentile] : []),
   item.description,
   item.predictedEffect,
   item.fusionSequence,
+  item.gene2,
+  item.gene1,
 ]);
 
 const prepareValues = (data) => {
@@ -272,7 +324,11 @@ const prepareValues = (data) => {
   const uniqueGenes = [...new Set(genes)];
 
   const aggregated = aggregateValues(uniqueGenes, ngsValues);
-  const sorted = sortValues(aggregated);
+  const sorted = ngsValues.expressions.length === 0 ? sortValues(aggregated) : sortValuesRNA(aggregated);
+
+  if (ngsValues.expressions.length === 0) {
+    hasExpressions = false;
+  }
 
   return transformToArray(sorted);
 };
@@ -284,6 +340,7 @@ module.exports.createWorksheet = (workbook, data) => {
     && !data[0].Model.Fusions) return;
 
   const sheet = workbook.addWorksheet('NGS (Aggregate)', sheetOptions);
+  const values = prepareValues(data);
 
   setSheetBasicLayout(sheet, true);
 
@@ -292,7 +349,7 @@ module.exports.createWorksheet = (workbook, data) => {
     ...greyHeaderStyle,
   });
 
-  sheet.cell(3, 6, 3, 34).style({
+  sheet.cell(3, 6, 3, hasExpressions ? 34 : 32).style({
     ...alignmentStyle,
     ...blueHeaderStyle,
   });
@@ -317,15 +374,17 @@ module.exports.createWorksheet = (workbook, data) => {
     ...alignmentStyle,
     ...expressionsFillStyle,
   });
-  sheet.cell(2, 29, 2, 29, false).string('Expressions').style({
-    ...alignmentStyle,
-    ...expressionsFillStyle,
-  });
-  sheet.cell(2, 30, 2, 33, false).style({
+  if (hasExpressions) {
+    sheet.cell(2, 29, 2, 29, false).string('Expressions').style({
+      ...alignmentStyle,
+      ...expressionsFillStyle,
+    });
+  }
+  sheet.cell(2, hasExpressions ? 30 : 28, 2, hasExpressions ? 33 : 31, false).style({
     ...alignmentStyle,
     ...fusionsFillStyle,
   });
-  sheet.cell(2, 34, 2, 34, false).string('Fusions').style({
+  sheet.cell(2, hasExpressions ? 34 : 32, 2, hasExpressions ? 34 : 32, false).string('Fusions').style({
     ...alignmentStyle,
     ...fusionsFillStyle,
   });
@@ -340,11 +399,13 @@ module.exports.createWorksheet = (workbook, data) => {
 
   setColumnGrouping(sheet, 1, 8, 25);
   setColumnGrouping(sheet, 2, 26, 27);
-  setColumnGrouping(sheet, 3, 28, 29);
-  setColumnGrouping(sheet, 4, 30, 34);
+  if (hasExpressions) {
+    setColumnGrouping(sheet, 3, 28, 29);
+    setColumnGrouping(sheet, 4, 30, 34);
+  } else {
+    setColumnGrouping(sheet, 4, 28, 32);
+  }
 
-  const values = prepareValues(data);
-
-  fillHeaderFields(sheet, FIELDS);
+  fillHeaderFields(sheet, hasExpressions ? RNAFIELDS : FIELDS);
   fillValues(sheet, values, 3);
 };

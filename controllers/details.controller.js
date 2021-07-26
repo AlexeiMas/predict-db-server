@@ -150,7 +150,7 @@ const ngs = async (req, res) => {
 
     if (gene) {
       geneMutationsItems.push({
-        'Gene.refGene': { $in: [...new Set(gene)] },
+        Gene_refGene: { $in: [...new Set(gene)] },
       });
       geneCopyNumbersItems.push({ Gene_name: { $in: [...new Set(gene)] } });
       if (includeExpressions) geneExpressionsItems.push({ Symbol: { $in: [...new Set(gene)] } });
@@ -163,7 +163,7 @@ const ngs = async (req, res) => {
     }
     if (genesByAlias.length) {
       geneMutationsItems.push({
-        'Gene.refGene': { $in: [...new Set(genesByAlias)] },
+        Gene_refGene: { $in: [...new Set(genesByAlias)] },
       });
       geneCopyNumbersItems.push({ Gene_name: { $in: [...new Set(genesByAlias)] } });
       if (includeExpressions) geneExpressionsItems.push({ Symbol: { $in: [...new Set(genesByAlias)] } });
@@ -176,7 +176,7 @@ const ngs = async (req, res) => {
     }
     if (genesByProtein.length) {
       geneMutationsItems.push({
-        'Gene.refGene': { $in: [...new Set(genesByProtein)] },
+        Gene_refGene: { $in: [...new Set(genesByProtein)] },
       });
       geneCopyNumbersItems.push({ Gene_name: { $in: [...new Set(genesByProtein)] } });
       if (includeExpressions) geneExpressionsItems.push({ Symbol: { $in: [...new Set(genesByProtein)] } });
@@ -208,7 +208,7 @@ const ngs = async (req, res) => {
       .populate(populations)
       .lean();
 
-    const mutationsGenes = data.MutationsGenes ? data.MutationsGenes.map((i) => i['Gene.refGene']) : [];
+    const mutationsGenes = data.MutationsGenes ? data.MutationsGenes.map((i) => i.Gene_refGene) : [];
     const copyNumbersGenes = data.CopyNumbersGenes ? data.CopyNumbersGenes.map((i) => i.Gene_name) : [];
     const expressionsGenes = data.ExpressionsGenes ? data.ExpressionsGenes.map((i) => i.Symbol) : [];
     const fusionsGenesFirstSymbols = data.FusionsGenes ? data.FusionsGenes
