@@ -1,10 +1,12 @@
 const { promisify } = require('util');
 const Redis = require('redis');
 
-const host = process.env.REDIS_HOST;
+const host = process.env.REDISCACHEHOSTNAME;
+const key = process.env.REDISCACHEKEY;
+const port = process.env.REDIS_PORT;
+const devenv = process.env.NODE_ENV;
 
-const connection = `redis://${host}`;
-const redisClient = Redis.createClient(connection);
+const redisClient = devenv === 'development' ? Redis.createClient(`redis://${host}:${port}/1`) : Redis.createClient(port, host, { auth_pass: key, tls: { servername: host } });  // eslint-disable-line
 
 redisClient.getAsync = promisify(redisClient.get).bind(redisClient);
 redisClient.setAsync = promisify(redisClient.set).bind(redisClient);

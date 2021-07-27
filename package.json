@@ -7,6 +7,7 @@
     "start": "NODE_ENV=production node -r dotenv/config ./index.js dotenv_config_path='.env'",
     "dev": "NODE_ENV=development node -r dotenv/config ./index.js dotenv_config_path='.env'",
     "dev:local": "NODE_ENV=development nodemon -r dotenv/config ./index.js dotenv_config_path='.env.local'",
+    "dev:debug": "NODE_ENV=development nodemon -r dotenv/config --inspect-brk=5858 ./index.js dotenv_config_path='.env.local'",
     "lint": "node_modules/.bin/eslint --max-warnings=0 --ext .js --fix --ignore-path .gitignore .",
     "test": "NODE_ENV=test node_modules/.bin/mocha ./tests/**"
   },

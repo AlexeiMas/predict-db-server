@@ -34,12 +34,12 @@ const prepareValues = (data) => data.map((row) => [
   row.Histology || '',
   row['Receptor Status'] || '',
   row.Differentiation || '',
-  row.PBMC || '',
-  row.Plasma || '',
   row['Treatment Status'] || '',
   row['Sample Collection Site'] || '',
   row['Sample Type'] || '',
   row['Smoking History'] || '',
+  row.PBMC.toString() || '',
+  row.Plasma.toString() || '',
 ]);
 
 module.exports.createWorksheet = (workbook, data) => {

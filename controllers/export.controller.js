@@ -192,23 +192,29 @@ module.exports = async (req, res) => {
       ])
       .lean();
 
+    // console.log(data.length)
+    // console.log(data[0])
+
     const extended = data.map((i) => {
-      const hasResponseData = i.TreatmentResponsesCount > 0;
-      const responses = i.TreatmentResponses
-        ? i.TreatmentResponses.reduce((acc, item) => {
+      const hasResponseData = i.Model.TreatmentResponsesCount > 0;
+      const responses = i.Model.TreatmentResponses
+        ? i.Model.TreatmentResponses.reduce((acc, item) => {
           const exists = treatmentInfo
             .find((t) => t.Treatment === item.Treatment
-              && t.Indications.includes(i.ClinicalData['NIH MeSH Tree Number']));
+              && t.Indications.includes(i['NIH MeSH Tree Number']));
           return exists ? [...acc, item] : acc;
         }, [])
         : [];
-      i.TreatmentResponses = responses; // eslint-disable-line
+      i.Model.TreatmentResponses = responses; // eslint-disable-line
 
       return {
         ...i,
         'Has PredictRx Response Data': !!hasResponseData,
       };
     });
+
+    // console.log('first extended var')
+    // console.log(extended[0])
 
     return exportService.exportFile(extended, res);
   } catch (error) {
