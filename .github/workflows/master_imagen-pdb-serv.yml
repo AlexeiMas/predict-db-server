@@ -35,6 +35,7 @@ jobs:
       with:
         name: node-app
         path: ./pdb-serv.tar
+        retention-days: 1
 
   deploy:
     runs-on: ubuntu-latest
