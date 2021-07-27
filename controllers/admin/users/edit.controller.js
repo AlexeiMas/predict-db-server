@@ -33,7 +33,7 @@ module.exports = async (req, res) => {
     if (enabled === true) {
       await services.email.sendEmail({
         to: updated.email,
-        subject: 'Your PredictDb account has been approved',
+        subject: 'Welcome to PredictDb!',
         html: `
           <h1>Welcome to PredictDb! ��</h1>
           <br>
