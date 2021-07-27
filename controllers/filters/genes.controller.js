@@ -1,26 +1,25 @@
 const genesData = require('../../data/genesNames.json');
 
-module.exports = async (req, res) => {
+const shortestString = (a, b) => a.length - b.length;
+const get = (key) => (i) => i[key];
+
+const allGenes = genesData.map(get('gene')).flat(1).sort(shortestString);
+const allAliases = genesData.map(get('aliases')).flat(1).sort(shortestString);
+const allProteins = genesData.map(get('protein')).flat(1).sort(shortestString);
+
+module.exports = async function filterGenes(req, res) {
   try {
     const { search, limit, offset } = req.query;
     const re = new RegExp(`^${search}`, 'i');
-
-    const allGenes = genesData.map((i) => i.gene);
-    const allAliases = genesData.map((i) => i.aliases);
-    const allProteins = genesData.map((i) => i.protein);
-
     const genes = search ? allGenes.filter((i) => re.test(i)) : [];
-    const aliases = search ? allAliases.filter((i) => re.test(i)).reduce((acc, i) => [...acc, ...i], []) : [];
+    const aliases = search ? allAliases.filter((i) => re.test(i)) : [];
     const proteins = search ? allProteins.filter((i) => re.test(i)) : [];
-
     const result = {
       genes: [...new Set(genes)],
       aliases: [...new Set(aliases)],
       proteins: [...new Set(proteins)],
     };
-
     const end = offset + limit;
-
     return res.json({
       genes: result.genes.slice(offset, end),
       aliases: result.aliases.slice(offset, end),

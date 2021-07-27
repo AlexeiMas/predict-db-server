@@ -33,10 +33,13 @@ module.exports = async (req, res) => {
     if (enabled === true) {
       await services.email.sendEmail({
         to: updated.email,
-        subject: 'Your account has been enabled',
+        subject: 'Your PredictDb account has been approved',
         html: `
-          <h1>Your account has been enabled</h1>
-          <p>You can login into dashboard now</p>
+          <h1>Welcome to PredictDb! ��</h1>
+          <br>
+          <p>Your account for PredictDb is now ready to go.</p>
+          <br>
+          <p>You can login into <a href='https://pdb.imagentherapeutics.com'>PredictDb</a> now. ��</p>
         `,
       });
     }

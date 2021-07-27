@@ -46,6 +46,7 @@ module.exports = async (req, res) => {
         <p><b>Email address</b>: ${created.email}</p>
         <p><b>First name</b>: ${created.firstName}</p>
         <p><b>Last name</b>: ${created.lastName}</p>
+        <p><b>Company</b>: ${created.companyName}</p>
         <p></p>
         <p>Click to link below to approve this user:</p>
         <p><a href="${approvalLink}">Approve user</a></p>
