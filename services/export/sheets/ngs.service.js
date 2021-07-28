@@ -392,10 +392,12 @@ module.exports.createWorksheet = (workbook, data) => {
   sheet.cell(1, 3)
     .string('**Results are aggregated across Mutations, Copy Number Variations, Expressions and Fusions, please expand relevant columns for more detail') // eslint-disable-line
     .style(redBoldFontStyle);
-  sheet.cell(1, 28)
-    .string('**Transcripts Per Million (log transformed), only protein coding genes shown')
-    .style(redBoldFontStyle);
-  sheet.cell(1, 29).string('***Rank of Model within gene distribution').style(redBoldFontStyle);
+  if (hasExpressions) {
+    sheet.cell(1, 28)
+      .string('**Transcripts Per Million (log transformed), only protein coding genes shown')
+      .style(redBoldFontStyle);
+    sheet.cell(1, 29).string('***Rank of Model within gene distribution').style(redBoldFontStyle);
+  }
 
   setColumnGrouping(sheet, 1, 8, 25);
   setColumnGrouping(sheet, 2, 26, 27);

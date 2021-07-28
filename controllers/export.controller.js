@@ -141,9 +141,15 @@ module.exports = async (req, res) => {
       const history = await TreatmentHistory.find(historyFilter).select({ 'PredictRx Case ID': 1 });
       caseIds.push(...new Set(history.map((item) => item['PredictRx Case ID'])));
     }
-    const models = await PDCModel.find({ 'Visible Externally': true });
-    const ids = models.map((i) => i['Model ID']);
-    filteredModelIds.push(...ids);
+    if (modelIds.length) {
+      const models = await PDCModel.find({ 'Model ID': { $in: [...new Set(modelIds)] }, 'Visible Externally': true });
+      const ids = models.map((i) => i['Model ID']);
+      filteredModelIds.push(...ids);
+    } else {
+      const models = await PDCModel.find({ 'Visible Externally': true });
+      const ids = models.map((i) => i['Model ID']);
+      filteredModelIds.push(...ids);
+    }
 
     const filter = {
       ...(isTumourFilter ? tumourFilter : {}),
@@ -192,9 +198,6 @@ module.exports = async (req, res) => {
       ])
       .lean();
 
-    // console.log(data.length)
-    // console.log(data[0])
-
     const extended = data.map((i) => {
       const hasResponseData = i.Model.TreatmentResponsesCount > 0;
       const responses = i.Model.TreatmentResponses
@@ -212,9 +215,6 @@ module.exports = async (req, res) => {
         'Has PredictRx Response Data': !!hasResponseData,
       };
     });
-
-    // console.log('first extended var')
-    // console.log(extended[0])
 
     return exportService.exportFile(extended, res);
   } catch (error) {
