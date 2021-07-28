@@ -10,7 +10,6 @@ services:
       - 27017:27017
     volumes:
       - ./.init-mongorc:/docker-entrypoint-initdb.d/init-mongorc.js:ro
-      - ./me-dump-predictdb:/me-dump-predictdb
     environment:
       MONGO_INITDB_ROOT_USERNAME: imagen
       MONGO_INITDB_ROOT_PASSWORD: imagen
