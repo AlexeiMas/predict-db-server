@@ -1,1303 +1,2611 @@
 [
     {
-        "primary": "Breast Cancer",
-        "NIH MeSH Tree Number": "C04.588.180",
-        "sub": [
+        "Primary": "Breast Cancer",
+        "MeSH Tree Number": "C04.588.180",
+        "Subtypes": [
             {
-                "name": "Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180"
+                "Name": "Breast Cancer",
+                "MeSH Tree Number": "C04.588.180"
             },
             {
-                "name": "Breast Carcinoma In Situ",
-                "NIH MeSH Tree Number": "C04.588.180.130"
+                "Name": "Breast Carcinoma In Situ",
+                "MeSH Tree Number": "C04.588.180.130"
             },
             {
-                "name": "Breast Cancer, Male",
-                "NIH MeSH Tree Number": "C04.588.180.260"
+                "Name": "Breast Cancer, Male",
+                "MeSH Tree Number": "C04.588.180.260"
             },
             {
-                "name": "Carcinoma, Ductal, Breast",
-                "NIH MeSH Tree Number": "C04.588.180.390"
+                "Name": "Carcinoma, Ductal, Breast",
+                "MeSH Tree Number": "C04.588.180.390"
             },
             {
-                "name": "Carcinoma, Lobular",
-                "NIH MeSH Tree Number": "C04.588.180.437"
+                "Name": "Carcinoma, Lobular",
+                "MeSH Tree Number": "C04.588.180.437"
             },
             {
-                "name": "Hereditary Breast and Ovarian Cancer Syndrome",
-                "NIH MeSH Tree Number": "C04.588.180.483"
+                "Name": "Hereditary Breast and Ovarian Cancer Syndrome",
+                "MeSH Tree Number": "C04.588.180.483"
             },
             {
-                "name": "Inflammatory Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.576"
+                "Name": "Inflammatory Breast Cancer",
+                "MeSH Tree Number": "C04.588.180.576"
             },
             {
-                "name": "Triple Negative Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.788"
+                "Name": "Triple Negative Breast Cancer",
+                "MeSH Tree Number": "C04.588.180.788"
             },
             {
-                "name": "Unilateral Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.800"
+                "Name": "Unilateral Breast Cancer",
+                "MeSH Tree Number": "C04.588.180.800"
             }
         ]
     },
     {
-        "primary": "Bone Cancer",
-        "NIH MeSH Tree Number": "C04.588.149",
-        "sub": [
+        "Primary": "Bone Cancer",
+        "MeSH Tree Number": "C04.588.149",
+        "Subtypes": [
             {
-                "name": "Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180"
+                "Name": "Bone Cancer",
+                "MeSH Tree Number": "C04.588.149"
             },
             {
-                "name": "Breast Carcinoma In Situ",
-                "NIH MeSH Tree Number": "C04.588.180.130"
+                "Name": "Adamantinoma",
+                "MeSH Tree Number": "C04.588.149.030"
             },
             {
-                "name": "Breast Cancer, Male",
-                "NIH MeSH Tree Number": "C04.588.180.260"
+                "Name": "Femoral Cancer",
+                "MeSH Tree Number": "C04.588.149.276"
             },
             {
-                "name": "Carcinoma, Ductal, Breast",
-                "NIH MeSH Tree Number": "C04.588.180.390"
+                "Name": "Skull Cancer",
+                "MeSH Tree Number": "C04.588.149.721"
             },
             {
-                "name": "Carcinoma, Lobular",
-                "NIH MeSH Tree Number": "C04.588.180.437"
+                "Name": "Spinal Cancer",
+                "MeSH Tree Number": "C04.588.149.828"
             },
             {
-                "name": "Hereditary Breast and Ovarian Cancer Syndrome",
-                "NIH MeSH Tree Number": "C04.588.180.483"
+                "Name": "Jaw Cancer",
+                "MeSH Tree Number": "C04.588.149.721.450"
             },
             {
-                "name": "Inflammatory Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.576"
+                "Name": "Nose Cancer",
+                "MeSH Tree Number": "C04.588.149.721.600"
             },
             {
-                "name": "Triple Negative Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.788"
+                "Name": "Orbital Cancer",
+                "MeSH Tree Number": "C04.588.149.721.656"
             },
             {
-                "name": "Unilateral Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.800"
+                "Name": "Skull Base Cancer",
+                "MeSH Tree Number": "C04.588.149.721.828"
+            },
+            {
+                "Name": "Mandibular Cancer",
+                "MeSH Tree Number": "C04.588.149.721.450.583"
+            },
+            {
+                "Name": "Maxillary Cancer",
+                "MeSH Tree Number": "C04.588.149.721.450.601"
+            },
+            {
+                "Name": "Palatal Cancer",
+                "MeSH Tree Number": "C04.588.149.721.450.692"
             }
         ]
     },
     {
-        "primary": "Hematologic Cancer",
-        "NIH MeSH Tree Number": "C04.588.448",
-        "sub": [
+        "Primary": "Hematologic Cancer",
+        "MeSH Tree Number": "C04.588.448",
+        "Subtypes": [
             {
-                "name": "Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180"
+                "Name": "Hematologic Cancer",
+                "MeSH Tree Number": "C04.588.448"
             },
             {
-                "name": "Breast Carcinoma In Situ",
-                "NIH MeSH Tree Number": "C04.588.180.130"
+                "Name": "Bone Marrow Cancer",
+                "MeSH Tree Number": "C04.588.448.200"
             },
             {
-                "name": "Breast Cancer, Male",
-                "NIH MeSH Tree Number": "C04.588.180.260"
-            },
-            {
-                "name": "Carcinoma, Ductal, Breast",
-                "NIH MeSH Tree Number": "C04.588.180.390"
-            },
-            {
-                "name": "Carcinoma, Lobular",
-                "NIH MeSH Tree Number": "C04.588.180.437"
-            },
-            {
-                "name": "Hereditary Breast and Ovarian Cancer Syndrome",
-                "NIH MeSH Tree Number": "C04.588.180.483"
-            },
-            {
-                "name": "Inflammatory Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.576"
-            },
-            {
-                "name": "Triple Negative Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.788"
-            },
-            {
-                "name": "Unilateral Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.800"
+                "Name": "Polycythemia Vera",
+                "MeSH Tree Number": "C04.588.448.200.500"
             }
         ]
     },
     {
-        "primary": "Eye Cancer",
-        "NIH MeSH Tree Number": "C04.588.364",
-        "sub": [
+        "Primary": "Eye Cancer",
+        "MeSH Tree Number": "C04.588.364",
+        "Subtypes": [
             {
-                "name": "Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180"
+                "Name": "Eye Cancer",
+                "MeSH Tree Number": "C04.588.364"
             },
             {
-                "name": "Breast Carcinoma In Situ",
-                "NIH MeSH Tree Number": "C04.588.180.130"
+                "Name": "Conjunctival Cancer",
+                "MeSH Tree Number": "C04.588.364.235"
             },
             {
-                "name": "Breast Cancer, Male",
-                "NIH MeSH Tree Number": "C04.588.180.260"
+                "Name": "Intraocular Lymphoma",
+                "MeSH Tree Number": "C04.588.364.447"
             },
             {
-                "name": "Carcinoma, Ductal, Breast",
-                "NIH MeSH Tree Number": "C04.588.180.390"
+                "Name": "Paraneoplastic Syndromes, Ocular",
+                "MeSH Tree Number": "C04.588.364.738"
             },
             {
-                "name": "Carcinoma, Lobular",
-                "NIH MeSH Tree Number": "C04.588.180.437"
+                "Name": "Retinal Cancer",
+                "MeSH Tree Number": "C04.588.364.818"
             },
             {
-                "name": "Hereditary Breast and Ovarian Cancer Syndrome",
-                "NIH MeSH Tree Number": "C04.588.180.483"
+                "Name": "Uveal Cancer",
+                "MeSH Tree Number": "C04.588.364.978"
             },
             {
-                "name": "Inflammatory Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.576"
+                "Name": "Retinoblastoma",
+                "MeSH Tree Number": "C04.588.364.818.760"
             },
             {
-                "name": "Triple Negative Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.788"
+                "Name": "Choroid Cancer",
+                "MeSH Tree Number": "C04.588.364.978.223"
             },
             {
-                "name": "Unilateral Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.800"
+                "Name": "Iris Cancer",
+                "MeSH Tree Number": "C04.588.364.978.400"
             }
         ]
     },
     {
-        "primary": "Odontogenic Tumors",
-        "NIH MeSH Tree Number": "C04.557.695",
-        "sub": [
+        "Primary": "Odontogenic Tumors",
+        "MeSH Tree Number": "C04.557.695",
+        "Subtypes": [
             {
-                "name": "Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180"
+                "Name": "Odontogenic Tumors",
+                "MeSH Tree Number": "C04.557.695"
             },
             {
-                "name": "Breast Carcinoma In Situ",
-                "NIH MeSH Tree Number": "C04.588.180.130"
+                "Name": "Ameloblastoma",
+                "MeSH Tree Number": "C04.557.695.065"
             },
             {
-                "name": "Breast Cancer, Male",
-                "NIH MeSH Tree Number": "C04.588.180.260"
+                "Name": "Cementoma",
+                "MeSH Tree Number": "C04.557.695.210"
             },
             {
-                "name": "Carcinoma, Ductal, Breast",
-                "NIH MeSH Tree Number": "C04.588.180.390"
+                "Name": "Odontogenic Cyst, Calcifying",
+                "MeSH Tree Number": "C04.557.695.605"
             },
             {
-                "name": "Carcinoma, Lobular",
-                "NIH MeSH Tree Number": "C04.588.180.437"
+                "Name": "Odontogenic Tumor, Squamous",
+                "MeSH Tree Number": "C04.557.695.607"
             },
             {
-                "name": "Hereditary Breast and Ovarian Cancer Syndrome",
-                "NIH MeSH Tree Number": "C04.588.180.483"
-            },
-            {
-                "name": "Inflammatory Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.576"
-            },
-            {
-                "name": "Triple Negative Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.788"
-            },
-            {
-                "name": "Unilateral Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.800"
+                "Name": "Odontoma",
+                "MeSH Tree Number": "C04.557.695.610"
             }
         ]
     },
     {
-        "primary": "Head and Neck Cancer",
-        "NIH MeSH Tree Number": "C04.588.443",
-        "sub": [
+        "Primary": "Head and Neck Cancer",
+        "MeSH Tree Number": "C04.588.443",
+        "Subtypes": [
             {
-                "name": "Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180"
+                "Name": "Head and Neck Cancer",
+                "MeSH Tree Number": "C04.588.443"
             },
             {
-                "name": "Breast Carcinoma In Situ",
-                "NIH MeSH Tree Number": "C04.588.180.130"
+                "Name": "Squamous Cell Carcinoma of Head and Neck",
+                "MeSH Tree Number": "C04.588.443.177"
             },
             {
-                "name": "Breast Cancer, Male",
-                "NIH MeSH Tree Number": "C04.588.180.260"
+                "Name": "Esophageal Cancer",
+                "MeSH Tree Number": "C04.588.443.353"
             },
             {
-                "name": "Carcinoma, Ductal, Breast",
-                "NIH MeSH Tree Number": "C04.588.180.390"
+                "Name": "Facial Cancer",
+                "MeSH Tree Number": "C04.588.443.392"
             },
             {
-                "name": "Carcinoma, Lobular",
-                "NIH MeSH Tree Number": "C04.588.180.437"
+                "Name": "Mouth Cancer",
+                "MeSH Tree Number": "C04.588.443.591"
             },
             {
-                "name": "Hereditary Breast and Ovarian Cancer Syndrome",
-                "NIH MeSH Tree Number": "C04.588.180.483"
+                "Name": "Otorhinolaryngologic Cancer",
+                "MeSH Tree Number": "C04.588.443.665"
             },
             {
-                "name": "Inflammatory Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.576"
+                "Name": "Parathyroid Cancer",
+                "MeSH Tree Number": "C04.588.443.680"
             },
             {
-                "name": "Triple Negative Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.788"
+                "Name": "Thyroid Cancer",
+                "MeSH Tree Number": "C04.588.443.915"
             },
             {
-                "name": "Unilateral Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.800"
+                "Name": "Tracheal Cancer",
+                "MeSH Tree Number": "C04.588.443.925"
+            },
+            {
+                "Name": "Esophageal Squamous Cell Carcinoma",
+                "MeSH Tree Number": "C04.588.443.353.500"
+            },
+            {
+                "Name": "Eyelid Cancer",
+                "MeSH Tree Number": "C04.588.443.392.500"
+            },
+            {
+                "Name": "Gingival Cancer",
+                "MeSH Tree Number": "C04.588.443.591.402"
+            },
+            {
+                "Name": "Leukoplakia, Oral",
+                "MeSH Tree Number": "C04.588.443.591.545"
+            },
+            {
+                "Name": "Lip Cancer",
+                "MeSH Tree Number": "C04.588.443.591.550"
+            },
+            {
+                "Name": "Salivary Gland Cancer",
+                "MeSH Tree Number": "C04.588.443.591.824"
+            },
+            {
+                "Name": "Tongue Cancer",
+                "MeSH Tree Number": "C04.588.443.591.925"
+            },
+            {
+                "Name": "Ear Cancer",
+                "MeSH Tree Number": "C04.588.443.665.312"
+            },
+            {
+                "Name": "Laryngeal Cancer",
+                "MeSH Tree Number": "C04.588.443.665.481"
+            },
+            {
+                "Name": "Pharyngeal Cancer",
+                "MeSH Tree Number": "C04.588.443.665.710"
+            },
+            {
+                "Name": "Thyroid Cancer, Papillary",
+                "MeSH Tree Number": "C04.588.443.915.400"
+            },
+            {
+                "Name": "Thyroid Nodule",
+                "MeSH Tree Number": "C04.588.443.915.800"
+            },
+            {
+                "Name": "Leukoplakia, Hairy",
+                "MeSH Tree Number": "C04.588.443.591.545.500"
+            },
+            {
+                "Name": "Parotid Cancer",
+                "MeSH Tree Number": "C04.588.443.591.824.695"
+            },
+            {
+                "Name": "Sublingual Gland Cancer",
+                "MeSH Tree Number": "C04.588.443.591.824.882"
+            },
+            {
+                "Name": "Submandibular Gland Cancer",
+                "MeSH Tree Number": "C04.588.443.591.824.885"
+            },
+            {
+                "Name": "Paranasal Sinus Cancer",
+                "MeSH Tree Number": "C04.588.443.665.650.693"
+            },
+            {
+                "Name": "Hypopharyngeal Cancer",
+                "MeSH Tree Number": "C04.588.443.665.710.485"
+            },
+            {
+                "Name": "Nasopharyngeal Cancer",
+                "MeSH Tree Number": "C04.588.443.665.710.650"
+            },
+            {
+                "Name": "Oropharyngeal Cancer",
+                "MeSH Tree Number": "C04.588.443.665.710.684"
+            },
+            {
+                "Name": "Maxillary Sinus Cancer",
+                "MeSH Tree Number": "C04.588.443.665.650.693.575"
+            },
+            {
+                "Name": "Nasopharyngeal Carcinoma",
+                "MeSH Tree Number": "C04.588.443.665.710.650.500"
+            },
+            {
+                "Name": "Tonsillar Cancer",
+                "MeSH Tree Number": "C04.588.443.665.710.684.800"
             }
         ]
     },
     {
-        "primary": "Skin Cancer",
-        "NIH MeSH Tree Number": "C04.588.805",
-        "sub": [
+        "Primary": "Skin Cancer",
+        "MeSH Tree Number": "C04.588.805",
+        "Subtypes": [
             {
-                "name": "Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180"
+                "Name": "Skin Cancer",
+                "MeSH Tree Number": "C04.588.805"
             },
             {
-                "name": "Breast Carcinoma In Situ",
-                "NIH MeSH Tree Number": "C04.588.180.130"
+                "Name": "Acanthoma",
+                "MeSH Tree Number": "C04.588.805.040"
             },
             {
-                "name": "Breast Cancer, Male",
-                "NIH MeSH Tree Number": "C04.588.180.260"
+                "Name": "Sebaceous Gland Cancer",
+                "MeSH Tree Number": "C04.588.805.578"
             },
             {
-                "name": "Carcinoma, Ductal, Breast",
-                "NIH MeSH Tree Number": "C04.588.180.390"
+                "Name": "Sweat Gland Cancer",
+                "MeSH Tree Number": "C04.588.805.776"
             },
             {
-                "name": "Carcinoma, Lobular",
-                "NIH MeSH Tree Number": "C04.588.180.437"
-            },
-            {
-                "name": "Hereditary Breast and Ovarian Cancer Syndrome",
-                "NIH MeSH Tree Number": "C04.588.180.483"
-            },
-            {
-                "name": "Inflammatory Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.576"
-            },
-            {
-                "name": "Triple Negative Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.788"
-            },
-            {
-                "name": "Unilateral Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.800"
+                "Name": "Muir-Torre Syndrome",
+                "MeSH Tree Number": "C04.588.805.578.500"
             }
         ]
     },
     {
-        "primary": "Pelvic Cancer",
-        "NIH MeSH Tree Number": "C04.588.699",
-        "sub": [
+        "Primary": "Pelvic Cancer",
+        "MeSH Tree Number": "C04.588.699",
+        "Subtypes": [
             {
-                "name": "Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180"
-            },
-            {
-                "name": "Breast Carcinoma In Situ",
-                "NIH MeSH Tree Number": "C04.588.180.130"
-            },
-            {
-                "name": "Breast Cancer, Male",
-                "NIH MeSH Tree Number": "C04.588.180.260"
-            },
-            {
-                "name": "Carcinoma, Ductal, Breast",
-                "NIH MeSH Tree Number": "C04.588.180.390"
-            },
-            {
-                "name": "Carcinoma, Lobular",
-                "NIH MeSH Tree Number": "C04.588.180.437"
-            },
-            {
-                "name": "Hereditary Breast and Ovarian Cancer Syndrome",
-                "NIH MeSH Tree Number": "C04.588.180.483"
-            },
-            {
-                "name": "Inflammatory Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.576"
-            },
-            {
-                "name": "Triple Negative Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.788"
-            },
-            {
-                "name": "Unilateral Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.800"
+                "Name": "Pelvic Cancer",
+                "MeSH Tree Number": "C04.588.699"
             }
         ]
     },
     {
-        "primary": "Abdominal Cancer",
-        "NIH MeSH Tree Number": "C04.588.033",
-        "sub": [
+        "Primary": "Abdominal Cancer",
+        "MeSH Tree Number": "C04.588.033",
+        "Subtypes": [
             {
-                "name": "Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180"
+                "Name": "Abdominal Cancer",
+                "MeSH Tree Number": "C04.588.033"
             },
             {
-                "name": "Breast Carcinoma In Situ",
-                "NIH MeSH Tree Number": "C04.588.180.130"
+                "Name": "Peritoneal Cancer",
+                "MeSH Tree Number": "C04.588.033.513"
             },
             {
-                "name": "Breast Cancer, Male",
-                "NIH MeSH Tree Number": "C04.588.180.260"
+                "Name": "Retroperitoneal Cancer",
+                "MeSH Tree Number": "C04.588.033.731"
             },
             {
-                "name": "Carcinoma, Ductal, Breast",
-                "NIH MeSH Tree Number": "C04.588.180.390"
-            },
-            {
-                "name": "Carcinoma, Lobular",
-                "NIH MeSH Tree Number": "C04.588.180.437"
-            },
-            {
-                "name": "Hereditary Breast and Ovarian Cancer Syndrome",
-                "NIH MeSH Tree Number": "C04.588.180.483"
-            },
-            {
-                "name": "Inflammatory Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.576"
-            },
-            {
-                "name": "Triple Negative Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.788"
-            },
-            {
-                "name": "Unilateral Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.800"
+                "Name": "Sister Mary Joseph's Nodule",
+                "MeSH Tree Number": "C04.588.033.740"
             }
         ]
     },
     {
-        "primary": "Anal Gland Cancer",
-        "NIH MeSH Tree Number": "C04.588.083",
-        "sub": [
+        "Primary": "Anal Gland Cancer",
+        "MeSH Tree Number": "C04.588.083",
+        "Subtypes": [
             {
-                "name": "Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180"
-            },
-            {
-                "name": "Breast Carcinoma In Situ",
-                "NIH MeSH Tree Number": "C04.588.180.130"
-            },
-            {
-                "name": "Breast Cancer, Male",
-                "NIH MeSH Tree Number": "C04.588.180.260"
-            },
-            {
-                "name": "Carcinoma, Ductal, Breast",
-                "NIH MeSH Tree Number": "C04.588.180.390"
-            },
-            {
-                "name": "Carcinoma, Lobular",
-                "NIH MeSH Tree Number": "C04.588.180.437"
-            },
-            {
-                "name": "Hereditary Breast and Ovarian Cancer Syndrome",
-                "NIH MeSH Tree Number": "C04.588.180.483"
-            },
-            {
-                "name": "Inflammatory Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.576"
-            },
-            {
-                "name": "Triple Negative Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.788"
-            },
-            {
-                "name": "Unilateral Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.800"
+                "Name": "Anal Gland Cancer",
+                "MeSH Tree Number": "C04.588.083"
             }
         ]
     },
     {
-        "primary": "Digestive System Cancer",
-        "NIH MeSH Tree Number": "C04.588.274",
-        "sub": [
+        "Primary": "Digestive System Cancer",
+        "MeSH Tree Number": "C04.588.274",
+        "Subtypes": [
             {
-                "name": "Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180"
+                "Name": "Digestive System Cancer",
+                "MeSH Tree Number": "C04.588.274"
             },
             {
-                "name": "Breast Carcinoma In Situ",
-                "NIH MeSH Tree Number": "C04.588.180.130"
+                "Name": "Biliary Tract Cancer",
+                "MeSH Tree Number": "C04.588.274.120"
             },
             {
-                "name": "Breast Cancer, Male",
-                "NIH MeSH Tree Number": "C04.588.180.260"
+                "Name": "Gastrointestinal Cancer",
+                "MeSH Tree Number": "C04.588.274.476"
             },
             {
-                "name": "Carcinoma, Ductal, Breast",
-                "NIH MeSH Tree Number": "C04.588.180.390"
+                "Name": "Liver Cancer",
+                "MeSH Tree Number": "C04.588.274.623"
             },
             {
-                "name": "Carcinoma, Lobular",
-                "NIH MeSH Tree Number": "C04.588.180.437"
+                "Name": "Pancreatic Cancer",
+                "MeSH Tree Number": "C04.588.274.761"
             },
             {
-                "name": "Hereditary Breast and Ovarian Cancer Syndrome",
-                "NIH MeSH Tree Number": "C04.588.180.483"
+                "Name": "Bile Duct Cancer",
+                "MeSH Tree Number": "C04.588.274.120.250"
             },
             {
-                "name": "Inflammatory Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.576"
+                "Name": "Gallbladder Cancer",
+                "MeSH Tree Number": "C04.588.274.120.401"
             },
             {
-                "name": "Triple Negative Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.788"
+                "Name": "Intestinal Cancer",
+                "MeSH Tree Number": "C04.588.274.476.411"
             },
             {
-                "name": "Unilateral Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.800"
+                "Name": "Stomach Cancer",
+                "MeSH Tree Number": "C04.588.274.476.767"
+            },
+            {
+                "Name": "Adenoma, Liver Cell",
+                "MeSH Tree Number": "C04.588.274.623.040"
+            },
+            {
+                "Name": "Carcinoma, Hepatocellular",
+                "MeSH Tree Number": "C04.588.274.623.160"
+            },
+            {
+                "Name": "Liver Cancer, Experimental",
+                "MeSH Tree Number": "C04.588.274.623.460"
+            },
+            {
+                "Name": "Adenoma, Islet Cell",
+                "MeSH Tree Number": "C04.588.274.761.249"
+            },
+            {
+                "Name": "Carcinoma, Islet Cell",
+                "MeSH Tree Number": "C04.588.274.761.500"
+            },
+            {
+                "Name": "Carcinoma, Pancreatic Ductal",
+                "MeSH Tree Number": "C04.588.274.761.750"
+            },
+            {
+                "Name": "Pancreatic Intraductal Cancer",
+                "MeSH Tree Number": "C04.588.274.761.875"
+            },
+            {
+                "Name": "Common Bile Duct Cancer",
+                "MeSH Tree Number": "C04.588.274.120.250.250"
+            },
+            {
+                "Name": "Cecal Cancer",
+                "MeSH Tree Number": "C04.588.274.476.411.184"
+            },
+            {
+                "Name": "Colorectal Cancer",
+                "MeSH Tree Number": "C04.588.274.476.411.307"
+            },
+            {
+                "Name": "Duodenal Cancer",
+                "MeSH Tree Number": "C04.588.274.476.411.445"
+            },
+            {
+                "Name": "Ileal Cancer",
+                "MeSH Tree Number": "C04.588.274.476.411.501"
+            },
+            {
+                "Name": "Jejunal Cancer",
+                "MeSH Tree Number": "C04.588.274.476.411.523"
+            },
+            {
+                "Name": "Insulinoma",
+                "MeSH Tree Number": "C04.588.274.761.249.500"
+            },
+            {
+                "Name": "Gastrinoma",
+                "MeSH Tree Number": "C04.588.274.761.500.124"
+            },
+            {
+                "Name": "Glucagonoma",
+                "MeSH Tree Number": "C04.588.274.761.500.249"
+            },
+            {
+                "Name": "Somatostatinoma",
+                "MeSH Tree Number": "C04.588.274.761.500.500"
+            },
+            {
+                "Name": "Vipoma",
+                "MeSH Tree Number": "C04.588.274.761.500.750"
+            },
+            {
+                "Name": "Appendiceal Cancer",
+                "MeSH Tree Number": "C04.588.274.476.411.184.290"
+            },
+            {
+                "Name": "Adenomatous Polyposis Coli",
+                "MeSH Tree Number": "C04.588.274.476.411.307.089"
+            },
+            {
+                "Name": "Colonic Cancer",
+                "MeSH Tree Number": "C04.588.274.476.411.307.180"
+            },
+            {
+                "Name": "Colorectal Cancer, Hereditary Nonpolyposis",
+                "MeSH Tree Number": "C04.588.274.476.411.307.190"
+            },
+            {
+                "Name": "Rectal Cancer",
+                "MeSH Tree Number": "C04.588.274.476.411.307.790"
+            },
+            {
+                "Name": "Gardner Syndrome",
+                "MeSH Tree Number": "C04.588.274.476.411.307.089.393"
+            },
+            {
+                "Name": "Sigmoid Cancer",
+                "MeSH Tree Number": "C04.588.274.476.411.307.180.800"
+            },
+            {
+                "Name": "Anus Cancer",
+                "MeSH Tree Number": "C04.588.274.476.411.307.790.040"
             }
         ]
     },
     {
-        "primary": "Cancer, Gonadal Tissue",
-        "NIH MeSH Tree Number": "C04.557.475",
-        "sub": [
+        "Primary": "Cancer, Gonadal Tissue",
+        "MeSH Tree Number": "C04.557.475",
+        "Subtypes": [
             {
-                "name": "Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180"
+                "Name": "Cancer, Gonadal Tissue",
+                "MeSH Tree Number": "C04.557.475"
             },
             {
-                "name": "Breast Carcinoma In Situ",
-                "NIH MeSH Tree Number": "C04.588.180.130"
+                "Name": "Gonadoblastoma",
+                "MeSH Tree Number": "C04.557.475.395"
             },
             {
-                "name": "Breast Cancer, Male",
-                "NIH MeSH Tree Number": "C04.588.180.260"
+                "Name": "Sex Cord-Gonadal Stromal Tumors",
+                "MeSH Tree Number": "C04.557.475.750"
             },
             {
-                "name": "Carcinoma, Ductal, Breast",
-                "NIH MeSH Tree Number": "C04.588.180.390"
+                "Name": "Granulosa Cell Tumor",
+                "MeSH Tree Number": "C04.557.475.750.656"
             },
             {
-                "name": "Carcinoma, Lobular",
-                "NIH MeSH Tree Number": "C04.588.180.437"
+                "Name": "Luteoma",
+                "MeSH Tree Number": "C04.557.475.750.751"
             },
             {
-                "name": "Hereditary Breast and Ovarian Cancer Syndrome",
-                "NIH MeSH Tree Number": "C04.588.180.483"
+                "Name": "Sertoli-Leydig Cell Tumor",
+                "MeSH Tree Number": "C04.557.475.750.847"
             },
             {
-                "name": "Inflammatory Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.576"
+                "Name": "Thecoma",
+                "MeSH Tree Number": "C04.557.475.750.875"
             },
             {
-                "name": "Triple Negative Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.788"
+                "Name": "Leydig Cell Tumor",
+                "MeSH Tree Number": "C04.557.475.750.847.249"
             },
             {
-                "name": "Unilateral Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.800"
+                "Name": "Sertoli Cell Tumor",
+                "MeSH Tree Number": "C04.557.475.750.847.500"
             }
         ]
     },
     {
-        "primary": "Urogenital Cancer",
-        "NIH MeSH Tree Number": "C04.588.945",
-        "sub": [
+        "Primary": "Urogenital Cancer",
+        "MeSH Tree Number": "C04.588.945",
+        "Subtypes": [
             {
-                "name": "Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180"
+                "Name": "Urogenital Cancer",
+                "MeSH Tree Number": "C04.588.945"
             },
             {
-                "name": "Breast Carcinoma In Situ",
-                "NIH MeSH Tree Number": "C04.588.180.130"
+                "Name": "Genital Cancer, Female",
+                "MeSH Tree Number": "C04.588.945.418"
             },
             {
-                "name": "Breast Cancer, Male",
-                "NIH MeSH Tree Number": "C04.588.180.260"
+                "Name": "Genital Cancer, Male",
+                "MeSH Tree Number": "C04.588.945.440"
             },
             {
-                "name": "Carcinoma, Ductal, Breast",
-                "NIH MeSH Tree Number": "C04.588.180.390"
+                "Name": "Urologic Cancer",
+                "MeSH Tree Number": "C04.588.945.947"
             },
             {
-                "name": "Carcinoma, Lobular",
-                "NIH MeSH Tree Number": "C04.588.180.437"
+                "Name": "Venereal Tumors, Veterinary",
+                "MeSH Tree Number": "C04.588.945.956"
             },
             {
-                "name": "Hereditary Breast and Ovarian Cancer Syndrome",
-                "NIH MeSH Tree Number": "C04.588.180.483"
+                "Name": "Fallopian Tube Cancer",
+                "MeSH Tree Number": "C04.588.945.418.365"
             },
             {
-                "name": "Inflammatory Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.576"
+                "Name": "Uterine Cancer",
+                "MeSH Tree Number": "C04.588.945.418.948"
             },
             {
-                "name": "Triple Negative Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.788"
+                "Name": "Vaginal Cancer",
+                "MeSH Tree Number": "C04.588.945.418.955"
             },
             {
-                "name": "Unilateral Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.800"
+                "Name": "Vulvar Cancer",
+                "MeSH Tree Number": "C04.588.945.418.968"
+            },
+            {
+                "Name": "Penile Cancer",
+                "MeSH Tree Number": "C04.588.945.440.715"
+            },
+            {
+                "Name": "Prostatic Cancer",
+                "MeSH Tree Number": "C04.588.945.440.770"
+            },
+            {
+                "Name": "Testicular Cancer",
+                "MeSH Tree Number": "C04.588.945.440.915"
+            },
+            {
+                "Name": "Kidney Cancer",
+                "MeSH Tree Number": "C04.588.945.947.535"
+            },
+            {
+                "Name": "Ureteral Cancer",
+                "MeSH Tree Number": "C04.588.945.947.940"
+            },
+            {
+                "Name": "Urethral Cancer",
+                "MeSH Tree Number": "C04.588.945.947.945"
+            },
+            {
+                "Name": "Urinary Bladder Cancer",
+                "MeSH Tree Number": "C04.588.945.947.960"
+            },
+            {
+                "Name": "Endometrial Cancer",
+                "MeSH Tree Number": "C04.588.945.418.948.585"
+            },
+            {
+                "Name": "Uterine Cervical Cancer",
+                "MeSH Tree Number": "C04.588.945.418.948.850"
+            },
+            {
+                "Name": "Prostatic Cancer, Castration-Resistant",
+                "MeSH Tree Number": "C04.588.945.440.770.500"
+            },
+            {
+                "Name": "Carcinoma, Renal Cell",
+                "MeSH Tree Number": "C04.588.945.947.535.160"
+            },
+            {
+                "Name": "Wilms Tumor",
+                "MeSH Tree Number": "C04.588.945.947.535.585"
+            },
+            {
+                "Name": "Nephroma, Mesoblastic",
+                "MeSH Tree Number": "C04.588.945.947.535.790"
+            },
+            {
+                "Name": "Carcinoma, Endometrioid",
+                "MeSH Tree Number": "C04.588.945.418.948.585.124"
+            },
+            {
+                "Name": "Denys-Drash Syndrome",
+                "MeSH Tree Number": "C04.588.945.947.535.585.220"
+            },
+            {
+                "Name": "WAGR Syndrome",
+                "MeSH Tree Number": "C04.588.945.947.535.585.950"
             }
         ]
     },
     {
-        "primary": "Splenic Cancer",
-        "NIH MeSH Tree Number": "C04.588.842",
-        "sub": [
+        "Primary": "Splenic Cancer",
+        "MeSH Tree Number": "C04.588.842",
+        "Subtypes": [
             {
-                "name": "Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180"
-            },
-            {
-                "name": "Breast Carcinoma In Situ",
-                "NIH MeSH Tree Number": "C04.588.180.130"
-            },
-            {
-                "name": "Breast Cancer, Male",
-                "NIH MeSH Tree Number": "C04.588.180.260"
-            },
-            {
-                "name": "Carcinoma, Ductal, Breast",
-                "NIH MeSH Tree Number": "C04.588.180.390"
-            },
-            {
-                "name": "Carcinoma, Lobular",
-                "NIH MeSH Tree Number": "C04.588.180.437"
-            },
-            {
-                "name": "Hereditary Breast and Ovarian Cancer Syndrome",
-                "NIH MeSH Tree Number": "C04.588.180.483"
-            },
-            {
-                "name": "Inflammatory Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.576"
-            },
-            {
-                "name": "Triple Negative Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.788"
-            },
-            {
-                "name": "Unilateral Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.800"
+                "Name": "Splenic Cancer",
+                "MeSH Tree Number": "C04.588.842"
             }
         ]
     },
     {
-        "primary": "Thoracic Cancer",
-        "NIH MeSH Tree Number": "C04.588.894",
-        "sub": [
+        "Primary": "Thoracic Cancer",
+        "MeSH Tree Number": "C04.588.894",
+        "Subtypes": [
             {
-                "name": "Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180"
+                "Name": "Thoracic Cancer",
+                "MeSH Tree Number": "C04.588.894"
             },
             {
-                "name": "Breast Carcinoma In Situ",
-                "NIH MeSH Tree Number": "C04.588.180.130"
+                "Name": "Heart Cancer",
+                "MeSH Tree Number": "C04.588.894.309"
             },
             {
-                "name": "Breast Cancer, Male",
-                "NIH MeSH Tree Number": "C04.588.180.260"
+                "Name": "Mediastinal Cancer",
+                "MeSH Tree Number": "C04.588.894.479"
             },
             {
-                "name": "Carcinoma, Ductal, Breast",
-                "NIH MeSH Tree Number": "C04.588.180.390"
+                "Name": "Respiratory Tract Cancer",
+                "MeSH Tree Number": "C04.588.894.797"
             },
             {
-                "name": "Carcinoma, Lobular",
-                "NIH MeSH Tree Number": "C04.588.180.437"
+                "Name": "Thymus Cancer",
+                "MeSH Tree Number": "C04.588.894.949"
             },
             {
-                "name": "Hereditary Breast and Ovarian Cancer Syndrome",
-                "NIH MeSH Tree Number": "C04.588.180.483"
+                "Name": "Carney Complex",
+                "MeSH Tree Number": "C04.588.894.309.500"
             },
             {
-                "name": "Inflammatory Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.576"
+                "Name": "Lung Cancer",
+                "MeSH Tree Number": "C04.588.894.797.520"
             },
             {
-                "name": "Triple Negative Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.788"
+                "Name": "Pleural Cancer",
+                "MeSH Tree Number": "C04.588.894.797.640"
             },
             {
-                "name": "Unilateral Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.800"
+                "Name": "Thymoma",
+                "MeSH Tree Number": "C04.588.894.949.500"
+            },
+            {
+                "Name": "Adenocarcinoma of Lung",
+                "MeSH Tree Number": "C04.588.894.797.520.055"
+            },
+            {
+                "Name": "Bronchial Cancer",
+                "MeSH Tree Number": "C04.588.894.797.520.109"
+            },
+            {
+                "Name": "Multiple Pulmonary Nodules",
+                "MeSH Tree Number": "C04.588.894.797.520.237"
+            },
+            {
+                "Name": "Pancoast Syndrome",
+                "MeSH Tree Number": "C04.588.894.797.520.734"
+            },
+            {
+                "Name": "Pulmonary Blastoma",
+                "MeSH Tree Number": "C04.588.894.797.520.867"
+            },
+            {
+                "Name": "Pulmonary Sclerosing Hemangioma",
+                "MeSH Tree Number": "C04.588.894.797.520.933"
+            },
+            {
+                "Name": "Pleural Effusion, Malignant",
+                "MeSH Tree Number": "C04.588.894.797.640.700"
+            },
+            {
+                "Name": "Solitary Fibrous Tumor, Pleural",
+                "MeSH Tree Number": "C04.588.894.797.640.800"
+            },
+            {
+                "Name": "Adenocarcinoma, Bronchiolo-Alveolar",
+                "MeSH Tree Number": "C04.588.894.797.520.055.500"
+            },
+            {
+                "Name": "Carcinoma, Bronchogenic",
+                "MeSH Tree Number": "C04.588.894.797.520.109.220"
+            },
+            {
+                "Name": "Carcinoma, Non-Small-Cell Lung",
+                "MeSH Tree Number": "C04.588.894.797.520.109.220.249"
+            },
+            {
+                "Name": "Small Cell Lung Carcinoma",
+                "MeSH Tree Number": "C04.588.894.797.520.109.220.624"
             }
         ]
     },
     {
-        "primary": "Mammary Cancer, Animal",
-        "NIH MeSH Tree Number": "C04.588.531",
-        "sub": [
+        "Primary": "Mammary Cancer, Animal",
+        "MeSH Tree Number": "C04.588.531",
+        "Subtypes": [
             {
-                "name": "Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180"
+                "Name": "Mammary Cancer, Animal",
+                "MeSH Tree Number": "C04.588.531"
             },
             {
-                "name": "Breast Carcinoma In Situ",
-                "NIH MeSH Tree Number": "C04.588.180.130"
-            },
-            {
-                "name": "Breast Cancer, Male",
-                "NIH MeSH Tree Number": "C04.588.180.260"
-            },
-            {
-                "name": "Carcinoma, Ductal, Breast",
-                "NIH MeSH Tree Number": "C04.588.180.390"
-            },
-            {
-                "name": "Carcinoma, Lobular",
-                "NIH MeSH Tree Number": "C04.588.180.437"
-            },
-            {
-                "name": "Hereditary Breast and Ovarian Cancer Syndrome",
-                "NIH MeSH Tree Number": "C04.588.180.483"
-            },
-            {
-                "name": "Inflammatory Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.576"
-            },
-            {
-                "name": "Triple Negative Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.788"
-            },
-            {
-                "name": "Unilateral Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.800"
+                "Name": "Mammary Cancer, Experimental",
+                "MeSH Tree Number": "C04.588.531.500"
             }
         ]
     },
     {
-        "primary": "Endocrine Gland Cancer",
-        "NIH MeSH Tree Number": "C04.588.322",
-        "sub": [
+        "Primary": "Endocrine Gland Cancer",
+        "MeSH Tree Number": "C04.588.322",
+        "Subtypes": [
             {
-                "name": "Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180"
+                "Name": "Endocrine Gland Cancer",
+                "MeSH Tree Number": "C04.588.322"
             },
             {
-                "name": "Breast Carcinoma In Situ",
-                "NIH MeSH Tree Number": "C04.588.180.130"
+                "Name": "Adrenal Gland Cancer",
+                "MeSH Tree Number": "C04.588.322.078"
             },
             {
-                "name": "Breast Cancer, Male",
-                "NIH MeSH Tree Number": "C04.588.180.260"
+                "Name": "Multiple Endocrine Neoplasia",
+                "MeSH Tree Number": "C04.588.322.400"
             },
             {
-                "name": "Carcinoma, Ductal, Breast",
-                "NIH MeSH Tree Number": "C04.588.180.390"
+                "Name": "Ovarian Cancer",
+                "MeSH Tree Number": "C04.588.322.455"
             },
             {
-                "name": "Carcinoma, Lobular",
-                "NIH MeSH Tree Number": "C04.588.180.437"
+                "Name": "Paraneoplastic Endocrine Syndromes",
+                "MeSH Tree Number": "C04.588.322.490"
             },
             {
-                "name": "Hereditary Breast and Ovarian Cancer Syndrome",
-                "NIH MeSH Tree Number": "C04.588.180.483"
+                "Name": "Pituitary Cancer",
+                "MeSH Tree Number": "C04.588.322.609"
             },
             {
-                "name": "Inflammatory Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.576"
+                "Name": "Adrenal Cortex Cancer",
+                "MeSH Tree Number": "C04.588.322.078.265"
             },
             {
-                "name": "Triple Negative Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.788"
+                "Name": "Multiple Endocrine Neoplasia Type 1",
+                "MeSH Tree Number": "C04.588.322.400.500"
             },
             {
-                "name": "Unilateral Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.800"
+                "Name": "Multiple Endocrine Neoplasia Type 2a",
+                "MeSH Tree Number": "C04.588.322.400.505"
+            },
+            {
+                "Name": "Multiple Endocrine Neoplasia Type 2b",
+                "MeSH Tree Number": "C04.588.322.400.510"
+            },
+            {
+                "Name": "Carcinoma, Ovarian Epithelial",
+                "MeSH Tree Number": "C04.588.322.455.199"
+            },
+            {
+                "Name": "Meigs Syndrome",
+                "MeSH Tree Number": "C04.588.322.455.531"
+            },
+            {
+                "Name": "ACTH-Secreting Pituitary Adenoma",
+                "MeSH Tree Number": "C04.588.322.609.145"
+            },
+            {
+                "Name": "Growth Hormone-Secreting Pituitary Adenoma",
+                "MeSH Tree Number": "C04.588.322.609.292"
+            },
+            {
+                "Name": "Prolactinoma",
+                "MeSH Tree Number": "C04.588.322.609.792"
+            },
+            {
+                "Name": "Adrenocortical Adenoma",
+                "MeSH Tree Number": "C04.588.322.078.265.500"
+            },
+            {
+                "Name": "Adrenocortical Carcinoma",
+                "MeSH Tree Number": "C04.588.322.078.265.750"
+            },
+            {
+                "Name": "Nelson Syndrome",
+                "MeSH Tree Number": "C04.588.322.609.145.500"
             }
         ]
     },
     {
-        "primary": "Histiocytic Disorders, Malignant",
-        "NIH MeSH Tree Number": "C04.557.227",
-        "sub": [
+        "Primary": "Histiocytic Disorders, Malignant",
+        "MeSH Tree Number": "C04.557.227",
+        "Subtypes": [
             {
-                "name": "Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180"
+                "Name": "Histiocytic Disorders, Malignant",
+                "MeSH Tree Number": "C04.557.227"
             },
             {
-                "name": "Breast Carcinoma In Situ",
-                "NIH MeSH Tree Number": "C04.588.180.130"
+                "Name": "Dendritic Cell Sarcoma, Follicular",
+                "MeSH Tree Number": "C04.557.227.190"
             },
             {
-                "name": "Breast Cancer, Male",
-                "NIH MeSH Tree Number": "C04.588.180.260"
+                "Name": "Dendritic Cell Sarcoma, Interdigitating",
+                "MeSH Tree Number": "C04.557.227.199"
             },
             {
-                "name": "Carcinoma, Ductal, Breast",
-                "NIH MeSH Tree Number": "C04.588.180.390"
+                "Name": "Histiocytic Sarcoma",
+                "MeSH Tree Number": "C04.557.227.380"
             },
             {
-                "name": "Carcinoma, Lobular",
-                "NIH MeSH Tree Number": "C04.588.180.437"
-            },
-            {
-                "name": "Hereditary Breast and Ovarian Cancer Syndrome",
-                "NIH MeSH Tree Number": "C04.588.180.483"
-            },
-            {
-                "name": "Inflammatory Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.576"
-            },
-            {
-                "name": "Triple Negative Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.788"
-            },
-            {
-                "name": "Unilateral Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.800"
+                "Name": "Langerhans Cell Sarcoma",
+                "MeSH Tree Number": "C04.557.227.500"
             }
         ]
     },
     {
-        "primary": "Cancer, Plasma Cell",
-        "NIH MeSH Tree Number": "C04.557.595",
-        "sub": [
+        "Primary": "Cancer, Plasma Cell",
+        "MeSH Tree Number": "C04.557.595",
+        "Subtypes": [
             {
-                "name": "Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180"
+                "Name": "Cancer, Plasma Cell",
+                "MeSH Tree Number": "C04.557.595"
             },
             {
-                "name": "Breast Carcinoma In Situ",
-                "NIH MeSH Tree Number": "C04.588.180.130"
+                "Name": "Immunoglobulin Light-chain Amyloidosis",
+                "MeSH Tree Number": "C04.557.595.250"
             },
             {
-                "name": "Breast Cancer, Male",
-                "NIH MeSH Tree Number": "C04.588.180.260"
+                "Name": "Multiple Myeloma",
+                "MeSH Tree Number": "C04.557.595.500"
             },
             {
-                "name": "Carcinoma, Ductal, Breast",
-                "NIH MeSH Tree Number": "C04.588.180.390"
+                "Name": "Plasmacytoma",
+                "MeSH Tree Number": "C04.557.595.600"
             },
             {
-                "name": "Carcinoma, Lobular",
-                "NIH MeSH Tree Number": "C04.588.180.437"
+                "Name": "Waldenstrom Macroglobulinemia",
+                "MeSH Tree Number": "C04.557.595.925"
             },
             {
-                "name": "Hereditary Breast and Ovarian Cancer Syndrome",
-                "NIH MeSH Tree Number": "C04.588.180.483"
-            },
-            {
-                "name": "Inflammatory Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.576"
-            },
-            {
-                "name": "Triple Negative Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.788"
-            },
-            {
-                "name": "Unilateral Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.800"
+                "Name": "Leukemia, Plasma Cell",
+                "MeSH Tree Number": "C04.557.595.500.500"
             }
         ]
     },
     {
-        "primary": "Leukemia",
-        "NIH MeSH Tree Number": "C04.557.337",
-        "sub": [
+        "Primary": "Leukemia",
+        "MeSH Tree Number": "C04.557.337",
+        "Subtypes": [
             {
-                "name": "Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180"
+                "Name": "Leukemia",
+                "MeSH Tree Number": "C04.557.337"
             },
             {
-                "name": "Breast Carcinoma In Situ",
-                "NIH MeSH Tree Number": "C04.588.180.130"
+                "Name": "Enzootic Bovine Leukosis",
+                "MeSH Tree Number": "C04.557.337.100"
             },
             {
-                "name": "Breast Cancer, Male",
-                "NIH MeSH Tree Number": "C04.588.180.260"
+                "Name": "Leukemia, Experimental",
+                "MeSH Tree Number": "C04.557.337.372"
             },
             {
-                "name": "Carcinoma, Ductal, Breast",
-                "NIH MeSH Tree Number": "C04.588.180.390"
+                "Name": "Leukemia, Feline",
+                "MeSH Tree Number": "C04.557.337.385"
             },
             {
-                "name": "Carcinoma, Lobular",
-                "NIH MeSH Tree Number": "C04.588.180.437"
+                "Name": "Leukemia, Hairy Cell",
+                "MeSH Tree Number": "C04.557.337.415"
             },
             {
-                "name": "Hereditary Breast and Ovarian Cancer Syndrome",
-                "NIH MeSH Tree Number": "C04.588.180.483"
+                "Name": "Leukemia, Lymphoid",
+                "MeSH Tree Number": "C04.557.337.428"
             },
             {
-                "name": "Inflammatory Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.576"
+                "Name": "Leukemia, Mast-Cell",
+                "MeSH Tree Number": "C04.557.337.440"
             },
             {
-                "name": "Triple Negative Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.788"
+                "Name": "Leukemia, Myeloid",
+                "MeSH Tree Number": "C04.557.337.539"
             },
             {
-                "name": "Unilateral Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.800"
+                "Name": "Leukemia, Radiation-Induced",
+                "MeSH Tree Number": "C04.557.337.650"
+            },
+            {
+                "Name": "Avian Leukosis",
+                "MeSH Tree Number": "C04.557.337.372.216"
+            },
+            {
+                "Name": "Leukemia L1210",
+                "MeSH Tree Number": "C04.557.337.372.594"
+            },
+            {
+                "Name": "Leukemia L5178",
+                "MeSH Tree Number": "C04.557.337.372.602"
+            },
+            {
+                "Name": "Leukemia P388",
+                "MeSH Tree Number": "C04.557.337.372.782"
+            },
+            {
+                "Name": "Leukemia, B-Cell",
+                "MeSH Tree Number": "C04.557.337.428.080"
+            },
+            {
+                "Name": "Leukemia, Biphenotypic, Acute",
+                "MeSH Tree Number": "C04.557.337.428.100"
+            },
+            {
+                "Name": "Leukemia, Prolymphocytic",
+                "MeSH Tree Number": "C04.557.337.428.565"
+            },
+            {
+                "Name": "Leukemia, T-Cell",
+                "MeSH Tree Number": "C04.557.337.428.580"
+            },
+            {
+                "Name": "Precursor Cell Lymphoblastic Leukemia-Lymphoma",
+                "MeSH Tree Number": "C04.557.337.428.600"
+            },
+            {
+                "Name": "Leukemia, Myelogenous, Chronic, BCR-ABL Positive",
+                "MeSH Tree Number": "C04.557.337.539.250"
+            },
+            {
+                "Name": "Leukemia, Myeloid, Acute",
+                "MeSH Tree Number": "C04.557.337.539.275"
+            },
+            {
+                "Name": "Leukemia, Myeloid, Chronic, Atypical, BCR-ABL Negative",
+                "MeSH Tree Number": "C04.557.337.539.300"
+            },
+            {
+                "Name": "Leukemia, Myelomonocytic, Acute",
+                "MeSH Tree Number": "C04.557.337.539.520"
+            },
+            {
+                "Name": "Leukemia, Myelomonocytic, Chronic",
+                "MeSH Tree Number": "C04.557.337.539.522"
+            },
+            {
+                "Name": "Leukemia, Myelomonocytic, Juvenile",
+                "MeSH Tree Number": "C04.557.337.539.525"
+            },
+            {
+                "Name": "Sarcoma, Myeloid",
+                "MeSH Tree Number": "C04.557.337.539.775"
+            },
+            {
+                "Name": "Leukemia, Lymphocytic, Chronic, B-Cell",
+                "MeSH Tree Number": "C04.557.337.428.080.125"
+            },
+            {
+                "Name": "Leukemia, Prolymphocytic, B-Cell",
+                "MeSH Tree Number": "C04.557.337.428.080.562"
+            },
+            {
+                "Name": "Leukemia, Prolymphocytic, T-Cell",
+                "MeSH Tree Number": "C04.557.337.428.565.750"
+            },
+            {
+                "Name": "Leukemia, Large Granular Lymphocytic",
+                "MeSH Tree Number": "C04.557.337.428.580.049"
+            },
+            {
+                "Name": "Leukemia-Lymphoma, Adult T-Cell",
+                "MeSH Tree Number": "C04.557.337.428.580.100"
+            },
+            {
+                "Name": "Precursor B-Cell Lymphoblastic Leukemia-Lymphoma",
+                "MeSH Tree Number": "C04.557.337.428.600.600"
+            },
+            {
+                "Name": "Precursor T-Cell Lymphoblastic Leukemia-Lymphoma",
+                "MeSH Tree Number": "C04.557.337.428.600.620"
+            },
+            {
+                "Name": "Blast Crisis",
+                "MeSH Tree Number": "C04.557.337.539.250.100"
+            },
+            {
+                "Name": "Leukemia, Myeloid, Accelerated Phase",
+                "MeSH Tree Number": "C04.557.337.539.250.300"
+            },
+            {
+                "Name": "Leukemia, Myeloid, Chronic-Phase",
+                "MeSH Tree Number": "C04.557.337.539.250.400"
+            },
+            {
+                "Name": "Leukemia, Basophilic, Acute",
+                "MeSH Tree Number": "C04.557.337.539.275.125"
+            },
+            {
+                "Name": "Leukemia, Eosinophilic, Acute",
+                "MeSH Tree Number": "C04.557.337.539.275.300"
+            },
+            {
+                "Name": "Leukemia, Erythroblastic, Acute",
+                "MeSH Tree Number": "C04.557.337.539.275.325"
+            },
+            {
+                "Name": "Leukemia, Megakaryoblastic, Acute",
+                "MeSH Tree Number": "C04.557.337.539.275.450"
+            },
+            {
+                "Name": "Leukemia, Monocytic, Acute",
+                "MeSH Tree Number": "C04.557.337.539.275.484"
+            },
+            {
+                "Name": "Leukemia, Promyelocytic, Acute",
+                "MeSH Tree Number": "C04.557.337.539.275.700"
             }
         ]
     },
     {
-        "primary": "Lymphoma",
-        "NIH MeSH Tree Number": "C04.557.386",
-        "sub": [
+        "Primary": "Lymphoma",
+        "MeSH Tree Number": "C04.557.386",
+        "Subtypes": [
             {
-                "name": "Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180"
+                "Name": "Lymphoma",
+                "MeSH Tree Number": "C04.557.386"
             },
             {
-                "name": "Breast Carcinoma In Situ",
-                "NIH MeSH Tree Number": "C04.588.180.130"
+                "Name": "Composite Lymphoma",
+                "MeSH Tree Number": "C04.557.386.150"
             },
             {
-                "name": "Breast Cancer, Male",
-                "NIH MeSH Tree Number": "C04.588.180.260"
+                "Name": "Hodgkin Disease",
+                "MeSH Tree Number": "C04.557.386.355"
             },
             {
-                "name": "Carcinoma, Ductal, Breast",
-                "NIH MeSH Tree Number": "C04.588.180.390"
+                "Name": "Immunoproliferative Small Intestinal Disease",
+                "MeSH Tree Number": "C04.557.386.390"
             },
             {
-                "name": "Carcinoma, Lobular",
-                "NIH MeSH Tree Number": "C04.588.180.437"
+                "Name": "Lymphoma, Non-Hodgkin",
+                "MeSH Tree Number": "C04.557.386.480"
             },
             {
-                "name": "Hereditary Breast and Ovarian Cancer Syndrome",
-                "NIH MeSH Tree Number": "C04.588.180.483"
+                "Name": "Lymphoma, B-Cell",
+                "MeSH Tree Number": "C04.557.386.480.150"
             },
             {
-                "name": "Inflammatory Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.576"
+                "Name": "Lymphoma, Follicular",
+                "MeSH Tree Number": "C04.557.386.480.350"
             },
             {
-                "name": "Triple Negative Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.788"
+                "Name": "Lymphoma, Large-Cell, Immunoblastic",
+                "MeSH Tree Number": "C04.557.386.480.493"
             },
             {
-                "name": "Unilateral Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.800"
+                "Name": "Lymphoma, Mantle-Cell",
+                "MeSH Tree Number": "C04.557.386.480.525"
+            },
+            {
+                "Name": "Lymphoma, T-Cell",
+                "MeSH Tree Number": "C04.557.386.480.750"
+            },
+            {
+                "Name": "Burkitt Lymphoma",
+                "MeSH Tree Number": "C04.557.386.480.150.165"
+            },
+            {
+                "Name": "Lymphoma, AIDS-Related",
+                "MeSH Tree Number": "C04.557.386.480.150.450"
+            },
+            {
+                "Name": "Lymphoma, B-Cell, Marginal Zone",
+                "MeSH Tree Number": "C04.557.386.480.150.570"
+            },
+            {
+                "Name": "Lymphoma, Large B-Cell, Diffuse",
+                "MeSH Tree Number": "C04.557.386.480.150.585"
+            },
+            {
+                "Name": "Lymphoma, Primary Effusion",
+                "MeSH Tree Number": "C04.557.386.480.150.592"
+            },
+            {
+                "Name": "Lymphomatoid Granulomatosis",
+                "MeSH Tree Number": "C04.557.386.480.150.600"
+            },
+            {
+                "Name": "Enteropathy-Associated T-Cell Lymphoma",
+                "MeSH Tree Number": "C04.557.386.480.750.099"
+            },
+            {
+                "Name": "Lymphoma, Extranodal NK-T-Cell",
+                "MeSH Tree Number": "C04.557.386.480.750.199"
+            },
+            {
+                "Name": "Lymphoma, Large-Cell, Anaplastic",
+                "MeSH Tree Number": "C04.557.386.480.750.399"
+            },
+            {
+                "Name": "Lymphoma, T-Cell, Cutaneous",
+                "MeSH Tree Number": "C04.557.386.480.750.800"
+            },
+            {
+                "Name": "Lymphoma, T-Cell, Peripheral",
+                "MeSH Tree Number": "C04.557.386.480.750.825"
+            },
+            {
+                "Name": "Plasmablastic Lymphoma",
+                "MeSH Tree Number": "C04.557.386.480.150.585.500"
+            },
+            {
+                "Name": "Lymphoma, Primary Cutaneous Anaplastic Large Cell",
+                "MeSH Tree Number": "C04.557.386.480.750.800.507"
+            },
+            {
+                "Name": "Lymphomatoid Papulosis",
+                "MeSH Tree Number": "C04.557.386.480.750.800.528"
+            },
+            {
+                "Name": "Mycosis Fungoides",
+                "MeSH Tree Number": "C04.557.386.480.750.800.550"
+            },
+            {
+                "Name": "Sezary Syndrome",
+                "MeSH Tree Number": "C04.557.386.480.750.800.775"
+            },
+            {
+                "Name": "Pagetoid Reticulosis",
+                "MeSH Tree Number": "C04.557.386.480.750.800.550.600"
             }
         ]
     },
     {
-        "primary": "Nevi and Melanomas",
-        "NIH MeSH Tree Number": "C04.557.665",
-        "sub": [
+        "Primary": "Nevi and Melanomas",
+        "MeSH Tree Number": "C04.557.665",
+        "Subtypes": [
             {
-                "name": "Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180"
+                "Name": "Nevi and Melanomas",
+                "MeSH Tree Number": "C04.557.665"
             },
             {
-                "name": "Breast Carcinoma In Situ",
-                "NIH MeSH Tree Number": "C04.588.180.130"
+                "Name": "Melanoma",
+                "MeSH Tree Number": "C04.557.665.510"
             },
             {
-                "name": "Breast Cancer, Male",
-                "NIH MeSH Tree Number": "C04.588.180.260"
+                "Name": "Nevus",
+                "MeSH Tree Number": "C04.557.665.560"
             },
             {
-                "name": "Carcinoma, Ductal, Breast",
-                "NIH MeSH Tree Number": "C04.588.180.390"
+                "Name": "Hutchinson's Melanotic Freckle",
+                "MeSH Tree Number": "C04.557.665.510.385"
             },
             {
-                "name": "Carcinoma, Lobular",
-                "NIH MeSH Tree Number": "C04.588.180.437"
+                "Name": "Melanoma, Amelanotic",
+                "MeSH Tree Number": "C04.557.665.510.515"
             },
             {
-                "name": "Hereditary Breast and Ovarian Cancer Syndrome",
-                "NIH MeSH Tree Number": "C04.588.180.483"
+                "Name": "Melanoma, Experimental",
+                "MeSH Tree Number": "C04.557.665.510.525"
             },
             {
-                "name": "Inflammatory Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.576"
+                "Name": "Dysplastic Nevus Syndrome",
+                "MeSH Tree Number": "C04.557.665.560.260"
             },
             {
-                "name": "Triple Negative Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.788"
+                "Name": "Nevus, Halo",
+                "MeSH Tree Number": "C04.557.665.560.580"
             },
             {
-                "name": "Unilateral Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.800"
+                "Name": "Nevus, Intradermal",
+                "MeSH Tree Number": "C04.557.665.560.590"
+            },
+            {
+                "Name": "Nevus, Pigmented",
+                "MeSH Tree Number": "C04.557.665.560.615"
+            },
+            {
+                "Name": "Nevus, Sebaceous of Jadassohn",
+                "MeSH Tree Number": "C04.557.665.560.700"
+            },
+            {
+                "Name": "Mongolian Spot",
+                "MeSH Tree Number": "C04.557.665.560.615.530"
+            },
+            {
+                "Name": "Nevus, Blue",
+                "MeSH Tree Number": "C04.557.665.560.615.550"
+            },
+            {
+                "Name": "Nevus of Ota",
+                "MeSH Tree Number": "C04.557.665.560.615.585"
+            },
+            {
+                "Name": "Nevus, Spindle Cell",
+                "MeSH Tree Number": "C04.557.665.560.615.625"
+            },
+            {
+                "Name": "Nevus, Epithelioid and Spindle Cell",
+                "MeSH Tree Number": "C04.557.665.560.615.625.585"
             }
         ]
     },
     {
-        "primary": "Lymphatic Vessel Tumors",
-        "NIH MeSH Tree Number": "C04.557.375",
-        "sub": [
+        "Primary": "Lymphatic Vessel Tumors",
+        "MeSH Tree Number": "C04.557.375",
+        "Subtypes": [
             {
-                "name": "Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180"
+                "Name": "Lymphatic Vessel Tumors",
+                "MeSH Tree Number": "C04.557.375"
             },
             {
-                "name": "Breast Carcinoma In Situ",
-                "NIH MeSH Tree Number": "C04.588.180.130"
+                "Name": "Lymphangioma",
+                "MeSH Tree Number": "C04.557.375.450"
             },
             {
-                "name": "Breast Cancer, Male",
-                "NIH MeSH Tree Number": "C04.588.180.260"
+                "Name": "Lymphangiomyoma",
+                "MeSH Tree Number": "C04.557.375.460"
             },
             {
-                "name": "Carcinoma, Ductal, Breast",
-                "NIH MeSH Tree Number": "C04.588.180.390"
+                "Name": "Lymphangiosarcoma",
+                "MeSH Tree Number": "C04.557.375.480"
             },
             {
-                "name": "Carcinoma, Lobular",
-                "NIH MeSH Tree Number": "C04.588.180.437"
+                "Name": "Lymphangioma, Cystic",
+                "MeSH Tree Number": "C04.557.375.450.450"
             },
             {
-                "name": "Hereditary Breast and Ovarian Cancer Syndrome",
-                "NIH MeSH Tree Number": "C04.588.180.483"
-            },
-            {
-                "name": "Inflammatory Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.576"
-            },
-            {
-                "name": "Triple Negative Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.788"
-            },
-            {
-                "name": "Unilateral Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.800"
+                "Name": "Lymphangioleiomyomatosis",
+                "MeSH Tree Number": "C04.557.375.460.465"
             }
         ]
     },
     {
-        "primary": "Cancer, Vascular Tissue",
-        "NIH MeSH Tree Number": "C04.557.645",
-        "sub": [
+        "Primary": "Cancer, Vascular Tissue",
+        "MeSH Tree Number": "C04.557.645",
+        "Subtypes": [
             {
-                "name": "Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180"
+                "Name": "Cancer, Vascular Tissue",
+                "MeSH Tree Number": "C04.557.645"
             },
             {
-                "name": "Breast Carcinoma In Situ",
-                "NIH MeSH Tree Number": "C04.588.180.130"
+                "Name": "Angiofibroma",
+                "MeSH Tree Number": "C04.557.645.100"
             },
             {
-                "name": "Breast Cancer, Male",
-                "NIH MeSH Tree Number": "C04.588.180.260"
+                "Name": "Angiokeratoma",
+                "MeSH Tree Number": "C04.557.645.115"
             },
             {
-                "name": "Carcinoma, Ductal, Breast",
-                "NIH MeSH Tree Number": "C04.588.180.390"
+                "Name": "Glomus Tumor",
+                "MeSH Tree Number": "C04.557.645.350"
             },
             {
-                "name": "Carcinoma, Lobular",
-                "NIH MeSH Tree Number": "C04.588.180.437"
+                "Name": "Hemangioma",
+                "MeSH Tree Number": "C04.557.645.375"
             },
             {
-                "name": "Hereditary Breast and Ovarian Cancer Syndrome",
-                "NIH MeSH Tree Number": "C04.588.180.483"
+                "Name": "Hemangiopericytoma",
+                "MeSH Tree Number": "C04.557.645.380"
             },
             {
-                "name": "Inflammatory Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.576"
+                "Name": "Hemangiosarcoma",
+                "MeSH Tree Number": "C04.557.645.390"
             },
             {
-                "name": "Triple Negative Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.788"
+                "Name": "Meningioma",
+                "MeSH Tree Number": "C04.557.645.520"
             },
             {
-                "name": "Unilateral Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.800"
+                "Name": "Sarcoma, Kaposi",
+                "MeSH Tree Number": "C04.557.645.750"
+            },
+            {
+                "Name": "Central Nervous System Venous Angioma",
+                "MeSH Tree Number": "C04.557.645.375.185"
+            },
+            {
+                "Name": "Hemangioendothelioma",
+                "MeSH Tree Number": "C04.557.645.375.370"
+            },
+            {
+                "Name": "Hemangioma, Capillary",
+                "MeSH Tree Number": "C04.557.645.375.380"
+            },
+            {
+                "Name": "Hemangioma, Cavernous",
+                "MeSH Tree Number": "C04.557.645.375.385"
+            },
+            {
+                "Name": "Kasabach-Merritt Syndrome",
+                "MeSH Tree Number": "C04.557.645.375.617"
+            },
+            {
+                "Name": "Sturge-Weber Syndrome",
+                "MeSH Tree Number": "C04.557.645.375.850"
+            },
+            {
+                "Name": "Myopericytoma",
+                "MeSH Tree Number": "C04.557.645.380.500"
+            },
+            {
+                "Name": "Hemangioendothelioma, Epithelioid",
+                "MeSH Tree Number": "C04.557.645.375.370.380"
+            },
+            {
+                "Name": "Hemangioblastoma",
+                "MeSH Tree Number": "C04.557.645.375.380.370"
+            },
+            {
+                "Name": "Hemangioma, Cavernous, Central Nervous System",
+                "MeSH Tree Number": "C04.557.645.375.385.500"
             }
         ]
     },
     {
-        "primary": "Nervous System Cancer",
-        "NIH MeSH Tree Number": "C04.588.614",
-        "sub": [
+        "Primary": "Nervous System Cancer",
+        "MeSH Tree Number": "C04.588.614",
+        "Subtypes": [
             {
-                "name": "Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180"
+                "Name": "Nervous System Cancer",
+                "MeSH Tree Number": "C04.588.614"
             },
             {
-                "name": "Breast Carcinoma In Situ",
-                "NIH MeSH Tree Number": "C04.588.180.130"
+                "Name": "Central Nervous System Cancer",
+                "MeSH Tree Number": "C04.588.614.250"
             },
             {
-                "name": "Breast Cancer, Male",
-                "NIH MeSH Tree Number": "C04.588.180.260"
+                "Name": "Cranial Nerve Cancer",
+                "MeSH Tree Number": "C04.588.614.300"
             },
             {
-                "name": "Carcinoma, Ductal, Breast",
-                "NIH MeSH Tree Number": "C04.588.180.390"
+                "Name": "Paraneoplastic Syndromes, Nervous System",
+                "MeSH Tree Number": "C04.588.614.550"
             },
             {
-                "name": "Carcinoma, Lobular",
-                "NIH MeSH Tree Number": "C04.588.180.437"
+                "Name": "Peripheral Nervous System Cancer",
+                "MeSH Tree Number": "C04.588.614.596"
             },
             {
-                "name": "Hereditary Breast and Ovarian Cancer Syndrome",
-                "NIH MeSH Tree Number": "C04.588.180.483"
+                "Name": "Brain Cancer",
+                "MeSH Tree Number": "C04.588.614.250.195"
             },
             {
-                "name": "Inflammatory Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.576"
+                "Name": "Central Nervous System Cysts",
+                "MeSH Tree Number": "C04.588.614.250.387"
             },
             {
-                "name": "Triple Negative Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.788"
+                "Name": "Meningeal Cancer",
+                "MeSH Tree Number": "C04.588.614.250.580"
             },
             {
-                "name": "Unilateral Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.800"
+                "Name": "Spinal Cord Cancer",
+                "MeSH Tree Number": "C04.588.614.250.803"
+            },
+            {
+                "Name": "Neuroma, Acoustic",
+                "MeSH Tree Number": "C04.588.614.300.015"
+            },
+            {
+                "Name": "Optic Nerve Cancer",
+                "MeSH Tree Number": "C04.588.614.300.600"
+            },
+            {
+                "Name": "Anti-N-Methyl-D-Aspartate Receptor Encephalitis",
+                "MeSH Tree Number": "C04.588.614.550.112"
+            },
+            {
+                "Name": "Limbic Encephalitis",
+                "MeSH Tree Number": "C04.588.614.550.450"
+            },
+            {
+                "Name": "Myasthenia Gravis",
+                "MeSH Tree Number": "C04.588.614.550.500"
+            },
+            {
+                "Name": "Myelitis, Transverse",
+                "MeSH Tree Number": "C04.588.614.550.550"
+            },
+            {
+                "Name": "Opsoclonus-Myoclonus Syndrome",
+                "MeSH Tree Number": "C04.588.614.550.600"
+            },
+            {
+                "Name": "Paraneoplastic Cerebellar Degeneration",
+                "MeSH Tree Number": "C04.588.614.550.650"
+            },
+            {
+                "Name": "Paraneoplastic Polyneuropathy",
+                "MeSH Tree Number": "C04.588.614.550.700"
+            },
+            {
+                "Name": "Cerebral Ventricle Cancer",
+                "MeSH Tree Number": "C04.588.614.250.195.205"
+            },
+            {
+                "Name": "Infratentorial Cancer",
+                "MeSH Tree Number": "C04.588.614.250.195.411"
+            },
+            {
+                "Name": "Neurocytoma",
+                "MeSH Tree Number": "C04.588.614.250.195.648"
+            },
+            {
+                "Name": "Pinealoma",
+                "MeSH Tree Number": "C04.588.614.250.195.766"
+            },
+            {
+                "Name": "Supratentorial Cancer",
+                "MeSH Tree Number": "C04.588.614.250.195.885"
+            },
+            {
+                "Name": "Arachnoid Cysts",
+                "MeSH Tree Number": "C04.588.614.250.387.100"
+            },
+            {
+                "Name": "Colloid Cysts",
+                "MeSH Tree Number": "C04.588.614.250.387.200"
+            },
+            {
+                "Name": "Meningeal Carcinomatosis",
+                "MeSH Tree Number": "C04.588.614.250.580.150"
+            },
+            {
+                "Name": "Epidural Cancer",
+                "MeSH Tree Number": "C04.588.614.250.803.342"
+            },
+            {
+                "Name": "Optic Nerve Glioma",
+                "MeSH Tree Number": "C04.588.614.300.600.600"
+            },
+            {
+                "Name": "Lambert-Eaton Myasthenic Syndrome",
+                "MeSH Tree Number": "C04.588.614.550.500.225"
+            },
+            {
+                "Name": "Choroid Plexus Cancer",
+                "MeSH Tree Number": "C04.588.614.250.195.205.200"
+            },
+            {
+                "Name": "Brain Stem Cancer",
+                "MeSH Tree Number": "C04.588.614.250.195.411.100"
+            },
+            {
+                "Name": "Cerebellar Cancer",
+                "MeSH Tree Number": "C04.588.614.250.195.411.211"
+            },
+            {
+                "Name": "Hypothalamic Cancer",
+                "MeSH Tree Number": "C04.588.614.250.195.885.500"
+            },
+            {
+                "Name": "Papilloma, Choroid Plexus",
+                "MeSH Tree Number": "C04.588.614.250.195.205.200.500"
+            },
+            {
+                "Name": "Diffuse Intrinsic Pontine Glioma",
+                "MeSH Tree Number": "C04.588.614.250.195.411.100.500"
+            },
+            {
+                "Name": "Pallister-Hall Syndrome",
+                "MeSH Tree Number": "C04.588.614.250.195.885.500.299"
             }
         ]
     },
     {
-        "primary": "Cancer, Nerve Tissue",
-        "NIH MeSH Tree Number": "C04.557.580",
-        "sub": [
+        "Primary": "Cancer, Nerve Tissue",
+        "MeSH Tree Number": "C04.557.580",
+        "Subtypes": [
             {
-                "name": "Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180"
+                "Name": "Cancer, Nerve Tissue",
+                "MeSH Tree Number": "C04.557.580"
             },
             {
-                "name": "Breast Carcinoma In Situ",
-                "NIH MeSH Tree Number": "C04.588.180.130"
+                "Name": "Nerve Sheath Cancer",
+                "MeSH Tree Number": "C04.557.580.600"
             },
             {
-                "name": "Breast Cancer, Male",
-                "NIH MeSH Tree Number": "C04.588.180.260"
+                "Name": "Neuroectodermal Tumors",
+                "MeSH Tree Number": "C04.557.580.625"
             },
             {
-                "name": "Carcinoma, Ductal, Breast",
-                "NIH MeSH Tree Number": "C04.588.180.390"
+                "Name": "Neurofibroma",
+                "MeSH Tree Number": "C04.557.580.600.580"
             },
             {
-                "name": "Carcinoma, Lobular",
-                "NIH MeSH Tree Number": "C04.588.180.437"
+                "Name": "Neuroma",
+                "MeSH Tree Number": "C04.557.580.600.610"
             },
             {
-                "name": "Hereditary Breast and Ovarian Cancer Syndrome",
-                "NIH MeSH Tree Number": "C04.588.180.483"
+                "Name": "Neurothekeoma",
+                "MeSH Tree Number": "C04.557.580.600.625"
             },
             {
-                "name": "Inflammatory Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.576"
+                "Name": "Craniopharyngioma",
+                "MeSH Tree Number": "C04.557.580.625.200"
             },
             {
-                "name": "Triple Negative Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.788"
+                "Name": "Cancer, Neuroepithelial",
+                "MeSH Tree Number": "C04.557.580.625.600"
             },
             {
-                "name": "Unilateral Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.800"
+                "Name": "Neuroectodermal Tumor, Melanotic",
+                "MeSH Tree Number": "C04.557.580.625.630"
+            },
+            {
+                "Name": "Neuroendocrine Tumors",
+                "MeSH Tree Number": "C04.557.580.625.650"
+            },
+            {
+                "Name": "Neurofibroma, Plexiform",
+                "MeSH Tree Number": "C04.557.580.600.580.585"
+            },
+            {
+                "Name": "Neurofibromatoses",
+                "MeSH Tree Number": "C04.557.580.600.580.590"
+            },
+            {
+                "Name": "Neurofibrosarcoma",
+                "MeSH Tree Number": "C04.557.580.600.580.795"
+            },
+            {
+                "Name": "Neurilemmoma",
+                "MeSH Tree Number": "C04.557.580.600.610.595"
+            },
+            {
+                "Name": "Ganglioneuroma",
+                "MeSH Tree Number": "C04.557.580.625.600.355"
+            },
+            {
+                "Name": "Glioma",
+                "MeSH Tree Number": "C04.557.580.625.600.380"
+            },
+            {
+                "Name": "Neuroectodermal Tumors, Primitive",
+                "MeSH Tree Number": "C04.557.580.625.600.590"
+            },
+            {
+                "Name": "Adenoma, Acidophil",
+                "MeSH Tree Number": "C04.557.580.625.650.025"
+            },
+            {
+                "Name": "Adenoma, Basophil",
+                "MeSH Tree Number": "C04.557.580.625.650.075"
+            },
+            {
+                "Name": "Adenoma, Chromophobe",
+                "MeSH Tree Number": "C04.557.580.625.650.095"
+            },
+            {
+                "Name": "Apudoma",
+                "MeSH Tree Number": "C04.557.580.625.650.135"
+            },
+            {
+                "Name": "Carcinoid Tumor",
+                "MeSH Tree Number": "C04.557.580.625.650.200"
+            },
+            {
+                "Name": "Carcinoma, Neuroendocrine",
+                "MeSH Tree Number": "C04.557.580.625.650.240"
+            },
+            {
+                "Name": "Paraganglioma",
+                "MeSH Tree Number": "C04.557.580.625.650.700"
+            },
+            {
+                "Name": "Neurofibromatosis 1",
+                "MeSH Tree Number": "C04.557.580.600.580.590.650"
+            },
+            {
+                "Name": "Neurofibromatosis 2",
+                "MeSH Tree Number": "C04.557.580.600.580.590.655"
+            },
+            {
+                "Name": "Astrocytoma",
+                "MeSH Tree Number": "C04.557.580.625.600.380.080"
+            },
+            {
+                "Name": "Ependymoma",
+                "MeSH Tree Number": "C04.557.580.625.600.380.290"
+            },
+            {
+                "Name": "Ganglioglioma",
+                "MeSH Tree Number": "C04.557.580.625.600.380.350"
+            },
+            {
+                "Name": "Gliosarcoma",
+                "MeSH Tree Number": "C04.557.580.625.600.380.400"
+            },
+            {
+                "Name": "Medulloblastoma",
+                "MeSH Tree Number": "C04.557.580.625.600.380.515"
+            },
+            {
+                "Name": "Oligodendroglioma",
+                "MeSH Tree Number": "C04.557.580.625.600.380.590"
+            },
+            {
+                "Name": "Neuroectodermal Tumors, Primitive, Peripheral",
+                "MeSH Tree Number": "C04.557.580.625.600.590.650"
+            },
+            {
+                "Name": "Malignant Carcinoid Syndrome",
+                "MeSH Tree Number": "C04.557.580.625.650.200.500"
+            },
+            {
+                "Name": "Carcinoma, Medullary",
+                "MeSH Tree Number": "C04.557.580.625.650.240.315"
+            },
+            {
+                "Name": "Carcinoma, Merkel Cell",
+                "MeSH Tree Number": "C04.557.580.625.650.240.325"
+            },
+            {
+                "Name": "Paraganglioma, Extra-Adrenal",
+                "MeSH Tree Number": "C04.557.580.625.650.700.705"
+            },
+            {
+                "Name": "Pheochromocytoma",
+                "MeSH Tree Number": "C04.557.580.625.650.700.725"
+            },
+            {
+                "Name": "Glioblastoma",
+                "MeSH Tree Number": "C04.557.580.625.600.380.080.335"
+            },
+            {
+                "Name": "Glioma, Subependymal",
+                "MeSH Tree Number": "C04.557.580.625.600.380.290.390"
+            },
+            {
+                "Name": "Neuroblastoma",
+                "MeSH Tree Number": "C04.557.580.625.600.590.650.550"
+            },
+            {
+                "Name": "Carcinoid Heart Disease",
+                "MeSH Tree Number": "C04.557.580.625.650.200.500.205"
+            },
+            {
+                "Name": "Carotid Body Tumor",
+                "MeSH Tree Number": "C04.557.580.625.650.700.705.220"
+            },
+            {
+                "Name": "Glomus Jugulare Tumor",
+                "MeSH Tree Number": "C04.557.580.625.650.700.705.340"
+            },
+            {
+                "Name": "Glomus Tympanicum Tumor",
+                "MeSH Tree Number": "C04.557.580.625.650.700.705.360"
+            },
+            {
+                "Name": "Esthesioneuroblastoma, Olfactory",
+                "MeSH Tree Number": "C04.557.580.625.600.590.650.550.150"
+            },
+            {
+                "Name": "Ganglioneuroblastoma",
+                "MeSH Tree Number": "C04.557.580.625.600.590.650.550.300"
             }
         ]
     },
     {
-        "primary": "Soft Tissue Cancer",
-        "NIH MeSH Tree Number": "C04.588.839",
-        "sub": [
+        "Primary": "Soft Tissue Cancer",
+        "MeSH Tree Number": "C04.588.839",
+        "Subtypes": [
             {
-                "name": "Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180"
+                "Name": "Soft Tissue Cancer",
+                "MeSH Tree Number": "C04.588.839"
             },
             {
-                "name": "Breast Carcinoma In Situ",
-                "NIH MeSH Tree Number": "C04.588.180.130"
+                "Name": "Muscle Cancer",
+                "MeSH Tree Number": "C04.588.839.500"
             },
             {
-                "name": "Breast Cancer, Male",
-                "NIH MeSH Tree Number": "C04.588.180.260"
-            },
-            {
-                "name": "Carcinoma, Ductal, Breast",
-                "NIH MeSH Tree Number": "C04.588.180.390"
-            },
-            {
-                "name": "Carcinoma, Lobular",
-                "NIH MeSH Tree Number": "C04.588.180.437"
-            },
-            {
-                "name": "Hereditary Breast and Ovarian Cancer Syndrome",
-                "NIH MeSH Tree Number": "C04.588.180.483"
-            },
-            {
-                "name": "Inflammatory Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.576"
-            },
-            {
-                "name": "Triple Negative Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.788"
-            },
-            {
-                "name": "Unilateral Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.800"
+                "Name": "Vascular Cancer",
+                "MeSH Tree Number": "C04.588.839.750"
             }
         ]
     },
     {
-        "primary": "Cancer, Glandular and Epithelial",
-        "NIH MeSH Tree Number": "C04.557.470",
-        "sub": [
+        "Primary": "Cancer, Glandular and Epithelial",
+        "MeSH Tree Number": "C04.557.470",
+        "Subtypes": [
             {
-                "name": "Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180"
+                "Name": "Cancer, Glandular and Epithelial",
+                "MeSH Tree Number": "C04.557.470"
             },
             {
-                "name": "Breast Carcinoma In Situ",
-                "NIH MeSH Tree Number": "C04.588.180.130"
+                "Name": "Adenoma",
+                "MeSH Tree Number": "C04.557.470.035"
             },
             {
-                "name": "Breast Cancer, Male",
-                "NIH MeSH Tree Number": "C04.588.180.260"
+                "Name": "Carcinoma",
+                "MeSH Tree Number": "C04.557.470.200"
             },
             {
-                "name": "Carcinoma, Ductal, Breast",
-                "NIH MeSH Tree Number": "C04.588.180.390"
+                "Name": "Cancer, Adnexal and Skin Appendage",
+                "MeSH Tree Number": "C04.557.470.550"
             },
             {
-                "name": "Carcinoma, Lobular",
-                "NIH MeSH Tree Number": "C04.588.180.437"
+                "Name": "Cancer, Basal Cell",
+                "MeSH Tree Number": "C04.557.470.565"
             },
             {
-                "name": "Hereditary Breast and Ovarian Cancer Syndrome",
-                "NIH MeSH Tree Number": "C04.588.180.483"
+                "Name": "Cancer, Cystic, Mucinous, and Serous",
+                "MeSH Tree Number": "C04.557.470.590"
             },
             {
-                "name": "Inflammatory Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.576"
+                "Name": "Cancer, Ductal, Lobular, and Medullary",
+                "MeSH Tree Number": "C04.557.470.615"
             },
             {
-                "name": "Triple Negative Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.788"
+                "Name": "Cancer, Fibroepithelial",
+                "MeSH Tree Number": "C04.557.470.625"
             },
             {
-                "name": "Unilateral Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.800"
+                "Name": "Cancer, Mesothelial",
+                "MeSH Tree Number": "C04.557.470.660"
+            },
+            {
+                "Name": "Cancer, Squamous Cell",
+                "MeSH Tree Number": "C04.557.470.700"
+            },
+            {
+                "Name": "Adenoma, Bile Duct",
+                "MeSH Tree Number": "C04.557.470.035.085"
+            },
+            {
+                "Name": "Adenoma, Oxyphilic",
+                "MeSH Tree Number": "C04.557.470.035.140"
+            },
+            {
+                "Name": "Adenoma, Pleomorphic",
+                "MeSH Tree Number": "C04.557.470.035.155"
+            },
+            {
+                "Name": "Adenoma, Sweat Gland",
+                "MeSH Tree Number": "C04.557.470.035.175"
+            },
+            {
+                "Name": "Adenoma, Villous",
+                "MeSH Tree Number": "C04.557.470.035.185"
+            },
+            {
+                "Name": "Adenomatoid Tumor",
+                "MeSH Tree Number": "C04.557.470.035.200"
+            },
+            {
+                "Name": "Adenomatosis, Pulmonary",
+                "MeSH Tree Number": "C04.557.470.035.210"
+            },
+            {
+                "Name": "Adenomatous Polyps",
+                "MeSH Tree Number": "C04.557.470.035.215"
+            },
+            {
+                "Name": "Adrenal Rest Tumor",
+                "MeSH Tree Number": "C04.557.470.035.232"
+            },
+            {
+                "Name": "Cystadenoma",
+                "MeSH Tree Number": "C04.557.470.035.320"
+            },
+            {
+                "Name": "Mesothelioma",
+                "MeSH Tree Number": "C04.557.470.035.510"
+            },
+            {
+                "Name": "Adenocarcinoma",
+                "MeSH Tree Number": "C04.557.470.200.025"
+            },
+            {
+                "Name": "Carcinoma, Adenosquamous",
+                "MeSH Tree Number": "C04.557.470.200.150"
+            },
+            {
+                "Name": "Carcinoma, Basal Cell",
+                "MeSH Tree Number": "C04.557.470.200.165"
+            },
+            {
+                "Name": "Carcinoma, Basosquamous",
+                "MeSH Tree Number": "C04.557.470.200.170"
+            },
+            {
+                "Name": "Carcinoma, Ehrlich Tumor",
+                "MeSH Tree Number": "C04.557.470.200.200"
+            },
+            {
+                "Name": "Carcinoma, Giant Cell",
+                "MeSH Tree Number": "C04.557.470.200.220"
+            },
+            {
+                "Name": "Carcinoma in Situ",
+                "MeSH Tree Number": "C04.557.470.200.240"
+            },
+            {
+                "Name": "Carcinoma, Krebs 2",
+                "MeSH Tree Number": "C04.557.470.200.255"
+            },
+            {
+                "Name": "Carcinoma, Large Cell",
+                "MeSH Tree Number": "C04.557.470.200.260"
+            },
+            {
+                "Name": "Carcinoma, Lewis Lung",
+                "MeSH Tree Number": "C04.557.470.200.280"
+            },
+            {
+                "Name": "Carcinoma, Papillary",
+                "MeSH Tree Number": "C04.557.470.200.360"
+            },
+            {
+                "Name": "Carcinoma, Small Cell",
+                "MeSH Tree Number": "C04.557.470.200.380"
+            },
+            {
+                "Name": "Carcinoma, Squamous Cell",
+                "MeSH Tree Number": "C04.557.470.200.400"
+            },
+            {
+                "Name": "Carcinoma, Transitional Cell",
+                "MeSH Tree Number": "C04.557.470.200.430"
+            },
+            {
+                "Name": "Carcinoma, Verrucous",
+                "MeSH Tree Number": "C04.557.470.200.450"
+            },
+            {
+                "Name": "Mammary Analogue Secretory Carcinoma",
+                "MeSH Tree Number": "C04.557.470.200.588"
+            },
+            {
+                "Name": "Thyroid Carcinoma, Anaplastic",
+                "MeSH Tree Number": "C04.557.470.200.725"
+            },
+            {
+                "Name": "Adenocarcinoma, Sebaceous",
+                "MeSH Tree Number": "C04.557.470.550.105"
+            },
+            {
+                "Name": "Carcinoma, Skin Appendage",
+                "MeSH Tree Number": "C04.557.470.550.420"
+            },
+            {
+                "Name": "Pilomatrixoma",
+                "MeSH Tree Number": "C04.557.470.565.625"
+            },
+            {
+                "Name": "Adenocarcinoma, Mucinous",
+                "MeSH Tree Number": "C04.557.470.590.075"
+            },
+            {
+                "Name": "Carcinoma, Mucoepidermoid",
+                "MeSH Tree Number": "C04.557.470.590.340"
+            },
+            {
+                "Name": "Carcinoma, Signet Ring Cell",
+                "MeSH Tree Number": "C04.557.470.590.415"
+            },
+            {
+                "Name": "Cystadenocarcinoma",
+                "MeSH Tree Number": "C04.557.470.590.480"
+            },
+            {
+                "Name": "Cystadenofibroma",
+                "MeSH Tree Number": "C04.557.470.590.482"
+            },
+            {
+                "Name": "Mucoepidermoid Tumor",
+                "MeSH Tree Number": "C04.557.470.590.580"
+            },
+            {
+                "Name": "Pseudomyxoma Peritonei",
+                "MeSH Tree Number": "C04.557.470.590.782"
+            },
+            {
+                "Name": "Carcinoma, Ductal",
+                "MeSH Tree Number": "C04.557.470.615.132"
+            },
+            {
+                "Name": "Carcinoma, Intraductal, Noninfiltrating",
+                "MeSH Tree Number": "C04.557.470.615.275"
+            },
+            {
+                "Name": "Paget Disease, Extramammary",
+                "MeSH Tree Number": "C04.557.470.615.660"
+            },
+            {
+                "Name": "Papilloma, Intraductal",
+                "MeSH Tree Number": "C04.557.470.615.670"
+            },
+            {
+                "Name": "Adenofibroma",
+                "MeSH Tree Number": "C04.557.470.625.050"
+            },
+            {
+                "Name": "Brenner Tumor",
+                "MeSH Tree Number": "C04.557.470.625.150"
+            },
+            {
+                "Name": "Fibroadenoma",
+                "MeSH Tree Number": "C04.557.470.625.350"
+            },
+            {
+                "Name": "Papilloma",
+                "MeSH Tree Number": "C04.557.470.700.600"
+            },
+            {
+                "Name": "Acrospiroma",
+                "MeSH Tree Number": "C04.557.470.035.175.125"
+            },
+            {
+                "Name": "Hidrocystoma",
+                "MeSH Tree Number": "C04.557.470.035.175.375"
+            },
+            {
+                "Name": "Poroma",
+                "MeSH Tree Number": "C04.557.470.035.175.588"
+            },
+            {
+                "Name": "Syringoma",
+                "MeSH Tree Number": "C04.557.470.035.175.800"
+            },
+            {
+                "Name": "Tubular Sweat Gland Adenomas",
+                "MeSH Tree Number": "C04.557.470.035.175.900"
+            },
+            {
+                "Name": "Cystadenoma, Mucinous",
+                "MeSH Tree Number": "C04.557.470.035.320.225"
+            },
+            {
+                "Name": "Cystadenoma, Papillary",
+                "MeSH Tree Number": "C04.557.470.035.320.230"
+            },
+            {
+                "Name": "Cystadenoma, Serous",
+                "MeSH Tree Number": "C04.557.470.035.320.240"
+            },
+            {
+                "Name": "Mesothelioma, Cystic",
+                "MeSH Tree Number": "C04.557.470.035.510.515"
+            },
+            {
+                "Name": "Adenocarcinoma in Situ",
+                "MeSH Tree Number": "C04.557.470.200.025.014"
+            },
+            {
+                "Name": "Adenocarcinoma, Clear Cell",
+                "MeSH Tree Number": "C04.557.470.200.025.045"
+            },
+            {
+                "Name": "Adenocarcinoma, Follicular",
+                "MeSH Tree Number": "C04.557.470.200.025.060"
+            },
+            {
+                "Name": "Adenocarcinoma, Papillary",
+                "MeSH Tree Number": "C04.557.470.200.025.085"
+            },
+            {
+                "Name": "Adenocarcinoma, Scirrhous",
+                "MeSH Tree Number": "C04.557.470.200.025.095"
+            },
+            {
+                "Name": "Carcinoma, Acinar Cell",
+                "MeSH Tree Number": "C04.557.470.200.025.215"
+            },
+            {
+                "Name": "Carcinoma, Adenoid Cystic",
+                "MeSH Tree Number": "C04.557.470.200.025.220"
+            },
+            {
+                "Name": "Cholangiocarcinoma",
+                "MeSH Tree Number": "C04.557.470.200.025.450"
+            },
+            {
+                "Name": "Choriocarcinoma",
+                "MeSH Tree Number": "C04.557.470.200.025.455"
+            },
+            {
+                "Name": "Eccrine Porocarcinoma",
+                "MeSH Tree Number": "C04.557.470.200.025.500"
+            },
+            {
+                "Name": "Pulmonary Adenomatosis, Ovine",
+                "MeSH Tree Number": "C04.557.470.200.025.715"
+            },
+            {
+                "Name": "Basal Cell Nevus Syndrome",
+                "MeSH Tree Number": "C04.557.470.200.165.150"
+            },
+            {
+                "Name": "Cervical Intraepithelial Neoplasia",
+                "MeSH Tree Number": "C04.557.470.200.240.250"
+            },
+            {
+                "Name": "Prostatic Intraepithelial Neoplasia",
+                "MeSH Tree Number": "C04.557.470.200.240.500"
+            },
+            {
+                "Name": "Bowen's Disease",
+                "MeSH Tree Number": "C04.557.470.200.400.130"
+            },
+            {
+                "Name": "Buschke-Lowenstein Tumor",
+                "MeSH Tree Number": "C04.557.470.200.450.500"
+            },
+            {
+                "Name": "Krukenberg Tumor",
+                "MeSH Tree Number": "C04.557.470.590.415.410"
+            },
+            {
+                "Name": "Cystadenocarcinoma, Mucinous",
+                "MeSH Tree Number": "C04.557.470.590.480.225"
+            },
+            {
+                "Name": "Cystadenocarcinoma, Papillary",
+                "MeSH Tree Number": "C04.557.470.590.480.230"
+            },
+            {
+                "Name": "Cystadenocarcinoma, Serous",
+                "MeSH Tree Number": "C04.557.470.590.480.240"
+            },
+            {
+                "Name": "Paget's Disease, Mammary",
+                "MeSH Tree Number": "C04.557.470.615.275.625"
+            },
+            {
+                "Name": "Papilloma, Inverted",
+                "MeSH Tree Number": "C04.557.470.700.600.610"
+            },
+            {
+                "Name": "Carcinoma, Papillary, Follicular",
+                "MeSH Tree Number": "C04.557.470.200.025.060.225"
+            },
+            {
+                "Name": "Linitis Plastica",
+                "MeSH Tree Number": "C04.557.470.200.025.095.410"
+            },
+            {
+                "Name": "Klatskin Tumor",
+                "MeSH Tree Number": "C04.557.470.200.025.450.500"
+            },
+            {
+                "Name": "Choriocarcinoma, Non-gestational",
+                "MeSH Tree Number": "C04.557.470.200.025.455.750"
+            },
+            {
+                "Name": "Trophoblastic Tumor, Placental Site",
+                "MeSH Tree Number": "C04.557.470.200.025.455.875"
             }
         ]
     },
     {
-        "primary": "Cancer, Connective and Soft Tissue",
-        "NIH MeSH Tree Number": "C04.557.450",
-        "sub": [
+        "Primary": "Cancer, Connective and Soft Tissue",
+        "MeSH Tree Number": "C04.557.450",
+        "Subtypes": [
             {
-                "name": "Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180"
+                "Name": "Cancer, Connective and Soft Tissue",
+                "MeSH Tree Number": "C04.557.450"
             },
             {
-                "name": "Breast Carcinoma In Situ",
-                "NIH MeSH Tree Number": "C04.588.180.130"
+                "Name": "Cancer, Adipose Tissue",
+                "MeSH Tree Number": "C04.557.450.550"
             },
             {
-                "name": "Breast Cancer, Male",
-                "NIH MeSH Tree Number": "C04.588.180.260"
+                "Name": "Cancer, Connective Tissue",
+                "MeSH Tree Number": "C04.557.450.565"
             },
             {
-                "name": "Carcinoma, Ductal, Breast",
-                "NIH MeSH Tree Number": "C04.588.180.390"
+                "Name": "Cancer, Muscle Tissue",
+                "MeSH Tree Number": "C04.557.450.590"
             },
             {
-                "name": "Carcinoma, Lobular",
-                "NIH MeSH Tree Number": "C04.588.180.437"
+                "Name": "Perivascular Epithelioid Cell Cancer",
+                "MeSH Tree Number": "C04.557.450.692"
             },
             {
-                "name": "Hereditary Breast and Ovarian Cancer Syndrome",
-                "NIH MeSH Tree Number": "C04.588.180.483"
+                "Name": "Sarcoma",
+                "MeSH Tree Number": "C04.557.450.795"
             },
             {
-                "name": "Inflammatory Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.576"
+                "Name": "Angiolipoma",
+                "MeSH Tree Number": "C04.557.450.550.100"
             },
             {
-                "name": "Triple Negative Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.788"
+                "Name": "Angiomyolipoma",
+                "MeSH Tree Number": "C04.557.450.550.125"
             },
             {
-                "name": "Unilateral Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.800"
+                "Name": "Lipoma",
+                "MeSH Tree Number": "C04.557.450.550.400"
+            },
+            {
+                "Name": "Liposarcoma",
+                "MeSH Tree Number": "C04.557.450.550.420"
+            },
+            {
+                "Name": "Myelolipoma",
+                "MeSH Tree Number": "C04.557.450.550.710"
+            },
+            {
+                "Name": "Chondroblastoma",
+                "MeSH Tree Number": "C04.557.450.565.250"
+            },
+            {
+                "Name": "Chondroma",
+                "MeSH Tree Number": "C04.557.450.565.265"
+            },
+            {
+                "Name": "Chondrosarcoma",
+                "MeSH Tree Number": "C04.557.450.565.280"
+            },
+            {
+                "Name": "Endometrial Stromal Tumors",
+                "MeSH Tree Number": "C04.557.450.565.325"
+            },
+            {
+                "Name": "Gastrointestinal Stromal Tumors",
+                "MeSH Tree Number": "C04.557.450.565.370"
+            },
+            {
+                "Name": "Giant Cell Tumors",
+                "MeSH Tree Number": "C04.557.450.565.380"
+            },
+            {
+                "Name": "Mastocytosis",
+                "MeSH Tree Number": "C04.557.450.565.465"
+            },
+            {
+                "Name": "Myofibroma",
+                "MeSH Tree Number": "C04.557.450.565.540"
+            },
+            {
+                "Name": "Myxoma",
+                "MeSH Tree Number": "C04.557.450.565.550"
+            },
+            {
+                "Name": "Myxosarcoma",
+                "MeSH Tree Number": "C04.557.450.565.560"
+            },
+            {
+                "Name": "Cancer, Bone Tissue",
+                "MeSH Tree Number": "C04.557.450.565.575"
+            },
+            {
+                "Name": "Cancer, Fibrous Tissue",
+                "MeSH Tree Number": "C04.557.450.565.590"
+            },
+            {
+                "Name": "Sarcoma, Clear Cell",
+                "MeSH Tree Number": "C04.557.450.565.800"
+            },
+            {
+                "Name": "Sarcoma, Small Cell",
+                "MeSH Tree Number": "C04.557.450.565.825"
+            },
+            {
+                "Name": "Sarcoma, Synovial",
+                "MeSH Tree Number": "C04.557.450.565.835"
+            },
+            {
+                "Name": "Granular Cell Tumor",
+                "MeSH Tree Number": "C04.557.450.590.350"
+            },
+            {
+                "Name": "Leiomyoma",
+                "MeSH Tree Number": "C04.557.450.590.450"
+            },
+            {
+                "Name": "Leiomyosarcoma",
+                "MeSH Tree Number": "C04.557.450.590.455"
+            },
+            {
+                "Name": "Myoma",
+                "MeSH Tree Number": "C04.557.450.590.540"
+            },
+            {
+                "Name": "Myosarcoma",
+                "MeSH Tree Number": "C04.557.450.590.550"
+            },
+            {
+                "Name": "Sarcoma, Alveolar Soft Part",
+                "MeSH Tree Number": "C04.557.450.590.775"
+            },
+            {
+                "Name": "Smooth Muscle Tumor",
+                "MeSH Tree Number": "C04.557.450.590.800"
+            },
+            {
+                "Name": "Adenosarcoma",
+                "MeSH Tree Number": "C04.557.450.795.135"
+            },
+            {
+                "Name": "Carcinosarcoma",
+                "MeSH Tree Number": "C04.557.450.795.290"
+            },
+            {
+                "Name": "Desmoplastic Small Round Cell Tumor",
+                "MeSH Tree Number": "C04.557.450.795.315"
+            },
+            {
+                "Name": "Fibrosarcoma",
+                "MeSH Tree Number": "C04.557.450.795.350"
+            },
+            {
+                "Name": "Histiocytoma, Malignant Fibrous",
+                "MeSH Tree Number": "C04.557.450.795.400"
+            },
+            {
+                "Name": "Mixed Tumor, Mesodermal",
+                "MeSH Tree Number": "C04.557.450.795.530"
+            },
+            {
+                "Name": "Osteosarcoma",
+                "MeSH Tree Number": "C04.557.450.795.620"
+            },
+            {
+                "Name": "Phyllodes Tumor",
+                "MeSH Tree Number": "C04.557.450.795.650"
+            },
+            {
+                "Name": "Sarcoma, Experimental",
+                "MeSH Tree Number": "C04.557.450.795.830"
+            },
+            {
+                "Name": "Lipoblastoma",
+                "MeSH Tree Number": "C04.557.450.550.400.500"
+            },
+            {
+                "Name": "Liposarcoma, Myxoid",
+                "MeSH Tree Number": "C04.557.450.550.420.425"
+            },
+            {
+                "Name": "Chondromatosis",
+                "MeSH Tree Number": "C04.557.450.565.265.270"
+            },
+            {
+                "Name": "Chondrosarcoma, Clear Cell",
+                "MeSH Tree Number": "C04.557.450.565.280.140"
+            },
+            {
+                "Name": "Chondrosarcoma, Mesenchymal",
+                "MeSH Tree Number": "C04.557.450.565.280.280"
+            },
+            {
+                "Name": "Giant Cell Tumor of Bone",
+                "MeSH Tree Number": "C04.557.450.565.380.380"
+            },
+            {
+                "Name": "Giant Cell Tumor of Tendon Sheath",
+                "MeSH Tree Number": "C04.557.450.565.380.690"
+            },
+            {
+                "Name": "Mast-Cell Sarcoma",
+                "MeSH Tree Number": "C04.557.450.565.465.124"
+            },
+            {
+                "Name": "Mastocytoma",
+                "MeSH Tree Number": "C04.557.450.565.465.249"
+            },
+            {
+                "Name": "Mastocytosis, Cutaneous",
+                "MeSH Tree Number": "C04.557.450.565.465.500"
+            },
+            {
+                "Name": "Mastocytosis, Systemic",
+                "MeSH Tree Number": "C04.557.450.565.465.750"
+            },
+            {
+                "Name": "Fibroma, Ossifying",
+                "MeSH Tree Number": "C04.557.450.565.575.400"
+            },
+            {
+                "Name": "Osteoblastoma",
+                "MeSH Tree Number": "C04.557.450.565.575.600"
+            },
+            {
+                "Name": "Osteochondroma",
+                "MeSH Tree Number": "C04.557.450.565.575.610"
+            },
+            {
+                "Name": "Osteoma",
+                "MeSH Tree Number": "C04.557.450.565.575.625"
+            },
+            {
+                "Name": "Fibroma",
+                "MeSH Tree Number": "C04.557.450.565.590.340"
+            },
+            {
+                "Name": "Histiocytoma",
+                "MeSH Tree Number": "C04.557.450.565.590.425"
+            },
+            {
+                "Name": "Myofibromatosis",
+                "MeSH Tree Number": "C04.557.450.565.590.550"
+            },
+            {
+                "Name": "Solitary Fibrous Tumors",
+                "MeSH Tree Number": "C04.557.450.565.590.797"
+            },
+            {
+                "Name": "Angiomyoma",
+                "MeSH Tree Number": "C04.557.450.590.450.125"
+            },
+            {
+                "Name": "Leiomyoma, Epithelioid",
+                "MeSH Tree Number": "C04.557.450.590.450.455"
+            },
+            {
+                "Name": "Leiomyomatosis",
+                "MeSH Tree Number": "C04.557.450.590.450.465"
+            },
+            {
+                "Name": "Rhabdomyoma",
+                "MeSH Tree Number": "C04.557.450.590.540.700"
+            },
+            {
+                "Name": "Rhabdomyosarcoma",
+                "MeSH Tree Number": "C04.557.450.590.550.660"
+            },
+            {
+                "Name": "Carcinoma 256, Walker",
+                "MeSH Tree Number": "C04.557.450.795.290.210"
+            },
+            {
+                "Name": "Sarcoma, Endometrial Stromal",
+                "MeSH Tree Number": "C04.557.450.795.332.500"
+            },
+            {
+                "Name": "Dermatofibrosarcoma",
+                "MeSH Tree Number": "C04.557.450.795.350.320"
+            },
+            {
+                "Name": "Osteosarcoma, Juxtacortical",
+                "MeSH Tree Number": "C04.557.450.795.620.655"
+            },
+            {
+                "Name": "Sarcoma, Ewing",
+                "MeSH Tree Number": "C04.557.450.795.620.800"
+            },
+            {
+                "Name": "Sarcoma 37",
+                "MeSH Tree Number": "C04.557.450.795.830.760"
+            },
+            {
+                "Name": "Sarcoma 180",
+                "MeSH Tree Number": "C04.557.450.795.830.780"
+            },
+            {
+                "Name": "Sarcoma, Avian",
+                "MeSH Tree Number": "C04.557.450.795.830.800"
+            },
+            {
+                "Name": "Sarcoma, Yoshida",
+                "MeSH Tree Number": "C04.557.450.795.830.850"
+            },
+            {
+                "Name": "Synovitis, Pigmented Villonodular",
+                "MeSH Tree Number": "C04.557.450.565.380.690.500"
+            },
+            {
+                "Name": "Mastocytoma, Skin",
+                "MeSH Tree Number": "C04.557.450.565.465.249.500"
+            },
+            {
+                "Name": "Urticaria Pigmentosa",
+                "MeSH Tree Number": "C04.557.450.565.465.500.850"
+            },
+            {
+                "Name": "Osteochondromatosis",
+                "MeSH Tree Number": "C04.557.450.565.575.610.615"
+            },
+            {
+                "Name": "Osteoma, Osteoid",
+                "MeSH Tree Number": "C04.557.450.565.575.625.625"
+            },
+            {
+                "Name": "Dupuytren Contracture",
+                "MeSH Tree Number": "C04.557.450.565.590.340.173"
+            },
+            {
+                "Name": "Fibroma, Desmoplastic",
+                "MeSH Tree Number": "C04.557.450.565.590.340.345"
+            },
+            {
+                "Name": "Fibromatosis, Abdominal",
+                "MeSH Tree Number": "C04.557.450.565.590.340.400"
+            },
+            {
+                "Name": "Fibromatosis, Aggressive",
+                "MeSH Tree Number": "C04.557.450.565.590.340.410"
+            },
+            {
+                "Name": "Fibromatosis, Plantar",
+                "MeSH Tree Number": "C04.557.450.565.590.340.705"
+            },
+            {
+                "Name": "Histiocytoma, Benign Fibrous",
+                "MeSH Tree Number": "C04.557.450.565.590.425.350"
+            },
+            {
+                "Name": "Rhabdomyosarcoma, Alveolar",
+                "MeSH Tree Number": "C04.557.450.590.550.660.665"
+            },
+            {
+                "Name": "Rhabdomyosarcoma, Embryonal",
+                "MeSH Tree Number": "C04.557.450.590.550.660.675"
+            },
+            {
+                "Name": "Exostoses, Multiple Hereditary",
+                "MeSH Tree Number": "C04.557.450.565.575.610.615.325"
             }
         ]
     },
     {
-        "primary": "Cancer, Germ Cell and Embryonal",
-        "NIH MeSH Tree Number": "C04.557.465",
-        "sub": [
+        "Primary": "Cancer, Germ Cell and Embryonal",
+        "MeSH Tree Number": "C04.557.465",
+        "Subtypes": [
             {
-                "name": "Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180"
+                "Name": "Cancer, Germ Cell and Embryonal",
+                "MeSH Tree Number": "C04.557.465"
             },
             {
-                "name": "Breast Carcinoma In Situ",
-                "NIH MeSH Tree Number": "C04.588.180.130"
+                "Name": "Carcinoma, Embryonal",
+                "MeSH Tree Number": "C04.557.465.200"
             },
             {
-                "name": "Breast Cancer, Male",
-                "NIH MeSH Tree Number": "C04.588.180.260"
+                "Name": "Chordoma",
+                "MeSH Tree Number": "C04.557.465.220"
             },
             {
-                "name": "Carcinoma, Ductal, Breast",
-                "NIH MeSH Tree Number": "C04.588.180.390"
+                "Name": "Germinoma",
+                "MeSH Tree Number": "C04.557.465.330"
             },
             {
-                "name": "Carcinoma, Lobular",
-                "NIH MeSH Tree Number": "C04.588.180.437"
+                "Name": "Mesonephroma",
+                "MeSH Tree Number": "C04.557.465.510"
             },
             {
-                "name": "Hereditary Breast and Ovarian Cancer Syndrome",
-                "NIH MeSH Tree Number": "C04.588.180.483"
+                "Name": "Teratocarcinoma",
+                "MeSH Tree Number": "C04.557.465.900"
             },
             {
-                "name": "Inflammatory Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.576"
+                "Name": "Teratoma",
+                "MeSH Tree Number": "C04.557.465.910"
             },
             {
-                "name": "Triple Negative Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.788"
+                "Name": "Trophoblastic Cancer",
+                "MeSH Tree Number": "C04.557.465.955"
             },
             {
-                "name": "Unilateral Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.800"
+                "Name": "Dysgerminoma",
+                "MeSH Tree Number": "C04.557.465.330.300"
+            },
+            {
+                "Name": "Seminoma",
+                "MeSH Tree Number": "C04.557.465.330.800"
+            },
+            {
+                "Name": "Endodermal Sinus Tumor",
+                "MeSH Tree Number": "C04.557.465.510.350"
+            },
+            {
+                "Name": "Dermoid Cyst",
+                "MeSH Tree Number": "C04.557.465.910.250"
+            },
+            {
+                "Name": "Struma Ovarii",
+                "MeSH Tree Number": "C04.557.465.910.850"
+            },
+            {
+                "Name": "Gestational Trophoblastic Disease",
+                "MeSH Tree Number": "C04.557.465.955.416"
+            },
+            {
+                "Name": "Hydatidiform Mole",
+                "MeSH Tree Number": "C04.557.465.955.416.812"
+            },
+            {
+                "Name": "Hydatidiform Mole, Invasive",
+                "MeSH Tree Number": "C04.557.465.955.416.812.500"
             }
         ]
     },
     {
-        "primary": "Cancer, Complex and Mixed",
-        "NIH MeSH Tree Number": "C04.557.435",
-        "sub": [
+        "Primary": "Cancer, Complex and Mixed",
+        "MeSH Tree Number": "C04.557.435",
+        "Subtypes": [
             {
-                "name": "Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180"
+                "Name": "Cancer, Complex and Mixed",
+                "MeSH Tree Number": "C04.557.435"
             },
             {
-                "name": "Breast Carcinoma In Situ",
-                "NIH MeSH Tree Number": "C04.588.180.130"
+                "Name": "Adenolymphoma",
+                "MeSH Tree Number": "C04.557.435.075"
             },
             {
-                "name": "Breast Cancer, Male",
-                "NIH MeSH Tree Number": "C04.588.180.260"
+                "Name": "Adenomyoepithelioma",
+                "MeSH Tree Number": "C04.557.435.108"
             },
             {
-                "name": "Carcinoma, Ductal, Breast",
-                "NIH MeSH Tree Number": "C04.588.180.390"
+                "Name": "Adenomyoma",
+                "MeSH Tree Number": "C04.557.435.110"
             },
             {
-                "name": "Carcinoma, Lobular",
-                "NIH MeSH Tree Number": "C04.588.180.437"
+                "Name": "Hepatoblastoma",
+                "MeSH Tree Number": "C04.557.435.380"
             },
             {
-                "name": "Hereditary Breast and Ovarian Cancer Syndrome",
-                "NIH MeSH Tree Number": "C04.588.180.483"
+                "Name": "Mesenchymoma",
+                "MeSH Tree Number": "C04.557.435.500"
             },
             {
-                "name": "Inflammatory Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.576"
+                "Name": "Mixed Tumor, Malignant",
+                "MeSH Tree Number": "C04.557.435.525"
             },
             {
-                "name": "Triple Negative Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.788"
+                "Name": "Mixed Tumor, Mullerian",
+                "MeSH Tree Number": "C04.557.435.540"
             },
             {
-                "name": "Unilateral Breast Cancer",
-                "NIH MeSH Tree Number": "C04.588.180.800"
+                "Name": "Myoepithelioma",
+                "MeSH Tree Number": "C04.557.435.585"
+            },
+            {
+                "Name": "Rhabdoid Tumor",
+                "MeSH Tree Number": "C04.557.435.710"
             }
         ]
     }
