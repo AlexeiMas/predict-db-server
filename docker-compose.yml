@@ -7,7 +7,7 @@ services:
     tty: true
     restart: unless-stopped
     ports:
-      - 27018:27017
+      - 27017:27017
     volumes:
       - ./.init-mongorc:/docker-entrypoint-initdb.d/init-mongorc.js:ro
       - ./me-dump-predictdb:/me-dump-predictdb
@@ -25,7 +25,7 @@ services:
     depends_on:
       - imagen_mongo
     ports:
-      - 9091:8081
+      - 8081:8081
     environment:
       ME_CONFIG_MONGODB_ADMINUSERNAME: imagen
       ME_CONFIG_MONGODB_ADMINPASSWORD: imagen
@@ -46,7 +46,7 @@ services:
       - imagen_mongo
       - imagen_mongo_express
     ports:
-      - 6389:6379
+      - 6379:6379
     command: ["redis-server", "--appendonly", "yes"]
     volumes:
       - redis-data:/data
