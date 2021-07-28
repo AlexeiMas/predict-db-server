@@ -30,7 +30,7 @@ module.exports = async (req, res) => {
         <br>
         <p>Your account for PredictDb is now ready to go.</p>
         <br>
-        <p>You can login into <a href='https://pdb.imagentherapeutics.com'>PredictDb</a> now./p>
+        <p>You can login into <a href='https://pdb.imagentherapeutics.com'>PredictDb here</a>./p>
         <br/>
         <br/>
         <br/>
