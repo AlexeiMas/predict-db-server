@@ -1,0 +1,48 @@
+{
+  "/filters/tumours/sub": {
+    "get": {
+      "tags": [
+        "filters"
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "parameters": [
+        {
+          "name": "primary",
+          "in": "query",
+          "description": "Tumour primary type",
+          "default": "Brain Tumors",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "search",
+          "in": "query",
+          "description": "Optional query param",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Successful",
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "404": {
+          "description": "Not found"
+        }
+      },
+      "security": [
+        {
+          "Bearer": []
+        }
+      ]
+    }
+  }
+}

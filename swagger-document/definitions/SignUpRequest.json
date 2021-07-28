@@ -1,0 +1,28 @@
+{
+  "SignUpRequest": {
+    "type": "object",
+    "properties": {
+      "email": {
+        "type": "string"
+      },
+      "password": {
+        "type": "string"
+      },
+      "password_confirmation": {
+        "type": "string"
+      },
+      "firstName": {
+        "type": "string"
+      },
+      "lastName": {
+        "type": "string"
+      },
+      "companyName": {
+        "type": "string"
+      },
+      "jobTitle": {
+        "type": "string"
+      }
+    }
+  }
+}

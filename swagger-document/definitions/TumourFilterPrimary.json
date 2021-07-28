@@ -1,0 +1,24 @@
+{
+  "TumourFilterPrimary": {
+    "type": "object",
+    "properties": {
+      "primary": {
+        "type": "string"
+      },
+      "hasSubs": {
+        "type": "boolean"
+      }
+    }
+  },
+  "SignInRequest": {
+    "type": "object",
+    "properties": {
+      "email": {
+        "type": "string"
+      },
+      "password": {
+        "type": "string"
+      }
+    }
+  }
+}

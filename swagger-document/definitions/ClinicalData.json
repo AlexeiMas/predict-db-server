@@ -1,0 +1,89 @@
+{
+  "ClinicalData": {
+    "type": "object",
+    "properties": {
+      "Origin": {
+        "type": "string"
+      },
+      "date_created": {
+        "type": "string",
+        "format": "date"
+      },
+      "Growth Kinetics": {
+        "type": "string"
+      },
+      "Sex": {
+        "type": "string"
+      },
+      "Age": {
+        "type": "string"
+      },
+      "Ethnicity": {
+        "type": "string"
+      },
+      "Primary Tumour Type": {
+        "type": "string"
+      },
+      "Tumour Sub-type": {
+        "type": "string"
+      },
+      "NIH MeSH Tree Number": {
+        "type": "string"
+      },
+      "Diagnosis": {
+        "type": "string"
+      },
+      "Stage": {
+        "type": "string"
+      },
+      "Histology": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "Receptor Status": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "Differentiation": {
+        "type": "string"
+      },
+      "Treatment Status": {
+        "type": "string"
+      },
+      "Sample Collection Site": {
+        "type": "string"
+      },
+      "Sample Type": {
+        "type": "string"
+      },
+      "Procedure Type": {
+        "type": "string"
+      },
+      "Smoking History": {
+        "type": "string"
+      },
+      "Clinical Biomarkers of Interest (non-immune)": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "Clinical Biomarkers of Interest (Immune)": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "PDC Model": {
+        "type": "string"
+      },
+      "Case ID": {
+        "type": "string"
+      }
+    }
+  }
+}

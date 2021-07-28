@@ -1,0 +1,46 @@
+{
+  "/admin/auth/login": {
+    "post": {
+      "tags": ["admin / auth"],
+      "produces": ["application/json"],
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "description": "Request body",
+          "required": true,
+          "schema": {
+            "type": "object",
+            "$ref": "#/definitions/SignInRequest"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Successful",
+          "schema": {
+            "$ref": "#/definitions/AuthResponse"
+          }
+        },
+        "400": {
+          "description": "Bad request",
+          "schema": {
+            "type": "string"
+          }
+        },
+        "403": {
+          "description": "Forbidden",
+          "schema": {
+            "type": "string"
+          }
+        },
+        "404": {
+          "description": "Not found",
+          "schema": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

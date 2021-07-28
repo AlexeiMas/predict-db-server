@@ -1,0 +1,164 @@
+{
+  "/export": {
+    "get": {
+      "tags": [
+        "export"
+      ],
+      "produces": [
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+      ],
+      "parameters": [
+        {
+          "name": "gene",
+          "in": "query",
+          "description": "Name of gene. Optional query param",
+          "required": false,
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "collectionFormat": "multi"
+        },
+        {
+          "name": "alias",
+          "in": "query",
+          "description": "Gene alias. Optional query param",
+          "required": false,
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "collectionFormat": "multi"
+        },
+        {
+          "name": "protein",
+          "in": "query",
+          "description": "Name of protein. Optional query param",
+          "required": false,
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "collectionFormat": "multi"
+        },
+        {
+          "name": "modelId",
+          "in": "query",
+          "description": "PDC Model ID. Optional query param",
+          "required": false,
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "collectionFormat": "multi"
+        },
+        {
+          "name": "diagnosis",
+          "in": "query",
+          "description": "Patient diagnosis. Optional query param",
+          "required": false,
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "collectionFormat": "multi"
+        },
+        {
+          "name": "tumourType",
+          "in": "query",
+          "description": "Tumour primary type. Optional query param",
+          "required": false,
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "collectionFormat": "multi"
+        },
+        {
+          "name": "tumourSubType",
+          "in": "query",
+          "description": "Tumour sub type. Optional query param",
+          "required": false,
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "collectionFormat": "multi"
+        },
+        {
+          "name": "historyCollection",
+          "in": "query",
+          "description": "Patient treatment history collection (pre/post). Optional query param",
+          "required": false,
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "collectionFormat": "multi"
+        },
+        {
+          "name": "historyTreatment",
+          "in": "query",
+          "description": "Patient treatment. Optional query param",
+          "required": false,
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "collectionFormat": "multi"
+        },
+        {
+          "name": "historyResponseType",
+          "in": "query",
+          "description": "Response type. Optional query param",
+          "required": false,
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "collectionFormat": "multi"
+        },
+        {
+          "name": "responsesTreatment",
+          "in": "query",
+          "description": "Treatment type. Optional query param",
+          "required": false,
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "collectionFormat": "multi"
+        },
+        {
+          "name": "responsesResponseType",
+          "in": "query",
+          "description": "Phenotypic response type. Optional query param",
+          "required": false,
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "collectionFormat": "multi"
+        },
+        {
+          "name": "includeExpressions",
+          "in": "query",
+          "description": "Optional query param. Default false",
+          "required": false,
+          "default": false,
+          "type": "boolean"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Successful"
+        }
+      },
+      "security": [
+        {
+          "Bearer": []
+        }
+      ]
+    }
+  }
+}

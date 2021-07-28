@@ -1,0 +1,22 @@
+{
+  "TreatmentResponse": {
+    "type": "object",
+    "properties": {
+      "Treatment": {
+        "type": "string"
+      },
+      "Response Percentile": {
+        "type": "string"
+      },
+      "Phenotypic Response Type": {
+        "type": "string"
+      },
+      "Treatment Type": {
+        "type": "string"
+      },
+      "Model ID": {
+        "type": "string"
+      }
+    }
+  }
+}
