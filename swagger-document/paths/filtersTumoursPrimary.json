@@ -1,0 +1,34 @@
+{
+  "/filters/tumours/primary": {
+    "get": {
+      "tags": [
+        "filters"
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "parameters": [
+        {
+          "name": "search",
+          "in": "query",
+          "description": "Optional query param",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Successful",
+          "schema": {
+            "$ref": "#/definitions/TumourFilterPrimary"
+          }
+        }
+      },
+      "security": [
+        {
+          "Bearer": []
+        }
+      ]
+    }
+  }
+}

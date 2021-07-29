@@ -1,0 +1,36 @@
+{
+  "TreatmentHistory": {
+    "type": "object",
+    "properties": {
+      "Pre/Post Collection": {
+        "type": "string"
+      },
+      "Regime": {
+        "type": "string"
+      },
+      "Date Started": {
+        "type": "string",
+        "format": "date"
+      },
+      "Dose  (mg/day or mg/kg)": {
+        "type": "string"
+      },
+      "Treatment Duration (Months)": {
+        "type": "string"
+      },
+      "Best Response (RECIST)": {
+        "type": "string"
+      },
+      "Treatment": {
+        "type": "string"
+      },
+      "Date of Last Treatment": {
+        "type": "string",
+        "format": "date"
+      },
+      "PredictRx Case ID": {
+        "type": "string"
+      }
+    }
+  }
+}

@@ -1,4 +1,3 @@
-const bcrypt = require('bcryptjs');
 const { v4: uuid } = require('uuid');
 const { User, ApprovalToken } = require('../../models');
 const services = require('../../services');
@@ -11,20 +10,11 @@ const generateApprovalToken = async (userId) => {
 module.exports = async (req, res) => {
   const ALREADY_EXISTS = 'User already exists';
   try {
-    const {
-      email, password, firstName, lastName, companyName, jobTitle,
-    } = req.body;
-
-    const exist = await User.findOne({ email });
+    const exist = await User.findOne({ email: req.body.email.trim() });
 
     if (exist) return res.status(403).send(ALREADY_EXISTS);
 
-    const cryptedPassword = bcrypt.hashSync(password, 8);
-    const data = {
-      email, password: cryptedPassword, firstName, lastName, companyName, jobTitle,
-    };
-
-    const created = await User.create(data);
+    const created = await User.create(req.body);
 
     const userId = created._id; // eslint-disable-line
     const credentials = await services.jwt.updateTokens(userId);

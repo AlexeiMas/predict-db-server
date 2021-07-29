@@ -1,0 +1,31 @@
+{
+  "UserResponse": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string"
+      },
+      "email": {
+        "type": "string"
+      },
+      "firstName": {
+        "type": "string"
+      },
+      "lastName": {
+        "type": "string"
+      },
+      "companyName": {
+        "type": "string"
+      },
+      "jobTitle": {
+        "type": "string"
+      },
+      "confirmed": {
+        "type": "boolean"
+      },
+      "enabled": {
+        "type": "boolean"
+      }
+    }
+  }
+}

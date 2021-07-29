@@ -1,4 +1,3 @@
-const bcrypt = require('bcryptjs');
 const Admin = require('../admins.model');
 
 const ADMIN = {
@@ -8,21 +7,8 @@ const ADMIN = {
   lastName: 'Admin',
 };
 
-const fillAdmin = async () => {
-  try {
-    const exist = await Admin.findOne({ email: ADMIN.email });
-
-    if (exist) return;
-
-    await Admin.create({
-      email: ADMIN.email,
-      password: bcrypt.hashSync(ADMIN.password, 8),
-      firstName: ADMIN.firstName,
-      lastName: ADMIN.lastName,
-    });
-  } catch (error) {
-    console.log(error); // eslint-disable-line
-  }
-};
+const fillAdmin = () => Admin
+  .findOne({ email: ADMIN.email })
+  .then((exists) => (exists !== null ? exists : Admin.create(ADMIN)));
 
 module.exports = { fillAdmin };

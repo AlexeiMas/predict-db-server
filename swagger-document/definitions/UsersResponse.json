@@ -1,0 +1,8 @@
+{
+  "UsersResponse": {
+    "type": "array",
+    "items": {
+      "$ref": "#/definitions/UserResponse"
+    }
+  }
+}

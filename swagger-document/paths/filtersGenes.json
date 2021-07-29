@@ -1,0 +1,33 @@
+{
+  "/filters/genes": {
+    "get": {
+      "tags": ["filters"],
+      "produces": ["application/json"],
+      "parameters": [
+        {
+          "name": "search",
+          "in": "query",
+          "description": "Optional query param",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Successful",
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "security": [
+        {
+          "Bearer": []
+        }
+      ]
+    }
+  }
+}

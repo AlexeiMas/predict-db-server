@@ -1,6 +1,11 @@
 const diagnosisData = require('../../data/diagnosisTypes.json');
 const tumourData = require('../../data/tumourTypes.json');
 
+const preparedTumourData = tumourData.map((i) => ({
+  primary: i.primary,
+  hasSubs: i.sub.length > 0,
+}));
+
 const NOT_FOUND = 'Not found';
 
 const diagnosisTypes = async (req, res) => {
@@ -18,12 +23,8 @@ const diagnosisTypes = async (req, res) => {
 const primaryTypes = async (req, res) => {
   try {
     const { search } = req.query;
-    const all = tumourData.map((i) => ({
-      primary: i.primary,
-      hasSubs: i.sub.length > 0,
-    }));
     const re = new RegExp(search, 'i');
-    const result = search ? all.filter((i) => re.test(i.primary)) : all;
+    const result = search ? preparedTumourData.filter((i) => re.test(i.primary)) : preparedTumourData;
 
     return res.json(result);
   } catch (error) {

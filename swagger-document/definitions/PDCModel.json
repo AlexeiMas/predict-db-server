@@ -1,0 +1,49 @@
+{
+  "PDCModel": {
+    "type": "object",
+    "properties": {
+      "Growth Characteristics": {
+        "type": "string"
+      },
+      "3D Model Status": {
+        "type": "string"
+      },
+      "Patient Sequential Models": {
+        "type": "string"
+      },
+      "Confirmed Protein Expression": {
+        "type": "string"
+      },
+      "NGS": {
+        "type": "string"
+      },
+      "Tumour Mutation Burden Status": {
+        "type": "string"
+      },
+      "Microsatelite Status": {
+        "type": "string"
+      },
+      "Has Patient Treatment History": {
+        "type": "boolean"
+      },
+      "Has NGS Data": {
+        "type": "boolean"
+      },
+      "Has Growth Characteristics": {
+        "type": "boolean"
+      },
+      "Has Plasma": {
+        "type": "boolean"
+      },
+      "Has PBMC": {
+        "type": "boolean"
+      },
+      "PredictRx Case ID": {
+        "type": "string"
+      },
+      "Model ID": {
+        "type": "string"
+      }
+    }
+  }
+}

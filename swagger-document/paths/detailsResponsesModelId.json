@@ -1,0 +1,59 @@
+{
+  "/details/responses/{modelId}": {
+    "get": {
+      "tags": [
+        "details"
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "parameters": [
+        {
+          "name": "modelId",
+          "in": "path",
+          "required": true,
+          "default": "PTX-0001",
+          "type": "string"
+        },
+        {
+          "name": "tumourType",
+          "in": "query",
+          "description": "Tumour primary type. Optional query param",
+          "required": false,
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "collectionFormat": "multi"
+        },
+        {
+          "name": "tumourSubType",
+          "in": "query",
+          "description": "Tumour sub type. Optional query param",
+          "required": false,
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "collectionFormat": "multi"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Successful",
+          "schema": {
+            "$ref": "#/definitions/TreatmentResponse"
+          }
+        },
+        "404": {
+          "description": "Not found"
+        }
+      },
+      "security": [
+        {
+          "Bearer": []
+        }
+      ]
+    }
+  }
+}

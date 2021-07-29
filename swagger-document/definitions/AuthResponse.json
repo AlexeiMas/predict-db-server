@@ -1,0 +1,13 @@
+{
+  "AuthResponse": {
+    "type": "object",
+    "properties": {
+      "user": {
+        "$ref": "#/definitions/UserInfo"
+      },
+      "credentials": {
+        "$ref": "#/definitions/UserCredentials"
+      }
+    }
+  }
+}
