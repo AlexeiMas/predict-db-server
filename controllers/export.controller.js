@@ -24,7 +24,7 @@ module.exports = async (req, res) => {
       includeExpressions,
     } = req.query;
 
-    const modelIds = [];
+    const modelIds = modelId ? [modelId] : [];
     const caseIds = [];
     const filteredModelIds = [];
 
@@ -42,43 +42,46 @@ module.exports = async (req, res) => {
     const geneFusionsItems = [];
 
     if (gene) {
-      geneMutationsItems.push({
-        Gene_refGene: { $in: [...new Set(gene)] },
-      });
-      geneCopyNumbersItems.push({ Gene_name: { $in: [...new Set(gene)] } });
-      if (includeExpressions) geneExpressionsItems.push({ Symbol: { $in: [...new Set(gene)] } });
+      const uniqGene = [...new Set(gene)];
+
+      geneMutationsItems.push({ Gene_refGene: { $in: uniqGene } });
+      geneCopyNumbersItems.push({ Gene_name: { $in: uniqGene } });
       geneFusionsItems.push({
         $or: [
-          { 'Gene_1_symbol(5end_fusion_partner)': { $in: gene } },
-          { 'Gene_2_symbol(3end_fusion_partner)': { $in: gene } },
+          { 'Gene_1_symbol(5end_fusion_partner)': { $in: uniqGene } },
+          { 'Gene_2_symbol(3end_fusion_partner)': { $in: uniqGene } },
         ],
       });
+
+      if (includeExpressions) geneExpressionsItems.push({ Symbol: { $in: uniqGene } });
     }
+
     if (genesByAlias.length) {
-      geneMutationsItems.push({
-        Gene_refGene: { $in: [...new Set(genesByAlias)] },
-      });
-      geneCopyNumbersItems.push({ Gene_name: { $in: [...new Set(genesByAlias)] } });
-      if (includeExpressions) geneExpressionsItems.push({ Symbol: { $in: [...new Set(genesByAlias)] } });
+      const uniqGenesByAlias = [...new Set(genesByAlias)];
+      geneMutationsItems.push({ Gene_refGene: { $in: uniqGenesByAlias } });
+      geneCopyNumbersItems.push({ Gene_name: { $in: uniqGenesByAlias } });
       geneFusionsItems.push({
         $or: [
-          { 'Gene_1_symbol(5end_fusion_partner)': { $in: genesByAlias } },
-          { 'Gene_2_symbol(3end_fusion_partner)': { $in: genesByAlias } },
+          { 'Gene_1_symbol(5end_fusion_partner)': { $in: uniqGenesByAlias } },
+          { 'Gene_2_symbol(3end_fusion_partner)': { $in: uniqGenesByAlias } },
         ],
       });
+
+      if (includeExpressions) geneExpressionsItems.push({ Symbol: { $in: uniqGenesByAlias } });
     }
+
     if (genesByProtein.length) {
-      geneMutationsItems.push({
-        Gene_refGene: { $in: [...new Set(genesByProtein)] },
-      });
-      geneCopyNumbersItems.push({ Gene_name: { $in: [...new Set(genesByProtein)] } });
-      if (includeExpressions) geneExpressionsItems.push({ Symbol: { $in: [...new Set(genesByProtein)] } });
+      const uniqGenesByProtein = [...new Set(genesByProtein)];
+      geneMutationsItems.push({ Gene_refGene: { $in: uniqGenesByProtein } });
+      geneCopyNumbersItems.push({ Gene_name: { $in: uniqGenesByProtein } });
       geneFusionsItems.push({
         $or: [
-          { 'Gene_1_symbol(5end_fusion_partner)': { $in: genesByProtein } },
-          { 'Gene_2_symbol(3end_fusion_partner)': { $in: genesByProtein } },
+          { 'Gene_1_symbol(5end_fusion_partner)': { $in: uniqGenesByProtein } },
+          { 'Gene_2_symbol(3end_fusion_partner)': { $in: uniqGenesByProtein } },
         ],
       });
+
+      if (includeExpressions) geneExpressionsItems.push({ Symbol: { $in: uniqGenesByProtein } });
     }
 
     const geneMutationsFilter = geneMutationsItems.length ? { $or: geneMutationsItems } : {};
@@ -102,8 +105,6 @@ module.exports = async (req, res) => {
       ...(historyTreatment ? { Treatment: { $in: historyTreatment } } : {}),
       ...(historyResponseType ? { 'Best Response (RECIST)': { $in: historyResponseType } } : {}),
     };
-
-    if (modelId) modelIds.push(...modelId);
 
     const isGeneFilter = Object.keys(geneMutationsFilter).length
       || Object.keys(geneCopyNumbersFilter).length
@@ -137,10 +138,12 @@ module.exports = async (req, res) => {
       const responses = await TreatmentResponse.find(responsesFilter).select({ 'Model ID': 1 });
       modelIds.push(...new Set(responses.map((item) => item['Model ID'])));
     }
+
     if (Object.keys(historyFilter).length) {
       const history = await TreatmentHistory.find(historyFilter).select({ 'PredictRx Case ID': 1 });
       caseIds.push(...new Set(history.map((item) => item['PredictRx Case ID'])));
     }
+
     if (modelIds.length) {
       const models = await PDCModel.find({ 'Model ID': { $in: [...new Set(modelIds)] }, 'Visible Externally': true });
       const ids = models.map((i) => i['Model ID']);
@@ -168,9 +171,7 @@ module.exports = async (req, res) => {
         { path: 'CopyNumbers', match: geneCopyNumbersFilter },
       ];
 
-      if (includeExpressions) {
-        ngsPopulations.push({ path: 'Expressions', match: geneExpressionsFilter });
-      }
+      if (includeExpressions) ngsPopulations.push({ path: 'Expressions', match: geneExpressionsFilter });
     }
 
     const data = await ClinicalData
@@ -216,7 +217,7 @@ module.exports = async (req, res) => {
       };
     });
 
-    return exportService.exportFile(extended, res);
+    return exportService.exportFile({ data: extended, response: res, includeExpressions });
   } catch (error) {
     return res.status(500).send(error.message);
   }
