@@ -4,8 +4,6 @@ const {
   setSheetBasicLayout, fillHeaderFields, fillValues, setColumnGrouping,
 } = require('../helpers');
 
-let hasExpressions = true;
-
 const FIELDS = [
   'Model ID',
   'Primary Tumour Type',
@@ -269,7 +267,7 @@ const sortValuesRNA = (values) => values.sort((a, b) => {
   return 0;
 });
 
-const transformToArray = (values) => values.map((item) => [
+const transformToArray = ({ sorted, includeExpressions }) => sorted.map((item) => [
   item.modelId,
   item.tumourType,
   item.tumourSubType,
@@ -295,8 +293,8 @@ const transformToArray = (values) => values.map((item) => [
   item.variation,
   item.log2FC,
   item.svType,
-  ...(hasExpressions ? [item.logTpm] : []),
-  ...(hasExpressions ? [item.percentile] : []),
+  ...(includeExpressions ? [item.logTpm] : []),
+  ...(includeExpressions ? [item.percentile] : []),
   item.description,
   item.predictedEffect,
   item.fusionSequence,
@@ -304,7 +302,7 @@ const transformToArray = (values) => values.map((item) => [
   item.gene1,
 ]);
 
-const prepareValues = (data) => {
+const prepareValues = ({ data, includeExpressions }) => {
   const ngsValues = getNgsValues(data);
 
   const maxCount = Math.max(
@@ -324,90 +322,63 @@ const prepareValues = (data) => {
   const uniqueGenes = [...new Set(genes)];
 
   const aggregated = aggregateValues(uniqueGenes, ngsValues);
-  const sorted = ngsValues.expressions.length === 0 ? sortValues(aggregated) : sortValuesRNA(aggregated);
+  const sorted = includeExpressions ? sortValuesRNA(aggregated) : sortValues(aggregated);
 
-  if (ngsValues.expressions.length === 0) {
-    hasExpressions = false;
-  }
-
-  return transformToArray(sorted);
+  return transformToArray({ sorted, includeExpressions });
 };
 
-module.exports.createWorksheet = (workbook, data) => {
-  if (!data[0].Model.Mutations
-    && !data[0].Model.CopyNumbers
-    && !data[0].Model.Expressions
-    && !data[0].Model.Fusions) return;
+const isSuccessDataToCreateWorksheet = ({ data }) => {
+  if (!data) return false;
+  const [head] = data;
+  if (!head || !head.Model) return false;
+  const required = ['Mutations', 'CopyNumbers', 'Expressions', 'Fusions'];
+  const headModelLoweredKeys = Object.keys(head.Model).map((key) => key.toLowerCase());
+  return required.every((i) => headModelLoweredKeys.includes(i.toLowerCase()));
+};
 
-  const sheet = workbook.addWorksheet('NGS (Aggregate)', sheetOptions);
-  const values = prepareValues(data);
+module.exports.createWorksheet = ({ workbook, data, includeExpressions }) => {
+  const align = { ...alignmentStyle };
+  if (isSuccessDataToCreateWorksheet({ data })) {
+    const sheet = workbook.addWorksheet('NGS (Aggregate)', sheetOptions);
 
-  setSheetBasicLayout(sheet, true);
+    setSheetBasicLayout(sheet, true);
 
-  sheet.cell(3, 3, 3, 5).style({
-    ...alignmentStyle,
-    ...greyHeaderStyle,
-  });
+    // ws.cell(startRow, startColumn, [[endRow, endColumn], isMerged]);
+    sheet.cell(3, 3, 3, 5).style({ ...align, ...greyHeaderStyle });
+    sheet.cell(3, 6, 3, 32).style({ ...align, ...blueHeaderStyle });
+    sheet.cell(2, 8, 2, 24, false).style({ ...align, ...mutationsFillStyle });
+    sheet.cell(2, 25, 2, 25, false).string('Mutations').style({ ...align, ...mutationsFillStyle });
+    sheet.cell(2, 26, 2, 26, false).style({ ...align, ...copyNumbersFillStyle });
+    sheet.cell(2, 27, 2, 27, false).string('Copy Numbers').style({ ...align, ...copyNumbersFillStyle });
+    sheet.cell(2, 28, 2, 28, false).style({ ...align, ...expressionsFillStyle });
+    sheet.cell(2, 28, 2, 31, false).style({ ...align, ...fusionsFillStyle });
+    sheet.cell(2, 32, 2, 32, false).string('Fusions').style({ ...align, ...fusionsFillStyle });
 
-  sheet.cell(3, 6, 3, hasExpressions ? 34 : 32).style({
-    ...alignmentStyle,
-    ...blueHeaderStyle,
-  });
-
-  sheet.cell(2, 8, 2, 24, false).style({
-    ...alignmentStyle,
-    ...mutationsFillStyle,
-  });
-  sheet.cell(2, 25, 2, 25, false).string('Mutations').style({
-    ...alignmentStyle,
-    ...mutationsFillStyle,
-  });
-  sheet.cell(2, 26, 2, 26, false).style({
-    ...alignmentStyle,
-    ...copyNumbersFillStyle,
-  });
-  sheet.cell(2, 27, 2, 27, false).string('Copy Numbers').style({
-    ...alignmentStyle,
-    ...copyNumbersFillStyle,
-  });
-  sheet.cell(2, 28, 2, 28, false).style({
-    ...alignmentStyle,
-    ...expressionsFillStyle,
-  });
-  if (hasExpressions) {
-    sheet.cell(2, 29, 2, 29, false).string('Expressions').style({
-      ...alignmentStyle,
-      ...expressionsFillStyle,
-    });
-  }
-  sheet.cell(2, hasExpressions ? 30 : 28, 2, hasExpressions ? 33 : 31, false).style({
-    ...alignmentStyle,
-    ...fusionsFillStyle,
-  });
-  sheet.cell(2, hasExpressions ? 34 : 32, 2, hasExpressions ? 34 : 32, false).string('Fusions').style({
-    ...alignmentStyle,
-    ...fusionsFillStyle,
-  });
-
-  sheet.cell(1, 3)
-    .string('**Results are aggregated across Mutations, Copy Number Variations, Expressions and Fusions, please expand relevant columns for more detail') // eslint-disable-line
-    .style(redBoldFontStyle);
-  if (hasExpressions) {
-    sheet.cell(1, 28)
-      .string('**Transcripts Per Million (log transformed), only protein coding genes shown')
+    sheet.cell(1, 3)
+      // eslint-disable-next-line
+      .string('**Results are aggregated across Mutations, Copy Number Variations, Expressions and Fusions, please expand relevant columns for more detail')
       .style(redBoldFontStyle);
-    sheet.cell(1, 29).string('***Rank of Model within gene distribution').style(redBoldFontStyle);
-  }
 
-  setColumnGrouping(sheet, 1, 8, 25);
-  setColumnGrouping(sheet, 2, 26, 27);
-  if (hasExpressions) {
-    setColumnGrouping(sheet, 3, 28, 29);
-    setColumnGrouping(sheet, 4, 30, 34);
-  } else {
-    setColumnGrouping(sheet, 4, 28, 32);
-  }
+    setColumnGrouping(sheet, 1, 8, 25);
+    setColumnGrouping(sheet, 2, 26, 27);
 
-  fillHeaderFields(sheet, hasExpressions ? RNAFIELDS : FIELDS);
-  fillValues(sheet, values, 3);
+    if (includeExpressions === true) {
+      /* include Expressions   */
+      sheet.cell(2, 29, 2, 29, false).string('Expressions').style({ ...align, ...expressionsFillStyle });
+      sheet.cell(1, 28)
+        .string('**Transcripts Per Million (log transformed), only protein coding genes shown')
+        .style(redBoldFontStyle);
+      sheet.cell(1, 29).string('***Rank of Model within gene distribution').style(redBoldFontStyle);
+      setColumnGrouping(sheet, 3, 28, 29);
+      setColumnGrouping(sheet, 4, 30, 34);
+    } else {
+      /* exclude Expressions   */
+      setColumnGrouping(sheet, 4, 28, 32);
+    }
+
+    const values = prepareValues({ data, includeExpressions });
+
+    fillHeaderFields(sheet, includeExpressions ? RNAFIELDS : FIELDS);
+    fillValues(sheet, values, 3);
+  }
 };
