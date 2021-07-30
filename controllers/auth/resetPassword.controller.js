@@ -1,5 +1,4 @@
 const crypto = require('crypto');
-const bcrypt = require('bcryptjs');
 const { User, ResetPasswordToken } = require('../../models');
 const services = require('../../services');
 
@@ -71,7 +70,7 @@ const setupNewPassword = async (req, res) => {
 
     if (!existUser || userId !== existToken.user.toString()) return res.status(404).send(USER_NOT_FOUND);
 
-    existUser.password = bcrypt.hashSync(password, 8);
+    existUser.password = password;
 
     await existUser.save();
     await existToken.remove();
