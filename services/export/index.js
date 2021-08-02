@@ -1,11 +1,7 @@
 const excel = require('excel4node');
-const {
-  model, phenotypes, clinical, history, responses, ngs,
-} = require('./sheets');
+const SHEETS = require('./sheets');
 
-const SHEETS = [model, ngs, phenotypes, clinical, history, responses];
-
-const createWorkbook = (data) => {
+const createWorkbook = ({ data, includeExpressions }) => {
   const workbook = new excel.Workbook({
     author: 'Imagen Therapeutics API',
     defaultFont: {
@@ -15,7 +11,12 @@ const createWorkbook = (data) => {
     },
   });
 
-  SHEETS.map((item) => item.createWorksheet(workbook, data));
+  Object.keys(SHEETS)
+    .map(
+      (service) => (/ngs/gi.test(service)
+        ? SHEETS[service].createWorksheet({ workbook, data, includeExpressions })
+        : SHEETS[service].createWorksheet(workbook, data)),
+    );
 
   return workbook;
 };
@@ -24,8 +25,8 @@ const writeFile = (workbook, response) => {
   workbook.write('PTX_Data_Export.xlsx', response);
 };
 
-const exportFile = (data, response) => {
-  const workbook = createWorkbook(data);
+const exportFile = ({ data, response, includeExpressions }) => {
+  const workbook = createWorkbook({ data, includeExpressions });
   writeFile(workbook, response);
 };
 
