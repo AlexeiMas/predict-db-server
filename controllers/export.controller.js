@@ -201,7 +201,7 @@ module.exports = async (req, res) => {
 
     const extended = data.map((i) => {
       const hasResponseData = i.Model.TreatmentResponsesCount > 0;
-      const responses = i.Model.TreatmentResponses
+      const responses = isTumourFilter && i.Model.TreatmentResponses
         ? i.Model.TreatmentResponses.reduce((acc, item) => {
           const exists = treatmentInfo
             .find((t) => t.Treatment === item.Treatment
