@@ -24,7 +24,7 @@ module.exports = async (req, res) => {
       includeExpressions,
     } = req.query;
 
-    const modelIds = modelId ? [modelId] : [];
+    const modelIds = modelId ? [...modelId] : [];
     const caseIds = [];
     const filteredModelIds = [];
 
