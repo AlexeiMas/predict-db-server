@@ -327,32 +327,29 @@ const prepareValues = ({ data, includeExpressions }) => {
   return transformToArray({ sorted, includeExpressions });
 };
 
-const isSuccessDataToCreateWorksheet = ({ data }) => {
+const isSuccessDataToCreateWorksheet = ({ data, includeExpressions }) => {
   if (!data) return false;
   const [head] = data;
   if (!head || !head.Model) return false;
-  const required = ['Mutations', 'CopyNumbers', 'Expressions', 'Fusions'];
+
+  const required = includeExpressions ? ['Mutations', 'CopyNumbers', 'Expressions', 'Fusions'] : ['Mutations', 'CopyNumbers', 'Fusions']; // eslint-disable-line
   const headModelLoweredKeys = Object.keys(head.Model).map((key) => key.toLowerCase());
   return required.every((i) => headModelLoweredKeys.includes(i.toLowerCase()));
 };
 
 module.exports.createWorksheet = ({ workbook, data, includeExpressions }) => {
   const align = { ...alignmentStyle };
-  if (isSuccessDataToCreateWorksheet({ data })) {
+  if (isSuccessDataToCreateWorksheet({ data, includeExpressions })) {
     const sheet = workbook.addWorksheet('NGS (Aggregate)', sheetOptions);
 
     setSheetBasicLayout(sheet, true);
 
     // ws.cell(startRow, startColumn, [[endRow, endColumn], isMerged]);
     sheet.cell(3, 3, 3, 5).style({ ...align, ...greyHeaderStyle });
-    sheet.cell(3, 6, 3, 32).style({ ...align, ...blueHeaderStyle });
     sheet.cell(2, 8, 2, 24, false).style({ ...align, ...mutationsFillStyle });
     sheet.cell(2, 25, 2, 25, false).string('Mutations').style({ ...align, ...mutationsFillStyle });
     sheet.cell(2, 26, 2, 26, false).style({ ...align, ...copyNumbersFillStyle });
     sheet.cell(2, 27, 2, 27, false).string('Copy Numbers').style({ ...align, ...copyNumbersFillStyle });
-    sheet.cell(2, 28, 2, 28, false).style({ ...align, ...expressionsFillStyle });
-    sheet.cell(2, 28, 2, 31, false).style({ ...align, ...fusionsFillStyle });
-    sheet.cell(2, 32, 2, 32, false).string('Fusions').style({ ...align, ...fusionsFillStyle });
 
     sheet.cell(1, 3)
       // eslint-disable-next-line
@@ -364,16 +361,23 @@ module.exports.createWorksheet = ({ workbook, data, includeExpressions }) => {
 
     if (includeExpressions === true) {
       /* include Expressions   */
+      sheet.cell(3, 6, 3, 34).style({ ...align, ...blueHeaderStyle });
       sheet.cell(2, 29, 2, 29, false).string('Expressions').style({ ...align, ...expressionsFillStyle });
+      sheet.cell(2, 28, 2, 28, false).style({ ...align, ...expressionsFillStyle });
       sheet.cell(1, 28)
-        .string('**Transcripts Per Million (log transformed), only protein coding genes shown')
+        .string('**Transcripts Per Million (log transformed)')
         .style(redBoldFontStyle);
-      sheet.cell(1, 29).string('***Rank of Model within gene distribution').style(redBoldFontStyle);
+      sheet.cell(1, 29).string('***Rank of Model within gene distribution, only protein coding genes shown').style(redBoldFontStyle); // eslint-disable-line
+      sheet.cell(2, 30, 2, 33, false).style({ ...align, ...fusionsFillStyle });
+      sheet.cell(2, 34, 2, 34, false).string('Fusions').style({ ...align, ...fusionsFillStyle });
       setColumnGrouping(sheet, 3, 28, 29);
       setColumnGrouping(sheet, 4, 30, 34);
     } else {
       /* exclude Expressions   */
       setColumnGrouping(sheet, 4, 28, 32);
+      sheet.cell(3, 6, 3, 32).style({ ...align, ...blueHeaderStyle });
+      sheet.cell(2, 28, 2, 31, false).style({ ...align, ...fusionsFillStyle });
+      sheet.cell(2, 32, 2, 32, false).string('Fusions').style({ ...align, ...fusionsFillStyle });
     }
 
     const values = prepareValues({ data, includeExpressions });

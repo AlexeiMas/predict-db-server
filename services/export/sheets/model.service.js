@@ -31,7 +31,7 @@ const prepareValues = (data) => data.map((row) => {
     model && model.NGS ? model.NGS : '',
     model && model['Has Patient Treatment History'] ? 'Yes' : 'No',
     model && model['Has NGS Data'] ? 'Yes' : 'No',
-    model && model['Has PredictRx Response Data'] ? 'Yes' : 'No',
+    row['Has PredictRx Response Data'] ? 'Yes' : 'No',
     model && model['Has Growth Characteristics'] ? 'Yes' : 'No',
   ];
 });
