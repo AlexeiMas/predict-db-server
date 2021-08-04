@@ -4,3 +4,4 @@ build
 **/migrations/**
 **/public/**
 charts-miniapp
+/**/**.json
