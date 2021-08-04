@@ -21,9 +21,9 @@ const prepareValues = (data) => data.map((row) => {
   const model = row.Model;
 
   return [
-    row['PDC Model'] || '',
-    row['Primary Tumour Type'] || '',
-    row['Tumour Sub-type'] || '',
+    row && row['PDC Model'] ? row['PDC Model'] : '',
+    row && row['Primary Tumour Type'] ? row['Primary Tumour Type'] : '',
+    row && row['Tumour Sub-type'] ? row['Tumour Sub-type'] : '',
     model && model['Model Status'] ? model['Model Status'] : '',
     model && model['Growth Characteristics'] ? model['Growth Characteristics'] : '',
     model && model['3D Model Status'] ? model['3D Model Status'] : '',
@@ -31,12 +31,13 @@ const prepareValues = (data) => data.map((row) => {
     model && model.NGS ? model.NGS : '',
     model && model['Has Patient Treatment History'] ? 'Yes' : 'No',
     model && model['Has NGS Data'] ? 'Yes' : 'No',
-    row['Has PredictRx Response Data'] ? 'Yes' : 'No',
+    row && row['Has PredictRx Response Data'] ? 'Yes' : 'No',
     model && model['Has Growth Characteristics'] ? 'Yes' : 'No',
   ];
 });
 
-module.exports.createWorksheet = (workbook, data) => {
+module.exports.createWorksheet = (workbook, data = []) => {
+  if (data.length === 0) return;
   const sheet = workbook.addWorksheet('PDC Model Info', sheetOptions);
 
   setSheetBasicLayout(sheet);
