@@ -170,7 +170,7 @@ module.exports = async (req, res) => {
 
     let ngsPopulations = [];
 
-    if (gene || alias.length > 0 || protein.length > 0) {
+    if (gene.length > 0 || alias.length > 0 || protein.length > 0) {
       ngsPopulations = [
         ...ngsPopulations,
         { path: 'Mutations', match: geneMutationsFilter },
@@ -208,7 +208,7 @@ module.exports = async (req, res) => {
 
     const extended = data.map((i) => {
       const hasResponseData = i.Model.TreatmentResponsesCount > 0;
-      const responses = i.Model.TreatmentResponses
+      const responses = isTumourFilter && i.Model.TreatmentResponses
         ? i.Model.TreatmentResponses.reduce((acc, item) => {
           const exists = treatmentInfo
             .find((t) => t.Treatment === item.Treatment
