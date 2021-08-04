@@ -7,6 +7,18 @@ const geneNames = require('../data/genesNames.json');
 const MAX_GENES_SEARCH_COUNT = process.env.MAX_GENES_SEARCH_COUNT || 20;
 const LIMIT_EXCEEDED = 'Genes limit exceeded';
 
+/*
+  Tumours filter by @albert.bezman
+  It should be an OR between each different option,
+  regardless if it's primary or subtype,
+  so in your example,
+  when you selected the 'carcinoma lobular' it should have kept the 42 results,
+  because it would be pulling in both breast and carcinoma lobular.
+
+  The behaviour in the 3rd example is correct,
+  so if you only selected the subtype it only shows the subtype results
+*/
+
 module.exports = async (req, res) => {
   try {
     const {
@@ -55,43 +67,28 @@ module.exports = async (req, res) => {
     const geneFusionsItems = [];
 
     if (gene) {
-      geneMutationsItems.push({
-        Gene_refGene: { $in: [...new Set(gene)] },
-      });
-      geneCopyNumbersItems.push({ Gene_name: { $in: [...new Set(gene)] } });
-      if (includeExpressions) geneExpressionsItems.push({ Symbol: { $in: [...new Set(gene)] } });
-      geneFusionsItems.push({
-        $or: [
-          { 'Gene_1_symbol(5end_fusion_partner)': { $in: gene } },
-          { 'Gene_2_symbol(3end_fusion_partner)': { $in: gene } },
-        ],
-      });
+      const uniqGenes = [...new Set(gene)];
+      geneMutationsItems.push({ Gene_refGene: { $in: uniqGenes } });
+      geneCopyNumbersItems.push({ Gene_name: { $in: uniqGenes } });
+      if (includeExpressions) geneExpressionsItems.push({ Symbol: { $in: uniqGenes } });
+      geneFusionsItems.push({ 'Gene_1_symbol(5end_fusion_partner)': { $in: uniqGenes } });
+      geneFusionsItems.push({ 'Gene_2_symbol(3end_fusion_partner)': { $in: uniqGenes } });
     }
     if (genesByAlias.length) {
-      geneMutationsItems.push({
-        Gene_refGene: { $in: [...new Set(genesByAlias)] },
-      });
-      geneCopyNumbersItems.push({ Gene_name: { $in: [...new Set(genesByAlias)] } });
-      if (includeExpressions) geneExpressionsItems.push({ Symbol: { $in: [...new Set(genesByAlias)] } });
-      geneFusionsItems.push({
-        $or: [
-          { 'Gene_1_symbol(5end_fusion_partner)': { $in: genesByAlias } },
-          { 'Gene_2_symbol(3end_fusion_partner)': { $in: genesByAlias } },
-        ],
-      });
+      const uniqGenesByAlias = [...new Set(genesByAlias)];
+      geneMutationsItems.push({ Gene_refGene: { $in: uniqGenesByAlias } });
+      geneCopyNumbersItems.push({ Gene_name: { $in: uniqGenesByAlias } });
+      if (includeExpressions) geneExpressionsItems.push({ Symbol: { $in: uniqGenesByAlias } });
+      geneFusionsItems.push({ 'Gene_1_symbol(5end_fusion_partner)': { $in: uniqGenesByAlias } });
+      geneFusionsItems.push({ 'Gene_2_symbol(3end_fusion_partner)': { $in: uniqGenesByAlias } });
     }
     if (genesByProtein.length) {
-      geneMutationsItems.push({
-        Gene_refGene: { $in: [...new Set(genesByProtein)] },
-      });
-      geneCopyNumbersItems.push({ Gene_name: { $in: [...new Set(genesByProtein)] } });
-      if (includeExpressions) geneExpressionsItems.push({ Symbol: { $in: [...new Set(genesByProtein)] } });
-      geneFusionsItems.push({
-        $or: [
-          { 'Gene_1_symbol(5end_fusion_partner)': { $in: genesByProtein } },
-          { 'Gene_2_symbol(3end_fusion_partner)': { $in: genesByProtein } },
-        ],
-      });
+      const uniqGenesByProtein = [...new Set(genesByProtein)];
+      geneMutationsItems.push({ Gene_refGene: { $in: uniqGenesByProtein } });
+      geneCopyNumbersItems.push({ Gene_name: { $in: uniqGenesByProtein } });
+      if (includeExpressions) geneExpressionsItems.push({ Symbol: { $in: uniqGenesByProtein } });
+      geneFusionsItems.push({ 'Gene_1_symbol(5end_fusion_partner)': { $in: uniqGenesByProtein } });
+      geneFusionsItems.push({ 'Gene_2_symbol(3end_fusion_partner)': { $in: uniqGenesByProtein } });
     }
 
     const geneMutationsFilter = geneMutationsItems.length ? { $or: geneMutationsItems } : {};
@@ -101,9 +98,27 @@ module.exports = async (req, res) => {
 
     const tumourFilter = {
       ...(diagnosis ? { Diagnosis: { $in: diagnosis } } : {}),
-      ...(tumourType ? { 'Primary Tumour Type': { $in: tumourType } } : {}),
-      ...(tumourSubType ? { 'Tumour Sub-type': { $in: tumourSubType } } : {}),
     };
+
+    if (tumourType.length !== 0 && tumourSubType.length !== 0) {
+      const include = {
+        $or: [
+          ...(tumourType.length === 0 ? [] : [{ 'Primary Tumour Type': { $in: tumourType } }]),
+          ...(tumourSubType.length === 0 ? [] : [{ 'Tumour Sub-type': { $in: tumourSubType } }]),
+        ],
+      };
+      Object.assign(tumourFilter, include);
+    }
+
+    if (tumourType.length !== 0 && tumourSubType.length === 0) {
+      const include = { 'Primary Tumour Type': { $in: tumourType } };
+      Object.assign(tumourFilter, include);
+    }
+
+    if (tumourType.length === 0 && tumourSubType.length !== 0) {
+      const include = { 'Tumour Sub-type': { $in: tumourSubType } };
+      Object.assign(tumourFilter, include);
+    }
 
     const responsesFilter = {
       ...(responsesTreatment ? { Treatment: responsesTreatment } : {}),
