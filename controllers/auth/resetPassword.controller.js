@@ -18,7 +18,7 @@ const sendRecoveryLink = async (req, res) => {
       token: crypto.randomBytes(32).toString('hex'),
     });
 
-    const resetPasswordUrl = `${process.env.RESET_PASSWORD_URL}?token=${token.token}`;
+    const resetPasswordUrl = `${req.headers.origin}/reset-password?token=${token.token}`;
 
     await services.email.sendEmail({
       to: email,
