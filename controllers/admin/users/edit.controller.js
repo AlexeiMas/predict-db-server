@@ -1,4 +1,3 @@
-const bcrypt = require('bcryptjs');
 const { User } = require('../../../models');
 const services = require('../../../services');
 
@@ -18,7 +17,7 @@ module.exports = async (req, res) => {
 
     const data = {
       ...(email ? { email } : {}),
-      ...(password ? { password: bcrypt.hashSync(password, 8) } : {}),
+      ...(password ? { password } : {}),
       ...(firstName ? { firstName } : {}),
       ...(lastName ? { lastName } : {}),
       ...(companyName ? { companyName } : {}),
