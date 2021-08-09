@@ -18,6 +18,10 @@ const UserInfoJSON = require('./UserInfo.json');
 const UserRequestJSON = require('./UserRequest.json');
 const UserResponseJSON = require('./UserResponse.json');
 const UsersResponseJSON = require('./UsersResponse.json');
+const AdminRequestJSON = require('./AdminRequest.json');
+const AdminResponseJSON = require('./AdminResponse.json');
+const AdminsResponseJSON = require('./AdminsResponse.json');
+const AdminIdsRequestJSON = require('./AdminIdsRequest.json');
 
 const definitions = {
   ...ApiResponseJSON,
@@ -40,6 +44,11 @@ const definitions = {
   ...UserRequestJSON,
   ...UserResponseJSON,
   ...UsersResponseJSON,
+
+  ...AdminRequestJSON,
+  ...AdminResponseJSON,
+  ...AdminsResponseJSON,
+  ...AdminIdsRequestJSON,
 };
 
 module.exports = definitions;

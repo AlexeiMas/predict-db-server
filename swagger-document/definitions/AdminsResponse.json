@@ -1,0 +1,8 @@
+{
+  "AdminsResponse": {
+    "type": "array",
+    "items": {
+      "$ref": "#/definitions/AdminResponse"
+    }
+  }
+}
