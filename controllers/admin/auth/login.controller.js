@@ -1,5 +1,5 @@
 const bcrypt = require('bcryptjs');
-const Admin = require('../../../models/admins.model');
+const Admins = require('../../../models/admins.model');
 const jwtService = require('../../../services/jwt.service');
 
 module.exports = async (req, res) => {
@@ -9,7 +9,7 @@ module.exports = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    const exist = await Admin.findOne({ email });
+    const exist = await Admins.findOne({ email });
 
     if (!exist) return res.status(404).send(NOT_FOUND);
 
