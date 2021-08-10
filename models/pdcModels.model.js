@@ -8,6 +8,12 @@ const {
   copyNumbersFields,
 } = require('./fields');
 
+// 'PDC Model Treatment Response' - no found for any model
+/*
+  for 10.(Data available filter)
+  [ 'Has NGS Data', 'Has Patient Treatment History', 'Has Growth Characteristics'];
+*/
+
 const schema = new Schema({
   'Visible Externally': Boolean,
   'Model Status': String,
