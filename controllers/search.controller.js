@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 const {
   ClinicalData, Mutation, TreatmentHistory, TreatmentResponse, CopyNumber, Expression, Fusion, PDCModel,
 } = require('../models');
@@ -28,7 +27,7 @@ const LIMIT_EXCEEDED = 'Genes limit exceeded';
   User should be able to select multiple categories of 'data available' selectors from the following list:
   'NGS', 'Patient Treatment History', 'PDC Model Treatment Response', 'Growth Characteristics', 'Plasma', 'PBMC'.
   Each time a label is selected, only the models that have those booleans set to true should be returned.
-  If multiple lables are selected, the operation should be an AND (e.g. model 'has ngs data' AND model 'has patient treatment history')
+  If multiple labels are selected, the operation should be an AND (e.g. model 'has ngs data' AND model 'has patient treatment history')
   I believe the logic for getting the booleans for the icons is inside clinicalData.model.js & PDCmodels.model.js
 */
 

@@ -71,11 +71,8 @@ const prepareValues = (data) => {
   return transformToArray(sorted);
 };
 
-module.exports.createWorksheet = (workbook, data) => {
-  const values = prepareValues(data);
-
-  if (!values || !values.length) return;
-
+module.exports.createWorksheet = (workbook, data = []) => {
+  if (data.length === 0) return;
   const sheet = workbook.addWorksheet('PDC Model Treatment Responses', sheetOptions);
 
   setSheetBasicLayout(sheet);
@@ -94,6 +91,7 @@ module.exports.createWorksheet = (workbook, data) => {
     '*Only treatments indicated for tumour type shown, contact us for full panel',
   ).style(redBoldFontStyle);
 
+  const values = prepareValues(data);
   fillHeaderFields(sheet, FIELDS);
   fillValues(sheet, values);
 };
