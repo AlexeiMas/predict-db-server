@@ -24,9 +24,9 @@ module.exports = async (req, res) => {
       includeExpressions,
     } = req.query;
 
-    const modelIds = modelId ? [...modelId] : [];
+    let modelIds = modelId ? [...modelId] : [];
+    const geneModelIds = [];
     const caseIds = [];
-    const filteredModelIds = [];
 
     const genesByAliasInfo = alias ? geneNames.filter((i) => {
       const intersection = i.aliases.filter((a) => alias.includes(a));
@@ -106,37 +106,46 @@ module.exports = async (req, res) => {
       ...(historyResponseType ? { 'Best Response (RECIST)': { $in: historyResponseType } } : {}),
     };
 
-    const isGeneFilter = Object.keys(geneMutationsFilter).length
-      || Object.keys(geneCopyNumbersFilter).length
-      || Object.keys(geneExpressionsFilter).length
-      || Object.keys(geneFusionsFilter).length;
+    const models = await PDCModel.find({ 'Visible Externally': true });
+    const ids = models.map((i) => i['Model ID']);
+    modelIds.push(...ids);
+
+    // const isGeneFilter = Object.keys(geneMutationsFilter).length
+    //   || Object.keys(geneCopyNumbersFilter).length
+    //   || Object.keys(geneExpressionsFilter).length
+    //   || Object.keys(geneFusionsFilter).length;
     const isTumourFilter = Object.keys(tumourFilter).length;
     const isResponsesFilter = Object.keys(responsesFilter).length;
     const isHistoryFilter = Object.keys(historyFilter).length;
 
     if (Object.keys(geneMutationsFilter).length) {
       const mutations = await Mutation.find(geneMutationsFilter).select({ 'Model ID': 1 });
-      modelIds.push(...new Set(mutations.map((item) => item['Model ID'])));
+      geneModelIds.push(...new Set(mutations.map((item) => item['Model ID'])));
     }
 
     if (Object.keys(geneCopyNumbersFilter).length) {
       const copyNumbers = await CopyNumber.find(geneCopyNumbersFilter).select({ 'Model ID': 1 });
-      modelIds.push(...new Set(copyNumbers.map((item) => item['Model ID'])));
+      geneModelIds.push(...new Set(copyNumbers.map((item) => item['Model ID'])));
     }
 
     if (Object.keys(geneExpressionsFilter).length) {
       const expressions = await Expression.find(geneExpressionsFilter).select({ 'Model ID': 1 });
-      modelIds.push(...new Set(expressions.map((item) => item['Model ID'])));
+      geneModelIds.push(...new Set(expressions.map((item) => item['Model ID'])));
     }
 
     if (Object.keys(geneFusionsFilter).length) {
       const fusions = await Fusion.find(geneFusionsFilter).select({ 'Model ID': 1 });
-      modelIds.push(...new Set(fusions.map((item) => item['Model ID'])));
+      geneModelIds.push(...new Set(fusions.map((item) => item['Model ID'])));
+    }
+
+    if (geneModelIds.length) {
+      modelIds = modelIds.filter((a) => geneModelIds.includes(a));
     }
 
     if (Object.keys(responsesFilter).length) {
       const responses = await TreatmentResponse.find(responsesFilter).select({ 'Model ID': 1 });
-      modelIds.push(...new Set(responses.map((item) => item['Model ID'])));
+      const rids = [...new Set(responses.map((item) => item['Model ID']))];
+      modelIds = modelIds.filter((a) => rids.includes(a));
     }
 
     if (Object.keys(historyFilter).length) {
@@ -144,21 +153,16 @@ module.exports = async (req, res) => {
       caseIds.push(...new Set(history.map((item) => item['PredictRx Case ID'])));
     }
 
-    if (modelIds.length) {
-      const models = await PDCModel.find({ 'Model ID': { $in: [...new Set(modelIds)] }, 'Visible Externally': true });
-      const ids = models.map((i) => i['Model ID']);
-      filteredModelIds.push(...ids);
-    } else {
-      const models = await PDCModel.find({ 'Visible Externally': true });
-      const ids = models.map((i) => i['Model ID']);
-      filteredModelIds.push(...ids);
+    if (modelId) {
+      const filteredModels = await PDCModel.find({ 'Model ID': { $in: [...new Set(modelId)] }, 'Visible Externally': true }); // eslint-disable-line
+      const filteredIds = filteredModels.map((i) => i['Model ID']);
+      modelIds = modelIds.filter((a) => filteredIds.includes(a));
     }
 
     const filter = {
       ...(isTumourFilter ? tumourFilter : {}),
-      ...(modelId || isGeneFilter || isResponsesFilter ? { 'PDC Model': { $in: filteredModelIds } } : {}),
       ...(isHistoryFilter ? { 'Case ID': { $in: [...new Set(caseIds)] } } : {}),
-      'PDC Model': { $in: filteredModelIds },
+      ...({ 'PDC Model': { $in: modelIds } }),
     };
 
     let ngsPopulations = [];
