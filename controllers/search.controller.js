@@ -250,6 +250,22 @@ module.exports = async (req, res) => {
       .sort(sorting)
       .lean();
 
+    const filterByTreatmentResponsesCount = dataAvailable.some((i) => /PDC Model Treatment Response/gi.test(i));
+
+    if (filterByTreatmentResponsesCount) {
+      const clone = (some) => JSON.parse(JSON.stringify(some));
+      const filtered = clone(data).reduce(
+        (acc, item) => {
+          const hasResponseData = item.Model.TreatmentResponsesCount > 0;
+          return hasResponseData ? [...acc, item] : acc;
+        },
+        [],
+      );
+      const end = (+offset) + (+limit);
+      const toResponse = filtered.slice(offset, end);
+      return res.json({ count: filtered.length, rows: toResponse });
+    }
+
     return res.json({ count, rows: data });
   } catch (error) {
     return res.status(500).send(error.message);

@@ -8,8 +8,7 @@ const router = Router();
 
 const DEFAULT_LIMIT = Number(process.env.DEFAULT_LIMIT) || 20;
 
-// 'PDC Model Treatment Response'
-const VALUES = ['NGS', 'Patient Treatment History', 'Growth Characteristics', 'Plasma', 'PBMC'];
+const VALUES = ['NGS', 'Patient Treatment History', 'Growth Characteristics', 'Plasma', 'PBMC', 'PDC Model Treatment Response'];
 
 const querySchema = Joi.object({
   gene: Joi.array().max(20).items(Joi.string().trim()).single(),
