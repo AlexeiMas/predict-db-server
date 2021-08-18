@@ -120,6 +120,10 @@ module.exports = async (req, res) => {
     const ids = models.map((i) => i['Model ID']);
     modelIds.push(...ids);
 
+    const isGeneFilter = Object.keys(geneMutationsFilter).length
+      || Object.keys(geneCopyNumbersFilter).length
+      || Object.keys(geneExpressionsFilter).length
+      || Object.keys(geneFusionsFilter).length;
     const isTumourFilter = Object.keys(tumourFilter).length;
     const isHistoryFilter = Object.keys(historyFilter).length;
 
@@ -143,7 +147,7 @@ module.exports = async (req, res) => {
       geneModelIds.push(...new Set(mutations.map((item) => item['Model ID'])));
     }
 
-    if (geneModelIds.length) {
+    if (isGeneFilter) {
       modelIds = modelIds.filter((a) => geneModelIds.includes(a));
     }
 
