@@ -175,31 +175,33 @@ const getNgsValues = (data) => data.reduce((acc, row) => {
 });
 
 const aggregateValues = (genes, values) => genes.reduce((collector, gene) => {
-  const mutationsRows = values.mutations.filter((i) => i.gene === gene);
-  const copyNumbersRows = values.copyNumbers.filter((i) => i.geneName === gene);
-  const expressionsRows = values.expressions.filter((i) => i.symbol === gene);
-  const fusionsRows = values.fusions.filter((i) => i.gene1 === gene || i.gene2 === gene);
+  const mutationsRows = values.mutations.filter((i) => i.gene === gene)
+    .map((e) => ({ ...e, consumed: false }));
+  const copyNumbersRows = values.copyNumbers.filter((i) => i.geneName === gene)
+    .map((e) => ({ ...e, consumed: false }));
+  const expressionsRows = values.expressions.filter((i) => i.symbol === gene)
+    .map((e) => ({ ...e, consumed: false }));
+  const fusionsRows = values.fusions.filter((i) => i.gene1 === gene || i.gene2 === gene)
+    .map((e) => ({ ...e, consumed: false }));
 
-  const maxRowsCount = Math.max(
-    mutationsRows.length,
-    copyNumbersRows.length,
-    expressionsRows.length,
-    fusionsRows.length,
-  );
+  const modelIds = [];
 
-  let modelIds;
-
-  if (maxRowsCount === mutationsRows.length) modelIds = mutationsRows.map((i) => i.modelId);
-  if (maxRowsCount === copyNumbersRows.length) modelIds = copyNumbersRows.map((i) => i.modelId);
-  if (maxRowsCount === expressionsRows.length) modelIds = expressionsRows.map((i) => i.modelId);
-  if (maxRowsCount === fusionsRows.length) modelIds = fusionsRows.map((i) => i.modelId);
+  modelIds.push(...mutationsRows.map((i) => i.modelId));
+  modelIds.push(...copyNumbersRows.map((i) => i.modelId));
+  modelIds.push(...expressionsRows.map((i) => i.modelId));
+  modelIds.push(...fusionsRows.map((i) => i.modelId));
 
   if (!modelIds) return collector;
 
-  const modelRows = values.models.filter((i) => modelIds.includes(i.modelId));
+  const modelRows = modelIds;
 
-  const collected = modelRows.map((item) => {
-    const mutationsValues = mutationsRows.find((i) => i.modelId === item.modelId) || {
+  let collected = modelRows.map((item) => {
+    const mutationsValues = mutationsRows.find((i, index) => {
+      if (!i.consumed && i.modelId === item) {
+        mutationsRows[index].consumed = true;
+        return i.modelId === item;
+      } return null;
+    }) || {
       gene,
       variation: '',
       proteinPosition: '',
@@ -221,15 +223,30 @@ const aggregateValues = (genes, values) => genes.reduce((collector, gene) => {
       cosmic68: '',
       gnomAd: '',
     };
-    const copyNumbersValues = copyNumbersRows.find((i) => i.modelId === item.modelId) || {
+    const copyNumbersValues = copyNumbersRows.find((i, index) => {
+      if (!i.consumed && i.modelId === item) {
+        copyNumbersRows[index].consumed = true;
+        return i.modelId === item;
+      } return null;
+    }) || {
       log2FC: '',
       svType: '',
     };
-    const expressionsValues = expressionsRows.find((i) => i.modelId === item.modelId) || {
+    const expressionsValues = expressionsRows.find((i, index) => {
+      if (!i.consumed && i.modelId === item) {
+        expressionsRows[index].consumed = true;
+        return i.modelId === item;
+      } return null;
+    }) || {
       logTpm: '',
       percentile: '',
     };
-    const fusionsValues = fusionsRows.find((i) => i.modelId === item.modelId) || {
+    const fusionsValues = fusionsRows.find((i, index) => {
+      if (!i.consumed && i.modelId === item) {
+        fusionsRows[index].consumed = true;
+        return i.modelId === item;
+      } return null;
+    }) || {
       description: '',
       predictedEffect: '',
       fusionSequence: '',
@@ -238,12 +255,22 @@ const aggregateValues = (genes, values) => genes.reduce((collector, gene) => {
     };
 
     return {
-      ...item,
+      ...values.models.find((i) => i.modelId === item),
       ...mutationsValues,
       ...copyNumbersValues,
       ...expressionsValues,
       ...fusionsValues,
     };
+  });
+
+  collected = collected.filter((e) => {
+    const y = { ...e };
+    y.modelId = '';
+    y.tumourType = '';
+    y.tumourSubType = '';
+    y.gene = '';
+    y.consumed = '';
+    return !Object.values(y).every((i) => i === '');
   });
 
   return [...collector, ...collected];
