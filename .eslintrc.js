@@ -10,7 +10,7 @@ module.exports = {
     'max-len': [
       2,
       {
-        code: 120,
+        code: 150,
         ignoreUrls: true,
         ignoreRegExpLiterals: true,
       },

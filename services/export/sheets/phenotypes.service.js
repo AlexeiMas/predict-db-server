@@ -43,7 +43,8 @@ const prepareValues = (data) => data.map((row) => {
   ];
 });
 
-module.exports.createWorksheet = (workbook, data) => {
+module.exports.createWorksheet = (workbook, data = []) => {
+  if (data.length === 0) return;
   const sheet = workbook.addWorksheet('IO Phenotypes', sheetOptions);
 
   setSheetBasicLayout(sheet);

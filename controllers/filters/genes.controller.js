@@ -21,7 +21,7 @@ module.exports = async function filterGenes(req, res) {
       proteins: [...new Set(proteins)],
     };
 
-    const end = offset + limit;
+    const end = (+offset) + (+limit);
 
     return res.json({
       genes: result.genes.slice(offset, end),

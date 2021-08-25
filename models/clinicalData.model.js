@@ -1,6 +1,12 @@
 const { Schema, model } = require('mongoose');
 const { modelFields, treatmentHistoryFields } = require('./fields');
 
+// 'PDC Model Treatment Response' - no found for any model
+/*
+  for 10.(Data available filter)
+  [ 'Plasma', 'PBMC',];
+*/
+
 const schema = new Schema({
   date_created: { type: Date, default: Date.now },
   'Growth Kinetics': String,
