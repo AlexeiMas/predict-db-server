@@ -254,7 +254,13 @@ module.exports = async (req, res) => {
 
     if (filterByTreatmentResponsesCount) {
       const clone = (some) => JSON.parse(JSON.stringify(some));
-      const filtered = clone(data).reduce(
+      const fdata = await ClinicalData
+        .find(filter)
+        .select(clinicalDataFields)
+        .populate({ path: 'Model', populate: 'TreatmentResponsesCount' })
+        .sort(sorting)
+        .lean();
+      const filtered = clone(fdata).reduce(
         (acc, item) => {
           const hasResponseData = item.Model.TreatmentResponsesCount > 0;
           return hasResponseData ? [...acc, item] : acc;
