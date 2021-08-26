@@ -174,7 +174,9 @@ module.exports = async (req, res) => {
       ...(historyResponseType ? { 'Best Response (RECIST)': { $in: historyResponseType } } : {}),
     };
 
-    const models = await PDCModel.find({ 'Visible Externally': true });
+    const models = await PDCModel.find(
+      { 'Visible Externally': true, ...(pdcModelFilter || {}) },
+    );
     const ids = models.map((i) => i['Model ID']);
     modelIds.push(...ids);
 
@@ -221,11 +223,12 @@ module.exports = async (req, res) => {
     }
 
     if (modelId) {
-      const filteredModels = await PDCModel.find({ 'Model ID': {
-       $in: [...new Set(modelId)] }, 
-       'Visible Externally': true,
-        ...(pdcModelFilter || {}),
-       }); // eslint-disable-line
+      const filteredModels = await PDCModel.find({
+        'Model ID': {
+          $in: [...new Set(modelId)],
+        },
+        'Visible Externally': true,
+      }); // eslint-disable-line
       const filteredIds = filteredModels.map((i) => i['Model ID']);
       modelIds = modelIds.filter((a) => filteredIds.includes(a));
     }

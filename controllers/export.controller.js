@@ -160,7 +160,7 @@ module.exports = async (req, res) => {
       caseIds.push(...new Set(history.map((item) => item['PredictRx Case ID'])));
     }
 
-    if (modelId) {
+    if (modelId.length) {
       const filteredModels = await PDCModel.find({ 'Model ID': { $in: [...new Set(modelId)] }, 'Visible Externally': true }); // eslint-disable-line
       const filteredIds = filteredModels.map((i) => i['Model ID']);
       modelIds = modelIds.filter((a) => filteredIds.includes(a));
