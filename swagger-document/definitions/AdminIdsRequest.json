@@ -1,0 +1,13 @@
+{
+  "AdminIdsRequest": {
+    "type": "object",
+    "properties": {
+      "ids": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

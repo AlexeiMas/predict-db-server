@@ -24,6 +24,7 @@ const adminAuthLoginJSON = require('./adminAuthLogin.json');
 const adminUsersJSON = require('./adminUsers.json');
 const adminUsersIdJSON = require('./adminUsersId.json');
 const adminUsersUserIdTokenJSON = require('./adminUsersUserIdToken.json');
+const adminManageAdminsJSON = require('./adminManageAdmins.json');
 
 const paths = {
   ...authSignInJSON,
@@ -52,6 +53,8 @@ const paths = {
   ...adminUsersJSON,
   ...adminUsersIdJSON,
   ...adminUsersUserIdTokenJSON,
+
+  ...adminManageAdminsJSON,
 };
 
 module.exports = paths;

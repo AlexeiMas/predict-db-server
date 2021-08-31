@@ -1,4 +1,4 @@
-const Admin = require('../admins.model');
+const db = require('../index');
 
 const ADMIN = {
   email: 'admin@admin.com',
@@ -7,8 +7,8 @@ const ADMIN = {
   lastName: 'Admin',
 };
 
-const fillAdmin = () => Admin
+const fillAdmin = () => db.Admins
   .findOne({ email: ADMIN.email })
-  .then((exists) => (exists !== null ? exists : Admin.create(ADMIN)));
+  .then((exists) => (exists !== null ? exists : db.Admins.create(ADMIN)));
 
 module.exports = { fillAdmin };

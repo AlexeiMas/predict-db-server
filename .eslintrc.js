@@ -26,6 +26,7 @@ module.exports = {
         ignoreRestSiblings: true,
       },
     ],
+    'no-underscore-dangle': 'off',
     'no-plusplus': [
       2,
       {

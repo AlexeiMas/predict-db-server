@@ -30,6 +30,7 @@ app.use('/v1/export', helmet(), LIMITER, require('./routes/export.route'));
 app.use('/v1/auth', helmet(), LIMITER, require('./routes/auth/index'));
 app.use('/v1/admin/auth', helmet(), LIMITER, require('./routes/admin/auth'));
 app.use('/v1/admin/users', helmet(), LIMITER, require('./routes/admin/users/index'));
+app.use('/v1/admin/manage-admins', require('./routes/admin/manage-admins/index'));
 
 fillAdmin();
 
