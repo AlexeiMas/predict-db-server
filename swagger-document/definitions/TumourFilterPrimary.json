@@ -19,10 +19,6 @@
       "password": {
         "type": "string"
       }
-    },
-    "example": {
-      "email": "admin@admin.com",
-      "password": "admin"
     }
   }
 }
