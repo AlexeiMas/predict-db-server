@@ -90,7 +90,7 @@ const setSheetBasicLayout = (sheet, isNgs = false) => {
   sheet.row(3).freeze();
   sheet.row(3).filter();
 
-  sheet.cell(4, 1, 4, 2, false).string('© Imagen Therapeutics').style(alignmentStyle);
+  sheet.cell(4, 1).string('© Imagen Therapeutics').style(alignmentStyle);
 
   sheet.addImage({
     image: fs.readFileSync(path.resolve(__dirname, 'logo.png')),
