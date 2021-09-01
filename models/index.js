@@ -11,7 +11,7 @@ const Input = require('./inputs.model');
 const User = require('./users.model');
 const RefreshToken = require('./refreshTokens.model');
 const ResetPasswordToken = require('./resetPasswordTokens.model');
-const Admin = require('./admins.model');
+const Admins = require('./admins.model');
 const ApprovalToken = require('./approvalTokens.model');
 
 module.exports = {
@@ -28,6 +28,6 @@ module.exports = {
   User,
   RefreshToken,
   ResetPasswordToken,
-  Admin,
+  Admins,
   ApprovalToken,
 };

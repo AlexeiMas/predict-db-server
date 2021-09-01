@@ -46,8 +46,8 @@ const prepareValues = (data) => data.reduce((acc, row) => {
   return [...acc, ...historyRows];
 }, []);
 
-module.exports.createWorksheet = (workbook, data) => {
-  if (!data[0].TreatmentHistory) return;
+module.exports.createWorksheet = (workbook, data = []) => {
+  if (data.length === 0 || !data[0].TreatmentHistory) return;
 
   const sheet = workbook.addWorksheet('Patient Treatment History', sheetOptions);
 

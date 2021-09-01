@@ -1,0 +1,208 @@
+{
+  "/admin/manage-admins": {
+    "get": {
+      "tags": ["admin / manage-admins"],
+      "produces": ["application/json"],
+      "parameters": [
+        {
+          "name": "limit",
+          "in": "query",
+          "description": "Limit",
+          "default": 20,
+          "required": false,
+          "type": "number"
+        },
+        {
+          "name": "skip",
+          "in": "query",
+          "description": "Offset",
+          "default": 0,
+          "required": false,
+          "type": "number"
+        },
+        {
+          "name": "sort",
+          "in": "query",
+          "description": "Sort options",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Successful",
+          "schema": {
+            "$ref": "#/definitions/AdminsResponse"
+          }
+        }
+      },
+      "security": [
+        {
+          "Bearer": []
+        }
+      ]
+    },
+    "post": {
+      "tags": ["admin / manage-admins"],
+      "produces": ["application/json"],
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "description": "Request body",
+          "required": true,
+          "schema": {
+            "type": "object",
+            "$ref": "#/definitions/AdminRequest"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Successful",
+          "schema": {
+            "$ref": "#/definitions/AdminResponse"
+          }
+        },
+        "403": {
+          "description": "Forbidden",
+          "schema": {
+            "type": "string"
+          }
+        }
+      },
+      "security": [
+        {
+          "Bearer": []
+        }
+      ]
+    },
+    "delete": {
+      "tags": ["admin / manage-admins"],
+      "produces": ["application/json"],
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "description": "Request body",
+          "required": true,
+          "schema": {
+            "type": "object",
+            "$ref": "#/definitions/AdminIdsRequest"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Successful",
+          "schema": {
+            "$ref": "#/definitions/AdminsResponse"
+          }
+        },
+        "404": {
+          "description": "Not found",
+          "schema": {
+            "type": "string"
+          }
+        }
+      },
+      "security": [
+        {
+          "Bearer": []
+        }
+      ]
+    }
+  },
+  "/admin/manage-admins/{adminId}": {
+    "get": {
+      "tags": [
+        "admin / manage-admins"
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "description": "GET admin by adminId",
+      "parameters": [
+        {
+          "name": "adminId",
+          "in": "path",
+          "description": "adminId",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Successful",
+          "schema": {
+            "$ref": "#/definitions/AdminResponse"
+          }
+        },
+        "404": {
+          "description": "Not found",
+          "schema": {
+            "type": "string"
+          }
+        }
+      },
+      "security": [
+        {
+          "Bearer": []
+        }
+      ]
+    },
+    "put": {
+      "tags": [
+        "admin / manage-admins"
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "description": "EDIT/UPDATE admin by adminId",
+      "parameters": [
+        {
+          "name": "adminId",
+          "in": "path",
+          "description": "adminId",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "description": "Request body",
+          "required": true,
+          "schema": {
+            "type": "object",
+            "$ref": "#/definitions/AdminRequest"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Successful",
+          "schema": {
+            "$ref": "#/definitions/AdminResponse"
+          }
+        },
+        "403": {
+          "description": "Forbidden",
+          "schema": {
+            "type": "string"
+          }
+        },
+        "404": {
+          "description": "Not found",
+          "schema": {
+            "type": "string"
+          }
+        }
+      },
+      "security": [
+        {
+          "Bearer": []
+        }
+      ]
+    }
+  }
+}

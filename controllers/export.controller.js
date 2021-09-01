@@ -8,31 +8,38 @@ const treatmentInfo = require('../data/treatmentInfo.json');
 
 module.exports = async (req, res) => {
   try {
-    const {
-      gene,
-      alias,
-      protein,
-      modelId,
-      diagnosis,
-      tumourType,
-      tumourSubType,
-      historyCollection,
-      historyTreatment,
-      historyResponseType,
-      responsesTreatment,
-      responsesResponseType,
-      includeExpressions,
-    } = req.query;
+    const { includeExpressions } = req.query;
+
+    const prepareToUniqArray = (value) => {
+      if (typeof value === 'string' && !!value.trim() === false) return [];
+      const re = /(undefined|null)/gi;
+      const clearUndefinedNull = (i) => re.test(i) === false;
+      const successValue = [...new Set([value].flat(Infinity).filter(clearUndefinedNull))];
+      return successValue;
+    };
+
+    const gene = prepareToUniqArray(req.query.gene);
+    const alias = prepareToUniqArray(req.query.alias);
+    const protein = prepareToUniqArray(req.query.protein);
+    const modelId = prepareToUniqArray(req.query.modelId);
+    const diagnosis = prepareToUniqArray(req.query.diagnosis);
+    const tumourType = prepareToUniqArray(req.query.tumourType);
+    const tumourSubType = prepareToUniqArray(req.query.tumourSubType);
+    const historyCollection = prepareToUniqArray(req.query.historyCollection);
+    const historyTreatment = prepareToUniqArray(req.query.historyTreatment);
+    const historyResponseType = prepareToUniqArray(req.query.historyResponseType);
+    const responsesTreatment = prepareToUniqArray(req.query.responsesTreatment);
+    const responsesResponseType = prepareToUniqArray(req.query.responsesResponseType);
 
     let modelIds = modelId ? [...modelId] : [];
     const geneModelIds = [];
     const caseIds = [];
 
-    const genesByAliasInfo = alias ? geneNames.filter((i) => {
+    const genesByAliasInfo = alias.length > 0 ? geneNames.filter((i) => {
       const intersection = i.aliases.filter((a) => alias.includes(a));
       return intersection.length > 0;
     }) : [];
-    const genesByProteinInfo = protein ? geneNames.filter((i) => protein.includes(i.protein)) : [];
+    const genesByProteinInfo = protein.length > 0 ? geneNames.filter((i) => protein.includes(i.protein)) : [];
     const genesByAlias = genesByAliasInfo.length ? genesByAliasInfo.map((i) => i.gene) : [];
     const genesByProtein = genesByProteinInfo.length ? genesByProteinInfo.map((i) => i.gene) : [];
 
@@ -41,7 +48,7 @@ module.exports = async (req, res) => {
     const geneExpressionsItems = [];
     const geneFusionsItems = [];
 
-    if (gene) {
+    if (gene.length > 0) {
       const uniqGene = [...new Set(gene)];
 
       geneMutationsItems.push({ Gene_refGene: { $in: uniqGene } });
@@ -90,20 +97,20 @@ module.exports = async (req, res) => {
     const geneFusionsFilter = geneFusionsItems.length ? { $or: geneFusionsItems } : {};
 
     const tumourFilter = {
-      ...(diagnosis ? { Diagnosis: { $in: diagnosis } } : {}),
-      ...(tumourType ? { 'Primary Tumour Type': { $in: tumourType } } : {}),
-      ...(tumourSubType ? { 'Tumour Sub-type': { $in: tumourSubType } } : {}),
+      ...(diagnosis.length > 0 ? { Diagnosis: { $in: diagnosis } } : {}),
+      ...(tumourType.length > 0 ? { 'Primary Tumour Type': { $in: tumourType } } : {}),
+      ...(tumourSubType.length > 0 ? { 'Tumour Sub-type': { $in: tumourSubType } } : {}),
     };
 
     const responsesFilter = {
-      ...(responsesTreatment ? { Treatment: responsesTreatment } : {}),
-      ...(responsesResponseType ? { 'Phenotypic Response Type': responsesResponseType } : {}),
+      ...(responsesTreatment.length > 0 ? { Treatment: responsesTreatment } : {}),
+      ...(responsesResponseType.length > 0 ? { 'Phenotypic Response Type': responsesResponseType } : {}),
     };
 
     const historyFilter = {
-      ...(historyCollection ? { 'Pre/Post Collection': { $in: historyCollection } } : {}),
-      ...(historyTreatment ? { Treatment: { $in: historyTreatment } } : {}),
-      ...(historyResponseType ? { 'Best Response (RECIST)': { $in: historyResponseType } } : {}),
+      ...(historyCollection.length > 0 ? { 'Pre/Post Collection': { $in: historyCollection } } : {}),
+      ...(historyTreatment.length > 0 ? { Treatment: { $in: historyTreatment } } : {}),
+      ...(historyResponseType.length > 0 ? { 'Best Response (RECIST)': { $in: historyResponseType } } : {}),
     };
 
     const models = await PDCModel.find({ 'Visible Externally': true });
@@ -153,7 +160,7 @@ module.exports = async (req, res) => {
       caseIds.push(...new Set(history.map((item) => item['PredictRx Case ID'])));
     }
 
-    if (modelId) {
+    if (modelId.length) {
       const filteredModels = await PDCModel.find({ 'Model ID': { $in: [...new Set(modelId)] }, 'Visible Externally': true }); // eslint-disable-line
       const filteredIds = filteredModels.map((i) => i['Model ID']);
       modelIds = modelIds.filter((a) => filteredIds.includes(a));
@@ -167,7 +174,7 @@ module.exports = async (req, res) => {
 
     let ngsPopulations = [];
 
-    if (gene || alias || protein) {
+    if (gene.length > 0 || alias.length > 0 || protein.length > 0) {
       ngsPopulations = [
         ...ngsPopulations,
         { path: 'Mutations', match: geneMutationsFilter },

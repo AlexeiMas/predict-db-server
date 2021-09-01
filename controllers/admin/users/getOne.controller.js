@@ -5,7 +5,7 @@ module.exports = async (req, res) => {
 
   try {
     const { id } = req.params;
-    const exist = await User.findById(id);
+    const exist = await User.findById(id).lean();
 
     if (!exist) return res.status(404).send(NOT_FOUND);
 
