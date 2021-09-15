@@ -8,7 +8,7 @@ const treatmentInfo = require('../data/treatmentInfo.json');
 
 module.exports = async (req, res) => {
   try {
-    const { includeExpressions } = req.query;
+    const { includeExpressions, diagnosis } = req.query;
 
     const prepareToUniqArray = (value) => {
       if (typeof value === 'string' && !!value.trim() === false) return [];
@@ -22,7 +22,6 @@ module.exports = async (req, res) => {
     const alias = prepareToUniqArray(req.query.alias);
     const protein = prepareToUniqArray(req.query.protein);
     const modelId = prepareToUniqArray(req.query.modelId);
-    const diagnosis = prepareToUniqArray(req.query.diagnosis);
     const tumourType = prepareToUniqArray(req.query.tumourType);
     const tumourSubType = prepareToUniqArray(req.query.tumourSubType);
     const historyCollection = prepareToUniqArray(req.query.historyCollection);
@@ -97,10 +96,28 @@ module.exports = async (req, res) => {
     const geneFusionsFilter = geneFusionsItems.length ? { $or: geneFusionsItems } : {};
 
     const tumourFilter = {
-      ...(diagnosis.length > 0 ? { Diagnosis: { $in: diagnosis } } : {}),
-      ...(tumourType.length > 0 ? { 'Primary Tumour Type': { $in: tumourType } } : {}),
-      ...(tumourSubType.length > 0 ? { 'Tumour Sub-type': { $in: tumourSubType } } : {}),
+      ...(diagnosis ? { Diagnosis: { $in: diagnosis } } : {}),
     };
+
+    if (tumourType.length !== 0 && tumourSubType.length !== 0) {
+      const include = {
+        $or: [
+          ...(tumourType.length === 0 ? [] : [{ 'Primary Tumour Type': { $in: tumourType } }]),
+          ...(tumourSubType.length === 0 ? [] : [{ 'Tumour Sub-type': { $in: tumourSubType } }]),
+        ],
+      };
+      Object.assign(tumourFilter, include);
+    }
+
+    if (tumourType.length !== 0 && tumourSubType.length === 0) {
+      const include = { 'Primary Tumour Type': { $in: tumourType } };
+      Object.assign(tumourFilter, include);
+    }
+
+    if (tumourType.length === 0 && tumourSubType.length !== 0) {
+      const include = { 'Tumour Sub-type': { $in: tumourSubType } };
+      Object.assign(tumourFilter, include);
+    }
 
     const responsesFilter = {
       ...(responsesTreatment.length > 0 ? { Treatment: responsesTreatment } : {}),
