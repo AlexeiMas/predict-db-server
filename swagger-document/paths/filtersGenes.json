@@ -9,7 +9,12 @@
           "in": "query",
           "description": "Optional query param",
           "required": false,
-          "type": "string"
+          "type": "array",
+          "items": {
+            "type": "string",
+            "default": ""
+          },
+          "collectionFormat": "multi"
         }
       ],
       "responses": {
