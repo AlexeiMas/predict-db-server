@@ -9,7 +9,7 @@ const router = Router();
 const DEFAULT_LIMIT = 5;
 
 const querySchema = Joi.object({
-  search: Joi.string().trim(),
+  search: Joi.array().items(Joi.string().trim()).single().default([]),
   limit: Joi.number().default(DEFAULT_LIMIT),
   offset: Joi.number().default(0),
 });

@@ -9,11 +9,11 @@ const allProteins = genesData.map(get('protein')).flat(1).sort(shortestString);
 module.exports = async function filterGenes(req, res) {
   try {
     const { search, limit, offset } = req.query;
-    const re = new RegExp(`^${search}`, 'i');
+    const re2 = search.map((s) => new RegExp(`^${s}`, 'i'));
 
-    const genes = search ? allGenes.filter((i) => re.test(i)) : [];
-    const aliases = search ? allAliases.filter((i) => re.test(i)) : [];
-    const proteins = search ? allProteins.filter((i) => re.test(i)) : [];
+    const genes = search ? allGenes.filter((i) => re2.some((re) => re.test(i))) : [];
+    const aliases = search ? allAliases.filter((i) => re2.some((re) => re.test(i))) : [];
+    const proteins = search ? allProteins.filter((i) => re2.some((re) => re.test(i))) : [];
 
     const result = {
       genes: [...new Set(genes)],
