@@ -61,15 +61,27 @@ const tumourData = require('../../data/tumourTypes.json');
         return preparedSearch.every((s) => preparedB.some((bb) => bb.startsWith(s)));
       };
 
-      const loweredSearch = req.query.search.trim().toLowerCase();
-      const filteredPrimary = uniqPrimary.filter(byStartsWith(loweredSearch)).sort(shortestString).reverse();
-      const filteredSub = uniqSubs.filter(byStartsWith(loweredSearch)).sort(shortestString).reverse();
+      if (req.query.search.length === 0) {
+        const primary = uniqPrimary;
+        const sub = uniqSubs;
+        const result = { primary, sub };
+        return res.status(200).json(result);
+      }
 
-      const primary = loweredSearch ? filteredPrimary : uniqPrimary;
-      const sub = loweredSearch ? filteredSub : uniqSubs;
+      const prepared = req.query.search.map((i) => i.trim()).reduce(
+        (acc, search) => {
+          if (!search) return acc;
+          const loweredSearch = search.trim().toLowerCase();
+          const filteredPrimary = uniqPrimary.filter(byStartsWith(loweredSearch)).sort(shortestString).reverse();
+          const filteredSub = uniqSubs.filter(byStartsWith(loweredSearch)).sort(shortestString).reverse();
+          acc.primary = [...acc.primary, ...filteredPrimary];
+          acc.sub = [...acc.sub, ...filteredSub];
+          return acc;
+        },
+        { primary: [], sub: [] },
+      );
 
-      const result = { primary, sub };
-      return res.status(200).json(result);
+      return res.status(200).json(prepared);
     } catch (error) {
       return res.status(500).send(error.message);
     }
