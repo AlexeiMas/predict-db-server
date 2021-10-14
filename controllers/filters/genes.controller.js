@@ -35,13 +35,20 @@ module.exports = async function filterGenes(req, res) {
         if (!item) return acc;
         const upper = new RegExp(item, 'gi');
         const equalsChar0 = (s1, s2) => s1.charAt(0).toLowerCase() === s2.charAt(0).toLowerCase();
-        const foundGene = allGenes.find((g) => equalsChar0(g, item) && upper.test(g));
+        const strictEquals = (s1, s2) => s1.trim().toLowerCase() === s2.trim().toLowerCase();
+
+        const comparator = (toCompare) => {
+          if (/true/gi.test(req.query.strictEqual)) return strictEquals(toCompare, item);
+          return equalsChar0(toCompare, item) && upper.test(toCompare);
+        };
+
+        const foundGene = allGenes.find(comparator);
         if (foundGene && acc.genes.includes(foundGene) === false) acc.genes.push(foundGene);
 
-        const foundAlias = allAliases.find((g) => equalsChar0(g, item) && upper.test(g));
+        const foundAlias = allAliases.find(comparator);
         if (foundAlias && acc.aliases.includes(foundAlias) === false) acc.aliases.push(foundAlias);
 
-        const foundProtein = allProteins.find((g) => equalsChar0(g, item) && upper.test(g));
+        const foundProtein = allProteins.find(comparator);
         if (foundProtein && acc.proteins.includes(foundProtein) === false) acc.proteins.push(foundProtein);
 
         return acc;

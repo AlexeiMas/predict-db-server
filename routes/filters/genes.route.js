@@ -12,6 +12,7 @@ const querySchema = Joi.object({
   search: Joi.array().items(Joi.string().trim().allow('')).single().default([]),
   limit: Joi.number().default(DEFAULT_LIMIT),
   offset: Joi.number().default(0),
+  strictEqual: Joi.boolean().default(false),
 });
 
 router.get(
