@@ -7,6 +7,8 @@ const authMiddleware = require('../middlewares/auth.middleware');
 
 const router = Router();
 
+const VALUES = ['NGS', 'Patient Treatment History', 'Growth Characteristics', 'Plasma', 'PBMC', 'PDC Model Treatment Response'];
+
 const querySchema = Joi.object({
   gene: Joi.array().max(20).items(Joi.string().trim()).single().default([]),
   alias: Joi.array().max(20).items(Joi.string().trim()).single().default([]),
@@ -21,6 +23,7 @@ const querySchema = Joi.object({
   responsesTreatment: Joi.array().items(Joi.string().trim()).single().default([]),
   responsesResponseType: Joi.array().items(Joi.string().trim()).single().default([]),
   includeExpressions: Joi.boolean().default(false),
+  dataAvailable: Joi.array().items(Joi.string().valid(...VALUES).trim()).single().default([]),
 });
 
 router.get(

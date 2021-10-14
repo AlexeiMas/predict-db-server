@@ -6,10 +6,8 @@ const FIELDS_EX = [ /* eslint-disable-line */
   'Aliases',
   'Proteins',
   'Model ID',
-  'Diagnosis',
   'Primary Tumour types',
   'Sub Tumour types',
-  'History Collection',
   'Patient Treatment History(treatment)',
   'Patient Treatment History(response type)',
   'PDC Model Treatment Response (treatment)',
@@ -28,6 +26,7 @@ const FIELDS_MAP = {
   historyResponseType: 'Patient Treatment History(response type)',
   responsesTreatment: 'PDC Model Treatment Response (treatment)',
   responsesResponseType: 'PDC Model Treatment Response (response type)',
+  dataAvailable: 'Data Available',
 };
 
 const FIELDS = Object.values(FIELDS_MAP);
@@ -48,6 +47,7 @@ const prepareValues = ({ QueryInformation }) => (i, index) => {
   const historyResponseType = QueryInformation.historyResponseType.sort((a, b) => a - b);
   const responsesTreatment = QueryInformation.responsesTreatment.sort((a, b) => a - b);
   const responsesResponseType = QueryInformation.responsesResponseType.sort((a, b) => a - b);
+  const dataAvailable = QueryInformation.dataAvailable.sort((a, b) => a - b);
   if (index === 0) {
     return [
       (/true/gi.test(QueryInformation.includeExpressions) ? 'YES' : 'NO'),
@@ -61,6 +61,7 @@ const prepareValues = ({ QueryInformation }) => (i, index) => {
       (historyResponseType[index] || 'NO'),
       (responsesTreatment[index] || 'NO'),
       (responsesResponseType[index] || 'NO'),
+      (dataAvailable[index] || 'NO'),
     ];
   }
   return [
@@ -75,6 +76,7 @@ const prepareValues = ({ QueryInformation }) => (i, index) => {
     (historyResponseType[index] || ''),
     (responsesTreatment[index] || ''),
     (responsesResponseType[index] || ''),
+    (dataAvailable[index] || ''),
   ];
 };
 
