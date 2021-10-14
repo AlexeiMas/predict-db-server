@@ -6,9 +6,10 @@ const exportService = require('../services/export');
 const geneNames = require('../data/genesNames.json');
 const treatmentInfo = require('../data/treatmentInfo.json');
 
+const clone = (some) => JSON.parse(JSON.stringify(some));
 module.exports = async (req, res) => {
   try {
-    const { includeExpressions, diagnosis } = req.query;
+    const { includeExpressions, diagnosis } = clone(req.query);
 
     const prepareToUniqArray = (value) => {
       if (typeof value === 'string' && !!value.trim() === false) return [];
@@ -245,7 +246,12 @@ module.exports = async (req, res) => {
       };
     });
 
-    return exportService.exportFile({ data: extended, response: res, includeExpressions });
+    return exportService.exportFile({
+      data: extended,
+      response: res,
+      includeExpressions,
+      QueryInformation: clone(req.query),
+    });
   } catch (error) {
     return res.status(500).send(error.message);
   }
