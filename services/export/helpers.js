@@ -134,6 +134,45 @@ const fillValues = (sheet, values, startCol = START_COLUMN) => {
     return rowNumber;
   });
 };
+const queryInfoHeaderStyleFillGray25 = {
+  font: {
+    bold: true,
+  },
+  fill: {
+    type: 'pattern',
+    patternType: 'solid',
+    fgColor: '#DCDCDC',
+  },
+};
+
+const queryInfoSheetLabelAlignmentStyle = {
+  alignment: {
+    vertical: 'center',
+    horizontal: 'left',
+  },
+};
+
+const setSheetQueryInfoLayout = (sheet) => {
+  sheet.column(1).setWidth(12);
+  sheet.column(2).setWidth(12);
+
+  sheet.column(10).setWidth(50);
+  sheet.column(11).setWidth(50);
+  sheet.column(12).setWidth(50);
+  sheet.column(13).setWidth(50);
+
+  sheet.cell(4, 1).string('© Imagen Therapeutics').style(queryInfoSheetLabelAlignmentStyle);
+
+  sheet.addImage({
+    image: fs.readFileSync(path.resolve(__dirname, 'logo.png')),
+    type: 'picture',
+    position: {
+      type: 'absoluteAnchor',
+      x: '0.05in',
+      y: '0.11in',
+    },
+  });
+};
 
 module.exports = {
   sheetOptions,
@@ -149,4 +188,65 @@ module.exports = {
   setColumnGrouping,
   fillHeaderFields,
   fillValues,
+
+  queryInfoHeaderStyleFillGray25,
+  setSheetQueryInfoLayout,
 };
+
+/*
+  Fill color must be an RGB value, Excel color (
+  aqua,
+    black,
+    blue,
+    blue-gray,
+    bright green,
+    brown,
+    dark blue,
+    dark green,
+    dark red,
+    dark teal,
+    dark yellow,
+    gold,
+    gray-25,
+    gray-40,
+    gray-50,
+    gray-80,
+    green,
+    indigo,
+    lavender,
+    light blue,
+    light green,
+    light orange,
+    light turquoise,
+    light yellow,
+    lime,
+    olive green,
+    orange,
+    pale blue,
+    pink,
+    plum,
+    red,
+    rose,
+    sea green,
+    sky blue,
+    tan,
+    teal,
+    turquoise,
+    violet,
+    white,
+    yellow)
+
+    or Excel theme (
+      dark 1,
+    light 1,
+    dark 2,
+    light 2,
+    accent 1,
+    accent 2,
+    accent 3,
+    accent 4,
+    accent 5,
+    accent 6,
+    hyperlink,
+    followed hyperlink)
+*/

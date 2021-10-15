@@ -1,31 +1,31 @@
 const helpers = require('../helpers');
 
 const FIELDS_EX = [ /* eslint-disable-line */
-  'Enable RNA expression',
+  'Enable RNA Expression',
   'Genes',
   'Aliases',
   'Proteins',
-  'Model ID',
-  'Primary Tumour types',
-  'Sub Tumour types',
-  'Patient Treatment History(treatment)',
-  'Patient Treatment History(response type)',
-  'PDC Model Treatment Response (treatment)',
-  'PDC Model Treatment Response (response type)',
+  'Model IDs',
+  'Primary Tumour Types',
+  'Tumour Sub Types',
+  'Patient Treatment History (Treatment)',
+  'Patient Treatment History (Response Type)',
+  'PDC Model Treatment Response (Treatment)',
+  'PDC Model Treatment Response (Response Type)',
 ];
 
 const FIELDS_MAP = {
-  includeExpressions: 'Enable RNA expression',
+  includeExpressions: 'Enable RNA Expression',
   gene: 'Genes',
   alias: 'Aliases',
   protein: 'Proteins',
-  modelId: 'Model ID',
-  tumourType: 'Primary Tumour types',
-  tumourSubType: 'Sub Tumour types',
-  historyTreatment: 'Patient Treatment History(treatment)',
-  historyResponseType: 'Patient Treatment History(response type)',
-  responsesTreatment: 'PDC Model Treatment Response (treatment)',
-  responsesResponseType: 'PDC Model Treatment Response (response type)',
+  modelId: 'Model IDs',
+  tumourType: 'Primary Tumour Types',
+  tumourSubType: 'Tumour Sub Types',
+  historyTreatment: 'Patient Treatment History (Treatment)',
+  historyResponseType: 'Patient Treatment History (Response Type)',
+  responsesTreatment: 'PDC Model Treatment Response (Treatment)',
+  responsesResponseType: 'PDC Model Treatment Response (Response Type)',
   dataAvailable: 'Data Available',
 };
 
@@ -50,18 +50,18 @@ const prepareValues = ({ QueryInformation }) => (i, index) => {
   const dataAvailable = QueryInformation.dataAvailable.sort((a, b) => a - b);
   if (index === 0) {
     return [
-      (/true/gi.test(QueryInformation.includeExpressions) ? 'YES' : 'NO'),
-      (gene[index] || 'NO'),
-      (alias[index] || 'NO'),
-      (protein[index] || 'NO'),
-      (modelId[index] || 'NO'),
-      (tumourType[index] || 'NO'),
-      (tumourSubType[index] || 'NO'),
-      (historyTreatment[index] || 'NO'),
-      (historyResponseType[index] || 'NO'),
-      (responsesTreatment[index] || 'NO'),
-      (responsesResponseType[index] || 'NO'),
-      (dataAvailable[index] || 'NO'),
+      (/true/gi.test(QueryInformation.includeExpressions) ? 'Yes' : 'None'),
+      (gene[index] || 'None'),
+      (alias[index] || 'None'),
+      (protein[index] || 'None'),
+      (modelId[index] || 'None'),
+      (tumourType[index] || 'None'),
+      (tumourSubType[index] || 'None'),
+      (historyTreatment[index] || 'None'),
+      (historyResponseType[index] || 'None'),
+      (responsesTreatment[index] || 'None'),
+      (responsesResponseType[index] || 'None'),
+      (dataAvailable[index] || 'None'),
     ];
   }
   return [
@@ -100,18 +100,13 @@ const prepareValues2 = ({ QueryInformation }) => {
 };
 
 module.exports.createWorksheet = ({ workbook, QueryInformation }) => {
-  const sheet = workbook.addWorksheet('Query information', helpers.sheetOptions);
+  const sheet = workbook.addWorksheet('Query Info', helpers.sheetOptions);
 
-  helpers.setSheetBasicLayout(sheet);
+  helpers.setSheetQueryInfoLayout(sheet);
 
-  sheet.cell(3, 3, 3, 6).style({
+  sheet.cell(3, 3, 3, 14).style({
     ...helpers.alignmentStyle,
-    ...helpers.greyHeaderStyle,
-  });
-
-  sheet.cell(3, 6, 3, 17).style({
-    ...helpers.alignmentStyle,
-    ...helpers.blueHeaderStyle,
+    ...helpers.queryInfoHeaderStyleFillGray25,
   });
 
   const values = prepareValues2({ QueryInformation });
