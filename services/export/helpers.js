@@ -153,8 +153,8 @@ const queryInfoSheetLabelAlignmentStyle = {
 };
 
 const setSheetQueryInfoLayout = (sheet) => {
-  sheet.column(1).setWidth(12);
-  sheet.column(2).setWidth(12);
+  sheet.column(1).setWidth(15);
+  sheet.column(2).setWidth(15);
 
   sheet.column(10).setWidth(50);
   sheet.column(11).setWidth(50);
