@@ -30,6 +30,12 @@ module.exports = async function filterGenes(req, res) {
       });
     }
 
+    const sorter = (a, b) => {
+      if (a < b) { return -1; }
+      if (a > b) { return 1; }
+      return 0;
+    };
+
     const prepared = search.map((i) => i.trim()).reduce(
       (acc, item) => {
         if (!item) return acc;
@@ -42,14 +48,14 @@ module.exports = async function filterGenes(req, res) {
           return equalsChar0(toCompare, item) && upper.test(toCompare);
         };
 
-        const foundGene = allGenes.find(comparator);
-        if (foundGene && acc.genes.includes(foundGene) === false) acc.genes.push(foundGene);
+        const filteredGenes = allGenes.filter(comparator);
+        acc.genes = [...new Set([...acc.genes, ...(filteredGenes)])].sort(sorter);
 
-        const foundAlias = allAliases.find(comparator);
-        if (foundAlias && acc.aliases.includes(foundAlias) === false) acc.aliases.push(foundAlias);
+        const filteredAliases = allAliases.filter(comparator);
+        acc.aliases = [...new Set([...acc.aliases, ...(filteredAliases)])].sort(sorter);
 
-        const foundProtein = allProteins.find(comparator);
-        if (foundProtein && acc.proteins.includes(foundProtein) === false) acc.proteins.push(foundProtein);
+        const filteredProteins = allProteins.filter(comparator);
+        acc.proteins = [...new Set([...acc.proteins, ...(filteredProteins)])].sort(sorter);
 
         return acc;
       },
