@@ -69,6 +69,7 @@ module.exports = async (req, res) => {
       tumourType,
       tumourSubType,
       historyCollection,
+      historyTreatment,
       historyResponseType,
       responsesTreatment,
       responsesResponseType,
@@ -79,8 +80,7 @@ module.exports = async (req, res) => {
       order,
     } = req.query;
 
-    let historyTreatment = (req.query.historyTreatment || []).slice();
-    const dataAvailable = (req.query.dataAvailable || []).slice();
+    const dataAvailable = req.query.dataAvailable.slice();
     const clinicalDataDataAvailableFilter = getClinicalDataFiltersFromDataAvailable(dataAvailable);
     const pdcModelFilter = getPdcModelFiltersFromDataAvailable(dataAvailable);
 
@@ -177,12 +177,12 @@ module.exports = async (req, res) => {
         const contains = comparators.some((c) => treatment.includes(c));
         if (contains) historyTreatment.push(i.Treatment);
       });
-      historyTreatment = [...new Set(historyTreatment)];
     }
 
+    const uniq = (acc, i) => [...acc, ...(acc.includes(i) ? [] : [i])];
     const historyFilter = {
       ...(historyCollection ? { 'Pre/Post Collection': { $in: historyCollection } } : {}),
-      ...(historyTreatment ? { Treatment: { $in: historyTreatment } } : {}),
+      ...(historyTreatment ? { Treatment: { $in: historyTreatment.reduce(uniq, []) } } : {}),
       ...(historyResponseType ? { 'Best Response (RECIST)': { $in: historyResponseType } } : {}),
     };
 

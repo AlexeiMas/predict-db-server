@@ -24,6 +24,7 @@ module.exports = async (req, res) => {
     const modelId = prepareToUniqArray(req.query.modelId);
     const tumourType = prepareToUniqArray(req.query.tumourType);
     const tumourSubType = prepareToUniqArray(req.query.tumourSubType);
+    const historyTreatment = prepareToUniqArray(req.query.historyTreatment);
     const historyCollection = prepareToUniqArray(req.query.historyCollection);
     const historyResponseType = prepareToUniqArray(req.query.historyResponseType);
     const responsesTreatment = prepareToUniqArray(req.query.responsesTreatment);
@@ -32,19 +33,6 @@ module.exports = async (req, res) => {
     let modelIds = modelId ? [...modelId] : [];
     const geneModelIds = [];
     const caseIds = [];
-
-    let historyTreatment = prepareToUniqArray(req.query.historyTreatment);
-    if (historyTreatment && historyTreatment.length) {
-      const lower = (s = '') => s.trim().toLowerCase();
-      const comparators = historyTreatment.map(lower).filter(Boolean);
-      const found = await TreatmentHistory.find({}).lean();
-      found.forEach((i) => {
-        const treatment = lower(i.Treatment);
-        const contains = comparators.some((c) => treatment.includes(c));
-        if (contains) historyTreatment.push(i.Treatment);
-      });
-      historyTreatment = [...new Set(historyTreatment)];
-    }
 
     const genesByAliasInfo = alias.length > 0 ? geneNames.filter((i) => {
       const intersection = i.aliases.filter((a) => alias.includes(a));
@@ -136,9 +124,21 @@ module.exports = async (req, res) => {
       ...(responsesResponseType.length > 0 ? { 'Phenotypic Response Type': responsesResponseType } : {}),
     };
 
+    if (historyTreatment && historyTreatment.length) {
+      const lower = (s = '') => s.trim().toLowerCase();
+      const comparators = historyTreatment.map(lower).filter(Boolean);
+      const found = await TreatmentHistory.find({}).lean();
+      found.forEach((i) => {
+        const treatment = lower(i.Treatment);
+        const contains = comparators.some((c) => treatment.includes(c));
+        if (contains) historyTreatment.push(i.Treatment);
+      });
+    }
+
+    const uniq = (acc, i) => [...acc, ...(acc.includes(i) ? [] : [i])];
     const historyFilter = {
       ...(historyCollection.length > 0 ? { 'Pre/Post Collection': { $in: historyCollection } } : {}),
-      ...(historyTreatment.length > 0 ? { Treatment: { $in: historyTreatment } } : {}),
+      ...(historyTreatment.length > 0 ? { Treatment: { $in: historyTreatment.reduce(uniq, []) } } : {}),
       ...(historyResponseType.length > 0 ? { 'Best Response (RECIST)': { $in: historyResponseType } } : {}),
     };
 
