@@ -69,7 +69,6 @@ module.exports = async (req, res) => {
       tumourType,
       tumourSubType,
       historyCollection,
-      historyTreatment,
       historyResponseType,
       responsesTreatment,
       responsesResponseType,
@@ -80,7 +79,8 @@ module.exports = async (req, res) => {
       order,
     } = req.query;
 
-    const dataAvailable = req.query.dataAvailable.slice();
+    let historyTreatment = (req.query.historyTreatment || []).slice();
+    const dataAvailable = (req.query.dataAvailable || []).slice();
     const clinicalDataDataAvailableFilter = getClinicalDataFiltersFromDataAvailable(dataAvailable);
     const pdcModelFilter = getPdcModelFiltersFromDataAvailable(dataAvailable);
 
@@ -167,6 +167,18 @@ module.exports = async (req, res) => {
       ...(responsesTreatment ? { Treatment: responsesTreatment } : {}),
       ...(responsesResponseType ? { 'Phenotypic Response Type': responsesResponseType } : {}),
     };
+
+    if (historyTreatment && historyTreatment.length) {
+      const lower = (s = '') => s.trim().toLowerCase();
+      const comparators = historyTreatment.map(lower).filter(Boolean);
+      const found = await TreatmentHistory.find({}).lean();
+      found.forEach((i) => {
+        const treatment = lower(i.Treatment);
+        const contains = comparators.some((c) => treatment.includes(c));
+        if (contains) historyTreatment.push(i.Treatment);
+      });
+      historyTreatment = [...new Set(historyTreatment)];
+    }
 
     const historyFilter = {
       ...(historyCollection ? { 'Pre/Post Collection': { $in: historyCollection } } : {}),
