@@ -6,9 +6,37 @@ const exportService = require('../services/export');
 const geneNames = require('../data/genesNames.json');
 const treatmentInfo = require('../data/treatmentInfo.json');
 
+const clone = (some) => JSON.parse(JSON.stringify(some));
+const getPdcModelFiltersFromDataAvailable = (dataAvailable) => {
+  const pdsModelFiltersMap = {
+    NGS: 'Has NGS Data',
+    'Patient Treatment History': 'Has Patient Treatment History',
+    'Growth Characteristics': 'Has Growth Characteristics',
+  };
+  const filter = dataAvailable.reduce((acc, i) => {
+    const collector = { ...acc };
+    if (!pdsModelFiltersMap[i]) return collector;
+    collector[pdsModelFiltersMap[i]] = true;
+    return collector;
+  }, {});
+  return Object.keys(filter).length === 0 ? false : filter;
+};
+
+const getClinicalDataFiltersFromDataAvailable = (dataAvailable) => {
+  const clinicalDataFiltersMap = { Plasma: 'Plasma', PBMC: 'PBMC' };
+  const filter = dataAvailable.reduce((acc, i) => {
+    const collector = { ...acc };
+    if (!clinicalDataFiltersMap[i]) return collector;
+    collector[clinicalDataFiltersMap[i]] = true;
+    return collector;
+  }, {});
+
+  return Object.keys(filter).length === 0 ? false : filter;
+};
+
 module.exports = async (req, res) => {
   try {
-    const { includeExpressions, diagnosis } = req.query;
+    const { includeExpressions, diagnosis } = clone(req.query);
 
     const prepareToUniqArray = (value) => {
       if (typeof value === 'string' && !!value.trim() === false) return [];
@@ -29,6 +57,9 @@ module.exports = async (req, res) => {
     const historyResponseType = prepareToUniqArray(req.query.historyResponseType);
     const responsesTreatment = prepareToUniqArray(req.query.responsesTreatment);
     const responsesResponseType = prepareToUniqArray(req.query.responsesResponseType);
+    const dataAvailable = prepareToUniqArray(req.query.dataAvailable);
+    const clinicalDataDataAvailableFilter = getClinicalDataFiltersFromDataAvailable(dataAvailable);
+    const pdcModelFilter = getPdcModelFiltersFromDataAvailable(dataAvailable);
 
     let modelIds = modelId ? [...modelId] : [];
     const geneModelIds = [];
@@ -142,7 +173,7 @@ module.exports = async (req, res) => {
       ...(historyResponseType.length > 0 ? { 'Best Response (RECIST)': { $in: historyResponseType } } : {}),
     };
 
-    const models = await PDCModel.find({ 'Visible Externally': true });
+    const models = await PDCModel.find({ 'Visible Externally': true, ...(pdcModelFilter || {}) });
     const ids = models.map((i) => i['Model ID']);
     modelIds.push(...ids);
 
@@ -199,6 +230,7 @@ module.exports = async (req, res) => {
       ...(isTumourFilter ? tumourFilter : {}),
       ...(isHistoryFilter ? { 'Case ID': { $in: [...new Set(caseIds)] } } : {}),
       ...({ 'PDC Model': { $in: modelIds } }),
+      ...(clinicalDataDataAvailableFilter || {}),
     };
 
     let ngsPopulations = [];
@@ -257,7 +289,12 @@ module.exports = async (req, res) => {
       };
     });
 
-    return exportService.exportFile({ data: extended, response: res, includeExpressions });
+    return exportService.exportFile({
+      data: extended,
+      response: res,
+      includeExpressions,
+      QueryInformation: clone(req.query),
+    });
   } catch (error) {
     return res.status(500).send(error.message);
   }
