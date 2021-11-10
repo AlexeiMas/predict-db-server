@@ -116,13 +116,13 @@ const treatmentResponsesFields = {
 const treatmentHistoryFields = {
   'Pre/Post Collection': 1,
   Regime: 1,
-  'Date Started': 1,
+  // 'Date Started': 1,            // remove-extra-fileds-columns(t12), requested by @albert.bezman
   'Dose  (mg/day or mg/kg)': 1, // TODO: Fix field name in the DB
   'Treatment Duration (Months)': 1,
   'Best Response (RECIST)': 1,
   'Response Duration (Months)': 1,
   Treatment: 1,
-  'Date of Last Treatment': 1,
+  // 'Date of Last Treatment': 1,  // remove-extra-fileds-columns(t12), requested by @albert.bezman
   'PredictRx Case ID': 1,
 };
 
