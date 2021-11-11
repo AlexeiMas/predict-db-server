@@ -5,6 +5,7 @@ const schema = new Schema({
   gene_id: String,
   'Log TPM': Number,
   Percentile: Number,
+  Zscore: Number,
   Symbol: String,
   'Model ID': { type: String, index: true },
 });

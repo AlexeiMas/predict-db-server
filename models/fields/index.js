@@ -92,6 +92,7 @@ const expressionsFields = {
   gene_id: 1,
   'Log TPM': 1,
   Percentile: 1,
+  Zscore: 1,
   Symbol: 1,
   'Model ID': 1,
 };
