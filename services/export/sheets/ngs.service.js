@@ -82,6 +82,7 @@ const RNAFIELDS = [
   // Expressions
 
   'Relative Score (log TPM)',
+  'Zscore',
   'Percentile',
 
   // Fusions
@@ -143,6 +144,7 @@ const getNgsValues = (data) => data.reduce((acc, row) => {
     ? expressions.map((item) => ({
       symbol: item.Symbol || '',
       logTpm: Number.isFinite(item['Log TPM']) ? item['Log TPM'] : '',
+      zscore: Number.isFinite(item.Zscore) ? item.Zscore : '',
       percentile: Number.isFinite(item.Percentile) ? item.Percentile : '',
       modelId: item['Model ID'],
     }))
@@ -239,6 +241,7 @@ const aggregateValues = (genes, values) => genes.reduce((collector, gene) => {
       } return null;
     }) || {
       logTpm: '',
+      zscore: '',
       percentile: '',
     };
     const fusionsValues = fusionsRows.find((i, index) => {
@@ -321,6 +324,7 @@ const transformToArray = ({ sorted, includeExpressions }) => sorted.map((item) =
   item.log2FC,
   item.svType,
   ...(includeExpressions ? [item.logTpm] : []),
+  ...(includeExpressions ? [item.zscore] : []),
   ...(includeExpressions ? [item.percentile] : []),
   item.description,
   item.predictedEffect,
@@ -388,17 +392,17 @@ module.exports.createWorksheet = ({ workbook, data, includeExpressions }) => {
 
     if (includeExpressions === true) {
       /* include Expressions   */
-      sheet.cell(3, 6, 3, 34).style({ ...align, ...blueHeaderStyle });
-      sheet.cell(2, 29, 2, 29, false).string('Expressions').style({ ...align, ...expressionsFillStyle });
-      sheet.cell(2, 28, 2, 28, false).style({ ...align, ...expressionsFillStyle });
+      sheet.cell(3, 6, 3, 35).style({ ...align, ...blueHeaderStyle });
+      sheet.cell(2, 30, 2, 30, false).string('Expressions').style({ ...align, ...expressionsFillStyle });
+      sheet.cell(2, 28, 2, 29, false).style({ ...align, ...expressionsFillStyle });
       sheet.cell(1, 28)
         .string('**Transcripts Per Million (log transformed)')
         .style(redBoldFontStyle);
-      sheet.cell(1, 29).string('***Rank of Model within gene distribution, only protein coding genes shown').style(redBoldFontStyle); // eslint-disable-line
-      sheet.cell(2, 30, 2, 33, false).style({ ...align, ...fusionsFillStyle });
-      sheet.cell(2, 34, 2, 34, false).string('Fusions').style({ ...align, ...fusionsFillStyle });
-      setColumnGrouping(sheet, 3, 28, 29);
-      setColumnGrouping(sheet, 4, 30, 34);
+      sheet.cell(1, 30).string('***Rank of Model within gene distribution, only protein coding genes shown').style(redBoldFontStyle); // eslint-disable-line
+      sheet.cell(2, 31, 2, 34, false).style({ ...align, ...fusionsFillStyle });
+      sheet.cell(2, 35, 2, 35, false).string('Fusions').style({ ...align, ...fusionsFillStyle });
+      setColumnGrouping(sheet, 3, 28, 30);
+      setColumnGrouping(sheet, 4, 31, 35);
     } else {
       /* exclude Expressions   */
       setColumnGrouping(sheet, 4, 28, 32);
