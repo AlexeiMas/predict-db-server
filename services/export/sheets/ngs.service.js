@@ -13,23 +13,21 @@ const FIELDS = [
 
   // Mutations
 
-  'gnomAD_genome_ALL',
-  'Protein_position',
+  'AAChange',
   'Amino_acids',
-  'Func_refGene',
-  'ExonicFunc_refGene',
-  'Chr',
-  'Start',
-  'End',
-  'Ref',
-  'Alt',
-  'Zygosity',
-  'AF',
-  'Quality',
-  'CurrentExon',
+  'EXON',
   'EnsGenID',
-  'EnsTransID',
-  'cosmic68',
+  'Feature',
+  'CLIN_SIG',
+  'VARIANT_CLASS',
+  'GenomicPosition',
+  'Consequence',
+  'IMPACT',
+  'BIOTYPE',
+  'Codons',
+  'Depth',
+  'Population_Max',
+  'AlleleFrequency',
   'Existing_variation',
 
   // Copy Numbers
@@ -55,23 +53,21 @@ const RNAFIELDS = [
 
   // Mutations
 
-  'gnomAD_genome_ALL',
-  'Protein_position',
+  'AAChange',
   'Amino_acids',
-  'Func_refGene',
-  'ExonicFunc_refGene',
-  'Chr',
-  'Start',
-  'End',
-  'Ref',
-  'Alt',
-  'Zygosity',
-  'AF',
-  'Quality',
-  'CurrentExon',
+  'EXON',
   'EnsGenID',
-  'EnsTransID',
-  'cosmic68',
+  'Feature',
+  'CLIN_SIG',
+  'VARIANT_CLASS',
+  'GenomicPosition',
+  'Consequence',
+  'IMPACT',
+  'BIOTYPE',
+  'Codons',
+  'Depth',
+  'Population_Max',
+  'AlleleFrequency',
   'Existing_variation',
 
   // Copy Numbers
@@ -108,25 +104,23 @@ const getNgsValues = (data) => data.reduce((acc, row) => {
 
   const mutationsRows = mutations && mutations.length > 0
     ? mutations.map((item) => ({
-      gene: item.Gene_refGene || '',
+      gene: item.SYMBOL || '',
+      aachange: item.AAChange || '',
+      amino_acids: item.Amino_acids || '',
+      exon: item.EXON || '',
+      ensgenid: item.EnsGenID || '',
+      feature: item.Feature || '',
+      clin_sig: item.CLIN_SIG || '',
+      variant_class: item.VARIANT_CLASS || '',
+      genomicposition: item.GenomicPosition || '',
+      consequence: item.Consequence || '',
+      impact: item.IMPACT || '',
+      biotype: item.BIOTYPE || '',
+      codons: item.Codons || '',
+      depth: Number.isFinite(item.Depth) ? item.Depth : '',
+      population_Max: Number.isFinite(item.Population_Max) ? item.Population_Max : '',
+      allelefrequency: Number.isFinite(item.AlleleFrequency) ? item.AlleleFrequency : '',
       variation: item.Existing_variation || '',
-      proteinPosition: item.Protein_position || '',
-      aminoAcids: item.Amino_acids || '',
-      funcRefGene: item.Func_refGene || '',
-      exonicFuncRefGene: item.ExonicFunc_refGene || '',
-      chr: item.Chr || '',
-      start: Number.isFinite(item.Start) ? item.Start : '',
-      end: Number.isFinite(item.End) ? item.End : '',
-      ref: item.Ref || '',
-      alt: item.Alt || '',
-      zygosity: item.Zygosity || '',
-      af: item.AF || '',
-      quality: Number.isFinite(item.Quality) ? item.Quality : '',
-      currentExon: Number.isFinite(item.CurrentExon) ? item.CurrentExon : '',
-      ensGenId: item.EnsGenID || '',
-      ensTransId: item.EnsTransID || '',
-      cosmic68: item.cosmic68 || '',
-      gnomAd: item.gnomAD_genome_ALL || '',
       modelId: item['Model ID'],
     }))
     : [];
@@ -205,25 +199,22 @@ const aggregateValues = (genes, values) => genes.reduce((collector, gene) => {
       } return null;
     }) || {
       gene,
+      aachange: '',
+      amino_acids: '',
+      exon: '',
+      ensgenid: '',
+      feature: '',
+      clin_sig: '',
+      variant_class: '',
+      genomicposition: '',
+      consequence: '',
+      impact: '',
+      biotype: '',
+      codons: '',
+      depth: '',
+      population_Max: '',
+      allelefrequency: '',
       variation: '',
-      proteinPosition: '',
-      aminoAcids: '',
-      funcRefGene: '',
-      exonicFuncRefGene: '',
-      chr: '',
-      start: '',
-      end: '',
-      ref: '',
-      alt: '',
-      callerConfidence: '',
-      zygosity: '',
-      af: '',
-      quality: '',
-      currentExon: '',
-      ensGenId: '',
-      ensTransId: '',
-      cosmic68: '',
-      gnomAd: '',
     };
     const copyNumbersValues = copyNumbersRows.find((i, index) => {
       if (!i.consumed && i.modelId === item) {
@@ -303,23 +294,21 @@ const transformToArray = ({ sorted, includeExpressions }) => sorted.map((item) =
   item.tumourSubType,
   item.gene,
   '',
-  item.gnomAd,
-  item.proteinPosition,
-  item.aminoAcids,
-  item.funcRefGene,
-  item.exonicFuncRefGene,
-  item.chr,
-  item.start,
-  item.end,
-  item.ref,
-  item.alt,
-  item.zygosity,
-  item.af,
-  item.quality,
-  item.currentExon,
-  item.ensGenId,
-  item.ensTransId,
-  item.cosmic68,
+  item.aachange,
+  item.amino_acids,
+  item.exon,
+  item.ensgenid,
+  item.feature,
+  item.clin_sig,
+  item.variant_class,
+  item.genomicposition,
+  item.consequence,
+  item.impact,
+  item.biotype,
+  item.codons,
+  item.depth,
+  item.population_Max,
+  item.allelefrequency,
   item.variation,
   item.log2FC,
   item.svType,
@@ -377,38 +366,38 @@ module.exports.createWorksheet = ({ workbook, data, includeExpressions }) => {
 
     // ws.cell(startRow, startColumn, [[endRow, endColumn], isMerged]);
     sheet.cell(3, 3, 3, 5).style({ ...align, ...greyHeaderStyle });
-    sheet.cell(2, 8, 2, 24, false).style({ ...align, ...mutationsFillStyle });
-    sheet.cell(2, 25, 2, 25, false).string('Mutations').style({ ...align, ...mutationsFillStyle });
-    sheet.cell(2, 26, 2, 26, false).style({ ...align, ...copyNumbersFillStyle });
-    sheet.cell(2, 27, 2, 27, false).string('Copy Numbers').style({ ...align, ...copyNumbersFillStyle });
+    sheet.cell(2, 8, 2, 22, false).style({ ...align, ...mutationsFillStyle });
+    sheet.cell(2, 23, 2, 23, false).string('Mutations').style({ ...align, ...mutationsFillStyle });
+    sheet.cell(2, 24, 2, 24, false).style({ ...align, ...copyNumbersFillStyle });
+    sheet.cell(2, 25, 2, 25, false).string('Copy Numbers').style({ ...align, ...copyNumbersFillStyle });
 
     sheet.cell(1, 3)
       // eslint-disable-next-line
       .string('**Results are aggregated across Mutations, Copy Number Variations, Expressions and Fusions, please expand relevant columns for more detail')
       .style(redBoldFontStyle);
 
-    setColumnGrouping(sheet, 1, 8, 25);
-    setColumnGrouping(sheet, 2, 26, 27);
+    setColumnGrouping(sheet, 1, 8, 23);
+    setColumnGrouping(sheet, 2, 24, 25);
 
     if (includeExpressions === true) {
       /* include Expressions   */
-      sheet.cell(3, 6, 3, 35).style({ ...align, ...blueHeaderStyle });
-      sheet.cell(2, 30, 2, 30, false).string('Expressions').style({ ...align, ...expressionsFillStyle });
-      sheet.cell(2, 28, 2, 29, false).style({ ...align, ...expressionsFillStyle });
-      sheet.cell(1, 28)
+      sheet.cell(3, 6, 3, 33).style({ ...align, ...blueHeaderStyle });
+      sheet.cell(2, 28, 2, 28, false).string('Expressions').style({ ...align, ...expressionsFillStyle });
+      sheet.cell(2, 26, 2, 27, false).style({ ...align, ...expressionsFillStyle });
+      sheet.cell(1, 26)
         .string('**Transcripts Per Million (log transformed)')
         .style(redBoldFontStyle);
-      sheet.cell(1, 30).string('***Rank of Model within gene distribution, only protein coding genes shown').style(redBoldFontStyle); // eslint-disable-line
-      sheet.cell(2, 31, 2, 34, false).style({ ...align, ...fusionsFillStyle });
-      sheet.cell(2, 35, 2, 35, false).string('Fusions').style({ ...align, ...fusionsFillStyle });
-      setColumnGrouping(sheet, 3, 28, 30);
-      setColumnGrouping(sheet, 4, 31, 35);
+      sheet.cell(1, 28).string('***Rank of Model within gene distribution, only protein coding genes shown').style(redBoldFontStyle); // eslint-disable-line
+      sheet.cell(2, 29, 2, 32, false).style({ ...align, ...fusionsFillStyle });
+      sheet.cell(2, 33, 2, 33, false).string('Fusions').style({ ...align, ...fusionsFillStyle });
+      setColumnGrouping(sheet, 3, 26, 28);
+      setColumnGrouping(sheet, 4, 29, 33);
     } else {
       /* exclude Expressions   */
-      setColumnGrouping(sheet, 4, 28, 32);
-      sheet.cell(3, 6, 3, 32).style({ ...align, ...blueHeaderStyle });
-      sheet.cell(2, 28, 2, 31, false).style({ ...align, ...fusionsFillStyle });
-      sheet.cell(2, 32, 2, 32, false).string('Fusions').style({ ...align, ...fusionsFillStyle });
+      setColumnGrouping(sheet, 4, 26, 30);
+      sheet.cell(3, 6, 3, 30).style({ ...align, ...blueHeaderStyle });
+      sheet.cell(2, 26, 2, 29, false).style({ ...align, ...fusionsFillStyle });
+      sheet.cell(2, 30, 2, 30, false).string('Fusions').style({ ...align, ...fusionsFillStyle });
     }
 
     const values = prepareValues({ data, includeExpressions });

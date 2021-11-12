@@ -104,7 +104,7 @@ schema.virtual('MutationsGenes', {
   localField: 'Model ID',
   foreignField: 'Model ID',
   options: {
-    select: { 'Model ID': 1, Gene_refGene: 1 },
+    select: { 'Model ID': 1, SYMBOL: 1 },
   },
 });
 

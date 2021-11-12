@@ -111,7 +111,7 @@ module.exports = async (req, res) => {
 
     if (gene) {
       const uniqGenes = [...new Set(gene)];
-      geneMutationsItems.push({ Gene_refGene: { $in: uniqGenes } });
+      geneMutationsItems.push({ SYMBOL: { $in: uniqGenes } });
       geneCopyNumbersItems.push({ Gene_name: { $in: uniqGenes } });
       if (includeExpressions) geneExpressionsItems.push({ Symbol: { $in: uniqGenes } });
       geneFusionsItems.push({ 'Gene_1_symbol(5end_fusion_partner)': { $in: uniqGenes } });
@@ -119,7 +119,7 @@ module.exports = async (req, res) => {
     }
     if (genesByAlias.length) {
       const uniqGenesByAlias = [...new Set(genesByAlias)];
-      geneMutationsItems.push({ Gene_refGene: { $in: uniqGenesByAlias } });
+      geneMutationsItems.push({ SYMBOL: { $in: uniqGenesByAlias } });
       geneCopyNumbersItems.push({ Gene_name: { $in: uniqGenesByAlias } });
       if (includeExpressions) geneExpressionsItems.push({ Symbol: { $in: uniqGenesByAlias } });
       geneFusionsItems.push({ 'Gene_1_symbol(5end_fusion_partner)': { $in: uniqGenesByAlias } });
@@ -127,7 +127,7 @@ module.exports = async (req, res) => {
     }
     if (genesByProtein.length) {
       const uniqGenesByProtein = [...new Set(genesByProtein)];
-      geneMutationsItems.push({ Gene_refGene: { $in: uniqGenesByProtein } });
+      geneMutationsItems.push({ SYMBOL: { $in: uniqGenesByProtein } });
       geneCopyNumbersItems.push({ Gene_name: { $in: uniqGenesByProtein } });
       if (includeExpressions) geneExpressionsItems.push({ Symbol: { $in: uniqGenesByProtein } });
       geneFusionsItems.push({ 'Gene_1_symbol(5end_fusion_partner)': { $in: uniqGenesByProtein } });
