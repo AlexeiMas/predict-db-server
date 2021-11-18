@@ -168,9 +168,21 @@ module.exports = async (req, res) => {
       ...(responsesResponseType ? { 'Phenotypic Response Type': responsesResponseType } : {}),
     };
 
+    if (historyTreatment && historyTreatment.length) {
+      const lower = (s = '') => s.trim().toLowerCase();
+      const comparators = historyTreatment.map(lower).filter(Boolean);
+      const found = await TreatmentHistory.find({}).lean();
+      found.forEach((i) => {
+        const treatment = lower(i.Treatment);
+        const contains = comparators.some((c) => treatment.includes(c));
+        if (contains) historyTreatment.push(i.Treatment);
+      });
+    }
+
+    const uniq = (acc, i) => [...acc, ...(acc.includes(i) ? [] : [i])];
     const historyFilter = {
       ...(historyCollection ? { 'Pre/Post Collection': { $in: historyCollection } } : {}),
-      ...(historyTreatment ? { Treatment: { $in: historyTreatment } } : {}),
+      ...(historyTreatment ? { Treatment: { $in: historyTreatment.reduce(uniq, []) } } : {}),
       ...(historyResponseType ? { 'Best Response (RECIST)': { $in: historyResponseType } } : {}),
     };
 

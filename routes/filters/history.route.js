@@ -7,7 +7,7 @@ const authMiddleware = require('../../middlewares/auth.middleware');
 const router = Router();
 
 const querySchema = Joi.object({
-  search: Joi.string().trim(),
+  search: Joi.array().items(Joi.string().trim().allow('')).single().default([]),
 });
 
 router.get(
