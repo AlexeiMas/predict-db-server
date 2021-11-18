@@ -11,7 +11,7 @@ const querySchema = Joi.object({
 });
 
 const mixedQuerySchema = Joi.object({
-  search: Joi.string().trim().default(''),
+  search: Joi.array().items(Joi.string().trim().allow('')).single().default([]),
   limit: Joi.alternatives(Joi.string().trim(), Joi.number()).optional().default(25),
   offset: Joi.alternatives(Joi.string().trim(), Joi.number()).optional().default(0),
 });

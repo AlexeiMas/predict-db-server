@@ -33,9 +33,9 @@ const prepareValues = (data) => data.reduce((acc, row) => {
       item.Regime || '',
       item.Treatment || '',
       item['Dose  (mg/day or mg/kg)'] || '', // TODO: Fix field name in the DB
-      Number.isFinite(item['Treatment Duration (Months)']) ? item['Treatment Duration (Months)'] : '',
+      item['Treatment Duration (Months)'] || '',
       item['Best Response (RECIST)'] || '',
-      Number.isFinite(item['Response Duration (Months)']) ? item['Response Duration (Months)'] : '',
+      item['Response Duration (Months)'] || '',
     ],
   ]);
 
