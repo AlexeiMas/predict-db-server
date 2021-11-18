@@ -6,9 +6,9 @@ const schema = new Schema({
   Regime: String,
   'Date Started': Date,
   'Dose  (mg/day or mg/kg)': String, // TODO: Fix field name in the DB (space)
-  'Treatment Duration (Months)': Number,
+  'Treatment Duration (Months)': String,
   'Best Response (RECIST)': String,
-  'Response Duration (Months)': Number,
+  'Response Duration (Months)': String,
   Treatment: String,
   'Date of Last Treatment': Date,
   'PredictRx Case ID': String,
