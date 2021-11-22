@@ -119,6 +119,7 @@ const treatmentHistoryFields = {
   'Dose  (mg/day or mg/kg)': 1, // TODO: Fix field name in the DB
   'Treatment Duration (Months)': 1,
   'Best Response (RECIST)': 1,
+  'PD Context': String,
   'Response Duration (Months)': 1,
   Treatment: 1,
   // 'Date of Last Treatment': 1,  // remove-extra-fileds-columns(t12), requested by @albert.bezman

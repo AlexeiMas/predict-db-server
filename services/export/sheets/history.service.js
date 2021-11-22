@@ -12,6 +12,7 @@ const FIELDS = [
   'Dose (mg/day or mg/kg)',
   'Treatment Duration (Months)',
   'Best Response (RECIST)',
+  'PD Context',
   'Response Duration (Months)',
 ];
 
@@ -35,6 +36,7 @@ const prepareValues = (data) => data.reduce((acc, row) => {
       item['Dose  (mg/day or mg/kg)'] || '', // TODO: Fix field name in the DB
       item['Treatment Duration (Months)'] || '',
       item['Best Response (RECIST)'] || '',
+      item['PD Context'] || '',
       item['Response Duration (Months)'] || '',
     ],
   ]);
@@ -54,7 +56,7 @@ module.exports.createWorksheet = (workbook, data = []) => {
     ...greyHeaderStyle,
   });
 
-  sheet.cell(3, 6, 3, 12).style({
+  sheet.cell(3, 6, 3, 13).style({
     ...alignmentStyle,
     ...blueHeaderStyle,
   });
