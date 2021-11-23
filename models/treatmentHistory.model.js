@@ -8,6 +8,7 @@ const schema = new Schema({
   'Dose  (mg/day or mg/kg)': String, // TODO: Fix field name in the DB (space)
   'Treatment Duration (Months)': String,
   'Best Response (RECIST)': String,
+  'PD Context': String,
   'Response Duration (Months)': String,
   Treatment: String,
   'Date of Last Treatment': Date,
