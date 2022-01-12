@@ -1,8 +1,8 @@
 const path = require('path');
 const fs = require('fs');
 
-const HEADER_ROW = 3;
-const START_COLUMN = 3;
+const HEADER_ROW = 4;
+const START_COLUMN = 1;
 
 const sheetOptions = {
   sheetFormat: {
@@ -80,17 +80,12 @@ const fusionsFillStyle = {
 };
 
 const setSheetBasicLayout = (sheet, isNgs = false) => {
-  sheet.column(1).setWidth(15);
-  sheet.column(2).setWidth(15);
-  sheet.column(3).setWidth(15);
   sheet.column(4).setWidth(30);
   sheet.column(5).setWidth(30);
 
-  sheet.column(isNgs ? 7 : 5).freeze();
-  sheet.row(3).freeze();
-  sheet.row(3).filter();
-
-  sheet.cell(4, 1).string('© Imagen Therapeutics').style(alignmentStyle);
+  sheet.column(isNgs ? 4 : 3).freeze();
+  sheet.row(4).freeze();
+  sheet.row(4).filter();
 
   sheet.addImage({
     image: fs.readFileSync(path.resolve(__dirname, 'logo.png')),
@@ -145,23 +140,11 @@ const queryInfoHeaderStyleFillGray25 = {
   },
 };
 
-const queryInfoSheetLabelAlignmentStyle = {
-  alignment: {
-    vertical: 'center',
-    horizontal: 'left',
-  },
-};
-
 const setSheetQueryInfoLayout = (sheet) => {
-  sheet.column(1).setWidth(15);
-  sheet.column(2).setWidth(15);
-
+  sheet.column(8).setWidth(50);
+  sheet.column(9).setWidth(50);
   sheet.column(10).setWidth(50);
   sheet.column(11).setWidth(50);
-  sheet.column(12).setWidth(50);
-  sheet.column(13).setWidth(50);
-
-  sheet.cell(4, 1).string('© Imagen Therapeutics').style(queryInfoSheetLabelAlignmentStyle);
 
   sheet.addImage({
     image: fs.readFileSync(path.resolve(__dirname, 'logo.png')),

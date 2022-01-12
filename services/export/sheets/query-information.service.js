@@ -104,7 +104,7 @@ module.exports.createWorksheet = ({ workbook, QueryInformation }) => {
 
   helpers.setSheetQueryInfoLayout(sheet);
 
-  sheet.cell(3, 3, 3, 14).style({
+  sheet.cell(4, 1, 4, 12).style({
     ...helpers.alignmentStyle,
     ...helpers.queryInfoHeaderStyleFillGray25,
   });

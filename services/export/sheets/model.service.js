@@ -42,12 +42,12 @@ module.exports.createWorksheet = (workbook, data = []) => {
 
   setSheetBasicLayout(sheet);
 
-  sheet.cell(3, 3, 3, 6).style({
+  sheet.cell(4, 1, 4, 4).style({
     ...alignmentStyle,
     ...greyHeaderStyle,
   });
 
-  sheet.cell(3, 6, 3, 14).style({
+  sheet.cell(4, 4, 4, 12).style({
     ...alignmentStyle,
     ...blueHeaderStyle,
   });

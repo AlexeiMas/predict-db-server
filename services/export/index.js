@@ -24,7 +24,7 @@ const createWorkbook = ({ data, includeExpressions, QueryInformation }) => {
 };
 
 const writeFile = (workbook, response) => {
-  workbook.write('PTX_Data_Export.xlsx', response);
+  workbook.write('PDB_Data_Export.xlsx', response);
 };
 
 const exportFile = ({ data, response, includeExpressions, QueryInformation }) => {

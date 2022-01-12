@@ -77,19 +77,21 @@ module.exports.createWorksheet = (workbook, data = []) => {
 
   setSheetBasicLayout(sheet);
 
-  sheet.cell(3, 3, 3, 6).style({
+  sheet.cell(4, 1, 4, 4).style({
     ...alignmentStyle,
     ...greyHeaderStyle,
   });
 
-  sheet.cell(3, 6, 3, 8).style({
+  sheet.cell(4, 4, 4, 6).style({
     ...alignmentStyle,
     ...blueHeaderStyle,
   });
 
-  sheet.cell(2, 6, 2, 10, true).string(
+  sheet.cell(3, 4, 3, 10, true).string(
     '*Only treatments indicated for tumour type shown, contact us for full panel',
   ).style(redBoldFontStyle);
+
+  sheet.column(6).setWidth(60);
 
   const values = prepareValues(data);
   fillHeaderFields(sheet, FIELDS);

@@ -9,7 +9,6 @@ const FIELDS = [
   'Primary Tumour Type',
   'Tumour Sub-type',
   'Gene',
-  '',
 
   // Mutations
 
@@ -49,7 +48,6 @@ const RNAFIELDS = [
   'Primary Tumour Type',
   'Tumour Sub-type',
   'Gene',
-  '',
 
   // Mutations
 
@@ -293,7 +291,6 @@ const transformToArray = ({ sorted, includeExpressions }) => sorted.map((item) =
   item.tumourType,
   item.tumourSubType,
   item.gene,
-  '',
   item.aachange,
   item.amino_acids,
   item.exon,
@@ -365,44 +362,44 @@ module.exports.createWorksheet = ({ workbook, data, includeExpressions }) => {
     setSheetBasicLayout(sheet, true);
 
     // ws.cell(startRow, startColumn, [[endRow, endColumn], isMerged]);
-    sheet.cell(3, 3, 3, 5).style({ ...align, ...greyHeaderStyle });
-    sheet.cell(2, 8, 2, 22, false).style({ ...align, ...mutationsFillStyle });
-    sheet.cell(2, 23, 2, 23, false).string('Mutations').style({ ...align, ...mutationsFillStyle });
-    sheet.cell(2, 24, 2, 24, false).style({ ...align, ...copyNumbersFillStyle });
-    sheet.cell(2, 25, 2, 25, false).string('Copy Numbers').style({ ...align, ...copyNumbersFillStyle });
+    sheet.cell(4, 1, 4, 3).style({ ...align, ...greyHeaderStyle });
+    sheet.cell(3, 5, 3, 19, false).style({ ...align, ...mutationsFillStyle });
+    sheet.cell(3, 20, 3, 20, false).string('Mutations').style({ ...align, ...mutationsFillStyle });
+    sheet.cell(3, 21, 3, 21, false).style({ ...align, ...copyNumbersFillStyle });
+    sheet.cell(3, 22, 3, 22, false).string('Copy Numbers').style({ ...align, ...copyNumbersFillStyle });
 
-    sheet.cell(1, 3)
+    sheet.cell(1, 2)
       // eslint-disable-next-line
       .string('**Results are aggregated across Mutations, Copy Number Variations, Expressions and Fusions, please expand relevant columns for more detail')
       .style(redBoldFontStyle);
 
-    setColumnGrouping(sheet, 1, 8, 23);
-    setColumnGrouping(sheet, 2, 24, 25);
+    setColumnGrouping(sheet, 1, 5, 20);
+    setColumnGrouping(sheet, 2, 21, 22);
 
     if (includeExpressions === true) {
       /* include Expressions   */
-      sheet.cell(3, 6, 3, 33).style({ ...align, ...blueHeaderStyle });
-      sheet.cell(2, 28, 2, 28, false).string('Expressions').style({ ...align, ...expressionsFillStyle });
-      sheet.cell(2, 26, 2, 27, false).style({ ...align, ...expressionsFillStyle });
-      sheet.cell(1, 26)
+      sheet.cell(4, 3, 4, 30).style({ ...align, ...blueHeaderStyle });
+      sheet.cell(3, 25, 3, 25, false).string('Expressions').style({ ...align, ...expressionsFillStyle });
+      sheet.cell(3, 23, 3, 24, false).style({ ...align, ...expressionsFillStyle });
+      sheet.cell(2, 23)
         .string('**Transcripts Per Million (log transformed)')
         .style(redBoldFontStyle);
-      sheet.cell(1, 28).string('***Rank of Model within gene distribution, only protein coding genes shown').style(redBoldFontStyle); // eslint-disable-line
-      sheet.cell(2, 29, 2, 32, false).style({ ...align, ...fusionsFillStyle });
-      sheet.cell(2, 33, 2, 33, false).string('Fusions').style({ ...align, ...fusionsFillStyle });
-      setColumnGrouping(sheet, 3, 26, 28);
-      setColumnGrouping(sheet, 4, 29, 33);
+      sheet.cell(2, 25).string('***Rank of Model within gene distribution, only protein coding genes shown').style(redBoldFontStyle); // eslint-disable-line
+      sheet.cell(3, 26, 3, 29, false).style({ ...align, ...fusionsFillStyle });
+      sheet.cell(3, 30, 3, 30, false).string('Fusions').style({ ...align, ...fusionsFillStyle });
+      setColumnGrouping(sheet, 3, 23, 25);
+      setColumnGrouping(sheet, 4, 26, 30);
     } else {
       /* exclude Expressions   */
-      setColumnGrouping(sheet, 4, 26, 30);
-      sheet.cell(3, 6, 3, 30).style({ ...align, ...blueHeaderStyle });
-      sheet.cell(2, 26, 2, 29, false).style({ ...align, ...fusionsFillStyle });
-      sheet.cell(2, 30, 2, 30, false).string('Fusions').style({ ...align, ...fusionsFillStyle });
+      setColumnGrouping(sheet, 4, 23, 27);
+      sheet.cell(4, 4, 4, 27).style({ ...align, ...blueHeaderStyle });
+      sheet.cell(3, 23, 3, 26, false).style({ ...align, ...fusionsFillStyle });
+      sheet.cell(3, 27, 3, 27, false).string('Fusions').style({ ...align, ...fusionsFillStyle });
     }
 
     const values = prepareValues({ data, includeExpressions });
 
     fillHeaderFields(sheet, includeExpressions ? RNAFIELDS : FIELDS);
-    fillValues(sheet, values, 3);
+    fillValues(sheet, values, 1);
   }
 };
