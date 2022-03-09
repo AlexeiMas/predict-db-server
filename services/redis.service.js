@@ -1,7 +1,8 @@
 const { promisify } = require('util');
 const Redis = require('redis');
 
-const IS_DEVELOPMENT = /^development$/.test(process.env.NODE_ENV);
+// const IS_DEVELOPMENT = /^development$/.test(process.env.NODE_ENV);
+const IS_DEVELOPMENT = (new RegExp('^development$')).test((process.env.NODE_ENV).trim());
 
 const host = process.env.REDISCACHEHOSTNAME;
 const key = process.env.REDISCACHEKEY;
