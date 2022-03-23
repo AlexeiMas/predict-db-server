@@ -30,6 +30,8 @@ app.use('/v1/export', helmet(), LIMITER, require('./routes/export.route'));
 app.use('/v1/plot-scatter', helmet(), LIMITER, require('./routes/plots/scatter.route'));
 app.use('/v1/plot-violin', helmet(), LIMITER, require('./routes/plots/violin.route'));
 app.use('/v1/plot-heatmap', helmet(), LIMITER, require('./routes/plots/heatmap.route'));
+app.use('/v1/plot-oncoprint', helmet(), LIMITER, require('./routes/plots/oncoprint.route'));
+app.use('/v1/plot-lollipop', helmet(), LIMITER, require('./routes/plots/lollipop.route'));
 app.use('/v1/auth', helmet(), LIMITER, require('./routes/auth/index'));
 app.use('/v1/admin/auth', helmet(), LIMITER, require('./routes/admin/auth'));
 app.use('/v1/admin/users', helmet(), LIMITER, require('./routes/admin/users/index'));
